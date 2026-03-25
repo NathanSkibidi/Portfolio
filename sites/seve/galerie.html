@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galerie — SÈVE · Restaurant Gastronomique</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Playfair+Display:wght@400;500&family=DM+Sans:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="shared.css">
+  <style>
+    .gallery-masonry { columns:3; column-gap:12px; padding:48px clamp(24px,3vw,48px) 80px; max-width:1400px; margin:0 auto; }
+    .gallery-masonry-item { break-inside:avoid; margin-bottom:12px; border-radius:4px; overflow:hidden; position:relative; cursor:pointer; }
+    .gallery-masonry-item img { display:block; width:100%; height:auto; transition:transform 0.6s var(--ease-out-expo); }
+    .gallery-masonry-item:hover img { transform:scale(1.04); }
+    .gallery-masonry-item::after { content:''; position:absolute; inset:0; background:rgba(10,10,8,0); transition:background 0.4s; }
+    .gallery-masonry-item:hover::after { background:rgba(10,10,8,0.2); }
+    @media(max-width:768px){ .gallery-masonry{columns:2;column-gap:8px;} .gallery-masonry-item{margin-bottom:8px;} }
+    @media(max-width:480px){ .gallery-masonry{columns:1;} }
+    .resa-cta-section { text-align:center; padding:0 24px clamp(60px,8vh,100px); }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-glass" id="navbar">
+    <a href="index.html" class="nav-logo">Sève</a>
+    <div class="nav-links">
+      <a href="menu.html">Menu</a>
+      <a href="chef.html">Le Chef</a>
+      <a href="galerie.html" class="active">Galerie</a>
+      <a href="reservation.html" class="nav-cta nav-cta-desktop">Réserver →</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="nav-mobile" id="navMobile"><div class="nav-mobile-inner">
+    <a href="index.html" class="mobile-link">Accueil</a><a href="menu.html" class="mobile-link">Menu</a><a href="chef.html" class="mobile-link">Le Chef</a><a href="galerie.html" class="mobile-link">Galerie</a><div class="mobile-divider"></div><a href="reservation.html" class="mobile-link mobile-cta">Réserver →</a>
+  </div></div>
+
+  <header class="page-header">
+    <div class="page-eyebrow">Instantanés</div>
+    <h1 class="page-title">Galerie</h1>
+  </header>
+
+  <main class="gallery-masonry">
+    <div class="gallery-masonry-item"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=700&q=80&auto=format&fit=crop" alt="Table gastronomique" loading="lazy"></div>
+    <div class="gallery-masonry-item"><img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=700&q=80&auto=format&fit=crop" alt="Plat de saison" loading="lazy"></div>
+    <div class="gallery-masonry-item"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=700&q=80&auto=format&fit=crop" alt="Salle du restaurant" loading="lazy"></div>
+    <div class="gallery-masonry-item"><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=700&q=80&auto=format&fit=crop" alt="Plat signature" loading="lazy"></div>
+    <div class="gallery-masonry-item"><img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=700&q=80&auto=format&fit=crop" alt="Intérieur chaleureux" loading="lazy"></div>
+    <div class="gallery-masonry-item"><img src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=700&q=80&auto=format&fit=crop" alt="Dessert gastronomique" loading="lazy"></div>
+    <div class="gallery-masonry-item"><img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=700&q=80&auto=format&fit=crop" alt="Chef en cuisine" loading="lazy"></div>
+    <div class="gallery-masonry-item"><img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=700&q=80&auto=format&fit=crop" alt="Table dressée" loading="lazy"></div>
+    <div class="gallery-masonry-item"><img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?w=700&q=80&auto=format&fit=crop" alt="Préparation en cuisine" loading="lazy"></div>
+    <div class="gallery-masonry-item"><img src="https://images.unsplash.com/photo-1534604973900-c43ab4c2e0ab?w=700&q=80&auto=format&fit=crop" alt="Poisson du jour" loading="lazy"></div>
+    <div class="gallery-masonry-item"><img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=700&q=80&auto=format&fit=crop" alt="Dessert aux pommes" loading="lazy"></div>
+    <div class="gallery-masonry-item"><img src="https://images.unsplash.com/photo-1581299894007-aaa50297cf16?w=700&q=80&auto=format&fit=crop" alt="Portrait du chef" loading="lazy"></div>
+  </main>
+
+  <div class="resa-cta-section">
+    <a href="reservation.html" class="btn-reserve-glass">
+      <span>Réserver une table</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+  <footer>
+    <a href="index.html" class="footer-logo">Sève</a>
+    <div class="footer-links"><a href="#">Mentions légales</a><a href="#">Confidentialité</a></div>
+    <div class="footer-copy">© 2026 SÈVE · Barbizon</div>
+  </footer>
+  <script src="shared.js"></script>
+</body>
+</html>

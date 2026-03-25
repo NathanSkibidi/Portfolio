@@ -1,0 +1,1749 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nathan Leray — Designer & Développeur</title>
+<meta name="description" content="Portfolio de Nathan Leray — designer et développeur web. Création d'expériences numériques soignées, performantes et mémorables.">
+<meta name="author" content="Nathan Leray">
+<meta property="og:title" content="Nathan Leray — Designer & Développeur">
+<meta property="og:description" content="Création d'expériences numériques soignées, performantes et mémorables.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Nathan Leray — Designer & Développeur">
+<meta name="twitter:description" content="Création d'expériences numériques soignées, performantes et mémorables.">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='80' font-family='serif' font-style='italic'>N</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant:ital,wght@1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+/* ── Reset & Base ─────────────────────────────────────── */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;overflow:hidden}
+body{
+  background:#FFFFFF;
+  font-family:'DM Mono',monospace;
+  font-weight:300;
+  color:#0A0A0A;
+  cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='24' viewBox='0 0 20 24'%3E%3Cpath d='M2 1.5L2 19.5L6.5 15L11 21.5L14 19.5L9.5 13.5L15.5 13L2 1.5Z' fill='white' stroke='%23181818' stroke-width='1.3' stroke-linejoin='round'/%3E%3C/svg%3E") 3 2, default;
+}
+
+/* ── Reduced Motion ───────────────────────────────────── */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+
+/* ── CSS Variables ────────────────────────────────────── */
+:root{
+  --c-bg:#FFFFFF;
+  --c-winbar:#F0EFED;
+  --c-tabbar:#E9E8E6;
+  --c-toolbar:#F6F5F3;
+  --c-ap-left:#F0EFED;
+  --c-ap-bg:#FAFAFA;
+  --c-contact:#0A0A0A;
+  --c-ink:#0A0A0A;
+  --c-secondary:#444444;
+  --c-muted:#888888;
+  --c-ghost:#AAAAAA;
+  --c-accent:#FF2D00;
+  --c-border:rgba(0,0,0,0.10);
+  --c-border-w:rgba(255,255,255,0.18);
+  --ease:cubic-bezier(0.16,1,0.3,1);
+}
+
+/* ── Pointer cursor ───────────────────────────────────── */
+a,button,.tab,.nav-link,.tb-arrow,.cta-btn{
+  cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='28' viewBox='0 0 24 28'%3E%3Cpath d='M2 1.5L2 23L7.5 17.5L13 25.5L16.5 23L11 15.5L18 15L2 1.5Z' fill='white' stroke='%23181818' stroke-width='1.5' stroke-linejoin='round'/%3E%3C/svg%3E") 4 2, pointer;
+}
+
+/* ── Focus Visible ───────────────────────────────────── */
+:focus{outline:none}
+:focus-visible{
+  outline:2px solid var(--c-accent);
+  outline-offset:2px;
+  border-radius:4px;
+}
+.tab:focus-visible{outline-offset:0}
+.ct-field input:focus-visible,.ct-field textarea:focus-visible{
+  outline-offset:0;border-radius:7px;
+}
+
+/* ── Keyframes ────────────────────────────────────────── */
+@keyframes windowIn{
+  from{opacity:0;transform:scale(.96) translateY(16px)}
+  to{opacity:1;transform:scale(1) translateY(0)}
+}
+@keyframes fadeInDown{
+  from{opacity:0;transform:translateY(-10px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes fadeInLeft{
+  from{opacity:0;transform:translateX(-12px)}
+  to{opacity:1;transform:translateX(0)}
+}
+
+/* ── Logo ─────────────────────────────────────────────── */
+#logo{
+  position:fixed;top:28px;right:36px;z-index:100;
+  font-family:'Cormorant',serif;font-style:italic;
+  font-size:21px;letter-spacing:.04em;color:var(--c-ink);
+  opacity:0;animation:fadeInDown 700ms var(--ease) 800ms forwards;
+  user-select:none;
+}
+#logo span:first-child{font-weight:300}
+#logo span:last-child{font-weight:400}
+
+/* ── Navigation ───────────────────────────────────────── */
+nav{
+  position:fixed;left:36px;top:50%;transform:translateY(-50%);z-index:100;
+  display:flex;flex-direction:column;gap:22px;
+}
+.nav-link{
+  font-family:'DM Mono',monospace;font-size:11px;font-weight:400;
+  color:var(--c-muted);text-decoration:none;
+  position:relative;padding-left:16px;
+  transition:color .2s ease;
+  opacity:0;animation:fadeInLeft 500ms var(--ease) forwards;
+}
+.nav-link:nth-child(1){animation-delay:.55s}
+.nav-link:nth-child(2){animation-delay:.62s}
+.nav-link:nth-child(3){animation-delay:.69s}
+.nav-link::before{
+  content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);
+  width:6px;height:6px;border-radius:50%;
+  background:var(--c-accent);
+  opacity:0;transition:opacity .2s ease;
+}
+.nav-link.active{color:var(--c-ink)}
+.nav-link.active::before{opacity:1}
+.nav-link:hover{color:var(--c-ink)}
+
+/* ── Desktop ──────────────────────────────────────────── */
+#desktop{
+  display:flex;align-items:center;justify-content:center;
+  width:100%;height:100%;
+}
+
+/* ── macOS Window ─────────────────────────────────────── */
+.mwin{
+  width:min(80vw,calc((100vh - 180px) * 16 / 9));
+  border-radius:12px;
+  box-shadow:
+    0 1px 2px rgba(0,0,0,.04),
+    0 4px 12px rgba(0,0,0,.06),
+    0 16px 48px rgba(0,0,0,.09),
+    0 40px 100px rgba(0,0,0,.07);
+  border:.5px solid rgba(0,0,0,.12);
+  overflow:hidden;
+  display:flex;flex-direction:column;
+  opacity:0;animation:windowIn 850ms var(--ease) 150ms forwards;
+}
+
+/* ── Title Bar ────────────────────────────────────────── */
+.mwin-bar{
+  height:30px;background:var(--c-winbar);
+  display:flex;align-items:center;padding:0 18px;
+  position:relative;flex-shrink:0;
+  border-bottom:1px solid var(--c-border);
+}
+.traffic-lights{display:flex;gap:8px;align-items:center;flex-shrink:0}
+.tl{width:11px;height:11px;border-radius:50%}
+.tl-r{background:#FF5F57}
+.tl-y{background:#FEBC2E}
+.tl-g{background:#28C840}
+.mwin-title{
+  position:absolute;left:50%;transform:translateX(-50%);
+  font-family:'DM Mono',monospace;font-size:11px;font-weight:400;
+  color:var(--c-muted);letter-spacing:.01em;
+  white-space:nowrap;
+}
+.mwin-counter{
+  position:absolute;right:18px;
+  font-family:'DM Mono',monospace;font-size:10px;font-weight:300;
+  color:var(--c-ghost);letter-spacing:.02em;
+}
+
+/* ── Chrome (tabs + toolbar) ──────────────────────────── */
+.mwin-chrome{
+  overflow:hidden;
+  transition:max-height 320ms ease;
+  max-height:120px;
+}
+.mwin-chrome.collapsed{
+  max-height:0;
+  border:none;
+  pointer-events:none;
+}
+
+/* Tabs */
+.mwin-tabs{
+  display:flex;background:var(--c-tabbar);
+  padding:6px 10px 0;gap:1px;
+  border-bottom:1px solid var(--c-border);
+  overflow-x:auto;
+  scrollbar-width:none;
+}
+.mwin-tabs::-webkit-scrollbar{display:none}
+
+.tab{
+  height:28px;
+  font-family:'DM Mono',monospace;font-size:10px;font-weight:400;
+  padding:0 14px;border-radius:6px 6px 0 0;
+  display:flex;align-items:center;gap:7px;
+  background:transparent;border:none;
+  color:rgba(0,0,0,.36);letter-spacing:.01em;
+  transition:background .15s ease,color .15s ease;
+  white-space:nowrap;flex-shrink:0;
+}
+.tab:hover{color:rgba(0,0,0,.55)}
+.tab.active{
+  background:#FFFFFF;
+  color:rgba(0,0,0,.72);
+  border:.5px solid var(--c-border);
+  border-bottom-color:#FFFFFF;
+  margin-bottom:-1px;
+}
+.tab-dot{
+  width:12px;height:12px;border-radius:3px;
+  flex-shrink:0;
+}
+
+/* Toolbar */
+.mwin-toolbar{
+  height:34px;background:var(--c-toolbar);
+  display:flex;align-items:center;padding:0 14px;gap:6px;
+  border-bottom:1px solid var(--c-border);
+}
+.tb-arrow{
+  background:none;border:none;
+  width:24px;height:24px;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--c-ghost);transition:color .15s ease;
+  border-radius:4px;
+}
+.tb-arrow:hover{color:var(--c-ink);background:rgba(0,0,0,.04)}
+.tb-case{color:var(--c-ghost);transition:color .15s ease}
+.tb-case:hover{color:var(--c-accent)!important;background:rgba(255,45,0,.06)!important}
+.tb-arrow svg{width:14px;height:14px}
+.tb-sep{width:1px;height:16px;background:var(--c-border);margin:0 4px}
+.tb-lock{color:var(--c-ghost);display:flex;align-items:center}
+.tb-lock svg{width:12px;height:12px}
+.tb-url{
+  flex:1;
+  font-family:'DM Mono',monospace;font-size:10px;font-weight:300;
+  color:var(--c-muted);letter-spacing:.01em;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+}
+
+/* ── Views ────────────────────────────────────────────── */
+.mwin-views{
+  position:relative;
+  aspect-ratio:16/9;
+  overflow:hidden;
+  background:var(--c-bg);
+}
+.mwin-view{
+  position:absolute;inset:0;
+  opacity:0;pointer-events:none;
+  transition:opacity 300ms ease;
+  z-index:0;
+}
+.mwin-view.active{opacity:1;pointer-events:auto;z-index:1}
+
+/* ── Slide Loader (Mac OS X boot style) ──────────────── */
+.slide-loader{
+  position:absolute;inset:0;z-index:6;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:24px;
+  background:#F2F1EF;
+  transition:opacity 500ms ease;
+}
+.slide-loader.hidden{opacity:0;pointer-events:none}
+.slide-loader-apple{
+  width:28px;height:34px;opacity:.22;
+}
+.slide-loader-bar-wrap{
+  width:120px;height:4px;
+  border-radius:3px;
+  background:rgba(0,0,0,.08);
+  overflow:hidden;
+}
+.slide-loader-bar{
+  height:100%;width:0%;
+  border-radius:3px;
+  background:rgba(0,0,0,.18);
+  animation:loaderFill 1.4s cubic-bezier(.4,0,.2,1) forwards;
+}
+@keyframes loaderFill{
+  0%{width:0%}
+  20%{width:15%}
+  50%{width:45%}
+  75%{width:70%}
+  90%{width:88%}
+  100%{width:100%}
+}
+
+/* ── Projects View ────────────────────────────────────── */
+.proj-slide{
+  position:absolute;inset:0;
+  opacity:0;pointer-events:none;
+  transition:opacity 400ms ease;
+}
+.proj-slide.active{opacity:1;pointer-events:auto}
+
+.proj-iframe{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  border:none;
+  background:var(--c-bg);
+}
+/* iframe slides: infobar hidden (no hover on iframes) */
+.proj-slide.has-iframe .proj-info{
+  opacity:0;pointer-events:none;
+}
+
+.proj-placeholder{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;
+  font-family:'Bebas Neue',sans-serif;
+  text-transform:uppercase;
+  background-color:#F2F1EF;
+  background-image:
+    radial-gradient(circle at 20% 30%,var(--ph-color,.000) .08,transparent 45%),
+    radial-gradient(circle,rgba(0,0,0,.03) 1px,transparent 1px);
+  background-size:100% 100%,18px 18px;
+}
+.proj-placeholder .ph-name{
+  font-size:clamp(32px,5vw,72px);
+  color:rgba(0,0,0,.06);letter-spacing:.04em;line-height:.9;
+}
+.proj-placeholder .ph-badge{
+  font-family:'DM Mono',monospace;font-size:9px;font-weight:400;
+  padding:5px 14px;border-radius:99px;
+  border:1px solid rgba(0,0,0,.08);
+  color:rgba(0,0,0,.25);letter-spacing:.12em;
+}
+
+/* Infobar */
+.proj-info{
+  position:absolute;bottom:0;left:0;right:0;
+  padding:18px 28px 22px;
+  background:linear-gradient(transparent,rgba(0,0,0,.76) 40%);
+  opacity:0;transition:opacity 280ms ease;
+  display:flex;align-items:flex-end;justify-content:space-between;gap:16px;
+}
+.proj-slide:not(.has-iframe):not(.is-placeholder):hover .proj-info{opacity:1}
+
+.proj-info-left{flex:1}
+.proj-name{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(22px,2.6vw,40px);
+  color:#FFFFFF;text-transform:uppercase;
+  line-height:.88;letter-spacing:0;
+}
+.proj-desc{
+  font-family:'DM Mono',monospace;font-size:10px;font-weight:300;
+  color:rgba(255,255,255,.65);margin-top:6px;letter-spacing:.01em;
+}
+.proj-tags{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
+.proj-tag{
+  font-family:'DM Mono',monospace;font-size:8px;font-weight:400;
+  padding:3px 10px;border-radius:99px;
+  border:1px solid rgba(255,255,255,.22);
+  color:rgba(255,255,255,.55);
+  text-transform:uppercase;letter-spacing:.14em;
+}
+
+.proj-info-right{display:flex;flex-direction:column;gap:8px;align-items:flex-end;flex-shrink:0}
+
+.cta-btn{
+  font-family:'DM Mono',monospace;font-size:10px;font-weight:400;
+  padding:10px 18px;
+  background:rgba(255,255,255,.10);
+  border:.5px solid rgba(255,255,255,.20);
+  border-radius:7px;
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.10);
+  color:#FFFFFF;text-decoration:none;
+  transition:background .2s ease,border-color .2s ease;
+  white-space:nowrap;letter-spacing:.02em;
+  display:flex;align-items:center;gap:6px;
+}
+.cta-btn:hover{background:var(--c-accent);border-color:var(--c-accent)}
+.cta-arrow{font-size:13px;line-height:1}
+
+/* ── About View ───────────────────────────────────────── */
+#view-ap{display:flex}
+.ap-left{
+  width:38%;background:var(--c-ap-left);
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:32px 24px;gap:20px;
+}
+.ap-photo{
+  width:96px;height:96px;border-radius:50%;
+  background:rgba(0,0,0,.06);
+  border:2px solid rgba(0,0,0,.08);
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;flex-shrink:0;
+}
+.ap-photo img{width:100%;height:100%;object-fit:cover}
+.ap-photo-placeholder{
+  font-family:'DM Mono',monospace;font-size:9px;font-weight:400;
+  color:var(--c-ghost);letter-spacing:.04em;
+}
+.ap-name{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(32px,4vw,60px);
+  text-transform:uppercase;line-height:.88;
+  color:var(--c-ink);text-align:center;letter-spacing:0;
+}
+.ap-name em{font-style:normal;color:var(--c-accent)}
+.ap-title{
+  font-family:'DM Mono',monospace;font-size:10px;font-weight:300;
+  color:var(--c-muted);letter-spacing:.02em;
+  text-align:center;margin-top:-8px;
+}
+.ap-location{
+  font-family:'DM Mono',monospace;font-size:9px;font-weight:300;
+  color:var(--c-ghost);letter-spacing:.02em;
+  display:flex;align-items:center;gap:5px;margin-top:-10px;
+}
+.ap-location svg{width:11px;height:11px;flex-shrink:0}
+.ap-right{
+  width:62%;background:var(--c-ap-bg);
+  display:flex;flex-direction:column;justify-content:center;
+  padding:40px 40px;
+  overflow-y:auto;
+  scrollbar-width:thin;
+  scrollbar-color:rgba(0,0,0,.08) transparent;
+}
+.ap-right::-webkit-scrollbar{width:4px}
+.ap-right::-webkit-scrollbar-thumb{background:rgba(0,0,0,.08);border-radius:2px}
+.ap-label{
+  font-family:'DM Mono',monospace;font-size:9px;font-weight:400;
+  color:var(--c-ghost);text-transform:uppercase;letter-spacing:.22em;
+  margin-bottom:14px;
+}
+.ap-bio{
+  font-family:'DM Mono',monospace;font-size:12px;font-weight:300;
+  color:var(--c-secondary);line-height:1.75;
+  max-width:480px;
+}
+.ap-stack-section{margin-top:28px}
+.ap-stack{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.ap-stack-tag{
+  font-family:'DM Mono',monospace;font-size:9px;font-weight:400;
+  padding:5px 12px;border-radius:6px;
+  border:1px solid rgba(0,0,0,.10);
+  color:var(--c-secondary);
+  text-transform:uppercase;letter-spacing:.10em;
+  transition:border-color .15s ease,color .15s ease;
+}
+.ap-stack-tag:hover{border-color:var(--c-accent);color:var(--c-accent)}
+.ap-stats{
+  display:flex;gap:24px;margin-top:28px;
+  padding-top:24px;border-top:1px solid rgba(0,0,0,.06);
+}
+.ap-stat{display:flex;flex-direction:column;gap:3px}
+.ap-stat-val{
+  font-family:'Bebas Neue',sans-serif;font-size:28px;
+  color:var(--c-ink);line-height:1;letter-spacing:0;
+}
+.ap-stat-label{
+  font-family:'DM Mono',monospace;font-size:8px;font-weight:400;
+  color:var(--c-ghost);text-transform:uppercase;letter-spacing:.14em;
+}
+
+/* ── Contact View ─────────────────────────────────────── */
+#view-ct{
+  background:var(--c-bg);
+  display:flex;
+}
+.ct-left{
+  width:38%;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:32px 24px;
+  background:var(--c-contact);
+  flex-shrink:0;
+}
+.ct-hook{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(28px,3.5vw,52px);
+  color:#FFFFFF;text-transform:uppercase;
+  line-height:.88;text-align:center;letter-spacing:0;
+}
+.ct-hook em{font-style:normal;color:var(--c-accent)}
+.ct-sub{
+  font-family:'DM Mono',monospace;font-size:10px;font-weight:300;
+  color:rgba(255,255,255,.45);margin-top:14px;text-align:center;
+  letter-spacing:.02em;line-height:1.6;
+}
+.ct-socials{
+  display:flex;gap:14px;margin-top:28px;
+}
+.ct-social{
+  width:30px;height:30px;border-radius:7px;
+  border:1px solid rgba(255,255,255,.12);
+  display:flex;align-items:center;justify-content:center;
+  color:rgba(255,255,255,.40);text-decoration:none;
+  transition:border-color .2s ease,color .2s ease;
+}
+.ct-social:hover{border-color:var(--c-accent);color:var(--c-accent)}
+.ct-social svg{width:14px;height:14px}
+.ct-right{
+  width:62%;display:flex;flex-direction:column;justify-content:center;
+  padding:36px 40px;flex-shrink:0;
+  background:var(--c-ap-bg);
+  overflow-y:auto;
+  scrollbar-width:thin;
+  scrollbar-color:rgba(0,0,0,.08) transparent;
+}
+.ct-right::-webkit-scrollbar{width:4px}
+.ct-right::-webkit-scrollbar-thumb{background:rgba(0,0,0,.08);border-radius:2px}
+.ct-form-label{
+  font-family:'DM Mono',monospace;font-size:9px;font-weight:400;
+  color:var(--c-ghost);text-transform:uppercase;letter-spacing:.22em;
+  margin-bottom:20px;
+}
+.ct-form{display:flex;flex-direction:column;gap:14px;max-width:420px}
+.ct-field{display:flex;flex-direction:column;gap:5px}
+.ct-field label{
+  font-family:'DM Mono',monospace;font-size:9px;font-weight:400;
+  color:var(--c-muted);text-transform:uppercase;letter-spacing:.14em;
+}
+.ct-field input,.ct-field textarea{
+  font-family:'DM Mono',monospace;font-size:11px;font-weight:300;
+  color:var(--c-ink);letter-spacing:.01em;
+  background:var(--c-bg);
+  border:1px solid rgba(0,0,0,.10);
+  border-radius:7px;padding:10px 14px;
+  outline:none;
+  transition:border-color .2s ease,box-shadow .2s ease;
+}
+.ct-field input::placeholder,.ct-field textarea::placeholder{
+  color:var(--c-ghost);
+}
+.ct-field input:focus,.ct-field textarea:focus{
+  border-color:rgba(0,0,0,.22);
+  box-shadow:0 0 0 3px rgba(0,0,0,.04);
+}
+.ct-field textarea{resize:vertical;min-height:76px;line-height:1.6}
+.ct-row{display:flex;gap:12px}
+.ct-row .ct-field{flex:1}
+.ct-submit{
+  font-family:'DM Mono',monospace;font-size:10px;font-weight:400;
+  padding:11px 24px;
+  background:var(--c-ink);color:#FFFFFF;
+  border:none;border-radius:7px;
+  letter-spacing:.04em;
+  transition:background .2s ease;
+  align-self:flex-start;margin-top:2px;
+}
+.ct-submit:hover{background:var(--c-accent)}
+.ct-feedback{
+  font-family:'DM Mono',monospace;font-size:10px;font-weight:300;
+  color:var(--c-muted);letter-spacing:.02em;
+  margin-top:8px;opacity:0;transition:opacity .3s ease;
+}
+.ct-feedback.show{opacity:1}
+.ct-feedback.success{color:#28C840}
+.ct-feedback.error{color:var(--c-accent)}
+.ct-submit.sending{opacity:.5;pointer-events:none}
+.ct-email-alt{
+  font-family:'DM Mono',monospace;font-size:10px;font-weight:300;
+  color:var(--c-ghost);margin-top:20px;letter-spacing:.02em;
+}
+.ct-email-alt a{color:var(--c-muted);text-decoration:none;transition:color .2s ease}
+.ct-email-alt a:hover{color:var(--c-accent)}
+
+/* ── Case Study Overlay ───────────────────────────────── */
+.case-backdrop{
+  position:absolute;inset:0;z-index:10;
+  background:rgba(0,0,0,.55);
+  backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);
+  opacity:0;pointer-events:none;
+  transition:opacity 280ms ease;
+}
+.case-backdrop.active{opacity:1;pointer-events:auto}
+
+.case-modal{
+  position:absolute;z-index:11;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%) scale(.96);
+  width:72%;height:82%;
+  background:var(--c-bg);
+  border-radius:10px;
+  box-shadow:0 8px 40px rgba(0,0,0,.18),0 2px 8px rgba(0,0,0,.08);
+  border:.5px solid rgba(0,0,0,.10);
+  display:flex;flex-direction:column;
+  overflow:hidden;
+  opacity:0;pointer-events:none;
+  transition:opacity 280ms ease,transform 280ms var(--ease);
+}
+.case-modal.active{
+  opacity:1;pointer-events:auto;
+  transform:translate(-50%,-50%) scale(1);
+}
+
+.case-modal-bar{
+  height:28px;background:var(--c-ap-left);
+  display:flex;align-items:center;padding:0 14px;
+  border-bottom:1px solid var(--c-border);flex-shrink:0;
+  position:relative;
+}
+.case-modal-close{
+  background:none;border:none;
+  width:20px;height:20px;border-radius:4px;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--c-muted);transition:color .15s ease,background .15s ease;
+}
+.case-modal-close:hover{color:var(--c-ink);background:rgba(0,0,0,.05)}
+.case-modal-close svg{width:12px;height:12px}
+.case-modal-title{
+  position:absolute;left:50%;transform:translateX(-50%);
+  font-family:'DM Mono',monospace;font-size:10px;font-weight:400;
+  color:var(--c-muted);letter-spacing:.01em;white-space:nowrap;
+}
+
+.case-modal-body{
+  flex:1;overflow-y:auto;overflow-x:hidden;
+  scrollbar-width:thin;
+  scrollbar-color:rgba(0,0,0,.10) transparent;
+}
+.case-modal-body::-webkit-scrollbar{width:5px}
+.case-modal-body::-webkit-scrollbar-thumb{background:rgba(0,0,0,.10);border-radius:3px}
+
+.case-content{
+  padding:24px 28px 28px;
+  flex-shrink:0;
+}
+.case-header{
+  display:flex;align-items:flex-start;justify-content:space-between;
+  gap:16px;margin-bottom:20px;flex-wrap:wrap;
+}
+.case-title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(22px,2.8vw,40px);
+  text-transform:uppercase;line-height:.9;
+  color:var(--c-ink);letter-spacing:0;
+}
+.case-visit{
+  font-family:'DM Mono',monospace;font-size:9px;font-weight:400;
+  padding:8px 16px;
+  background:var(--c-ink);color:#FFFFFF;
+  border:none;border-radius:6px;
+  text-decoration:none;
+  display:flex;align-items:center;gap:5px;
+  transition:background .2s ease;white-space:nowrap;
+  letter-spacing:.02em;
+}
+.case-visit:hover{background:var(--c-accent)}
+.case-meta{
+  display:flex;gap:24px;margin-bottom:20px;flex-wrap:wrap;
+}
+.case-meta-item{display:flex;flex-direction:column;gap:3px}
+.case-meta-label{
+  font-family:'DM Mono',monospace;font-size:8px;font-weight:400;
+  color:var(--c-ghost);text-transform:uppercase;letter-spacing:.22em;
+}
+.case-meta-value{
+  font-family:'DM Mono',monospace;font-size:11px;font-weight:300;
+  color:var(--c-secondary);line-height:1.5;
+}
+.case-divider{
+  width:100%;height:1px;background:var(--c-border);margin:4px 0 20px;
+}
+.case-section{margin-bottom:20px}
+.case-section-title{
+  font-family:'DM Mono',monospace;font-size:8px;font-weight:400;
+  color:var(--c-ghost);text-transform:uppercase;letter-spacing:.22em;
+  margin-bottom:8px;
+}
+.case-section-text{
+  font-family:'DM Mono',monospace;font-size:11px;font-weight:300;
+  color:var(--c-secondary);line-height:1.7;max-width:580px;
+}
+.case-features{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:10px;margin-top:10px;
+}
+.case-feature{
+  padding:12px 14px;border-radius:7px;
+  border:1px solid rgba(0,0,0,.06);
+  background:rgba(0,0,0,.015);
+}
+.case-feature-title{
+  font-family:'DM Mono',monospace;font-size:9px;font-weight:400;
+  color:var(--c-ink);letter-spacing:.02em;margin-bottom:3px;
+}
+.case-feature-desc{
+  font-family:'DM Mono',monospace;font-size:9px;font-weight:300;
+  color:var(--c-muted);line-height:1.45;
+}
+.case-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.case-tag{
+  font-family:'DM Mono',monospace;font-size:8px;font-weight:400;
+  padding:4px 10px;border-radius:5px;
+  border:1px solid rgba(0,0,0,.08);
+  color:var(--c-secondary);
+  text-transform:uppercase;letter-spacing:.10em;
+}
+
+/* ── Mobile Bottom Tab Bar ────────────────────────────── */
+.mob-tabbar{
+  display:none;
+  position:fixed;bottom:0;left:0;right:0;z-index:200;
+  height:56px;
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-top:1px solid var(--c-border);
+  justify-content:space-around;align-items:center;
+  padding-bottom:env(safe-area-inset-bottom,0);
+}
+.mob-tab{
+  display:flex;flex-direction:column;align-items:center;gap:3px;
+  background:none;border:none;
+  font-family:'DM Mono',monospace;font-size:9px;font-weight:400;
+  color:var(--c-muted);letter-spacing:.02em;
+  transition:color .2s ease;padding:6px 16px;
+}
+.mob-tab svg{width:20px;height:20px}
+.mob-tab.active{color:var(--c-ink)}
+.mob-tab.active svg{stroke-width:2}
+
+/* ── Mobile Dots indicator ───────────────────────────── */
+.mob-dots{
+  display:none;
+  justify-content:center;gap:6px;
+  padding:10px 0 6px;
+}
+.mob-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:rgba(0,0,0,.12);
+  transition:background .2s ease,transform .2s ease;
+}
+.mob-dot.active{background:var(--c-accent);transform:scale(1.3)}
+
+/* ── Mobile project info card ────────────────────────── */
+.mob-proj-info{
+  display:none;
+  flex-direction:column;gap:8px;
+  padding:14px 20px 16px;
+}
+.mob-proj-name{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:22px;text-transform:uppercase;
+  color:var(--c-ink);line-height:.9;letter-spacing:0;
+}
+.mob-proj-desc{
+  font-family:'DM Mono',monospace;font-size:10px;font-weight:300;
+  color:var(--c-secondary);line-height:1.5;letter-spacing:.01em;
+}
+.mob-proj-tags{display:flex;gap:5px;flex-wrap:wrap}
+.mob-proj-tag{
+  font-family:'DM Mono',monospace;font-size:8px;font-weight:400;
+  padding:3px 8px;border-radius:99px;
+  border:1px solid rgba(0,0,0,.10);
+  color:var(--c-muted);text-transform:uppercase;letter-spacing:.10em;
+}
+.mob-proj-actions{display:flex;gap:8px;margin-top:4px;align-items:center}
+.mob-proj-btn{
+  font-family:'DM Mono',monospace;font-size:9px;font-weight:400;
+  padding:8px 14px;border-radius:6px;
+  text-decoration:none;letter-spacing:.02em;
+  display:flex;align-items:center;gap:4px;
+  transition:background .2s ease;
+  background:var(--c-ink);color:#FFFFFF;border:none;
+}
+.mob-proj-btn:hover{background:var(--c-accent)}
+.mob-swipe-hint{
+  font-family:'DM Mono',monospace;font-size:9px;font-weight:300;
+  color:var(--c-ghost);letter-spacing:.02em;
+  display:flex;align-items:center;gap:4px;
+}
+.mob-swipe-hint svg{width:12px;height:12px}
+
+/* ── Mobile bottom sheet (case study) ────────────────── */
+.mob-sheet-backdrop{
+  display:none;
+  position:fixed;inset:0;z-index:150;
+  background:rgba(0,0,0,.4);
+  opacity:0;transition:opacity .3s ease;
+}
+.mob-sheet-backdrop.active{opacity:1}
+.mob-sheet{
+  display:none;
+  position:fixed;bottom:0;left:0;right:0;z-index:151;
+  background:var(--c-bg);
+  border-radius:14px 14px 0 0;
+  box-shadow:0 -4px 24px rgba(0,0,0,.12);
+  max-height:75vh;
+  overflow-y:auto;
+  scrollbar-width:thin;
+  scrollbar-color:rgba(0,0,0,.08) transparent;
+  transform:translateY(100%);
+  transition:transform .35s var(--ease);
+}
+.mob-sheet.active{transform:translateY(0)}
+.mob-sheet-handle{
+  width:36px;height:4px;border-radius:2px;
+  background:rgba(0,0,0,.12);
+  margin:10px auto 4px;
+}
+.mob-sheet-content{
+  padding:16px 20px 28px;
+}
+.mob-sheet-content .case-header{margin-bottom:16px}
+.mob-sheet-content .case-title{font-size:clamp(20px,6vw,32px)}
+.mob-sheet-content .case-visit{font-size:9px;padding:8px 14px}
+.mob-sheet-content .case-meta{gap:16px}
+.mob-sheet-content .case-features{grid-template-columns:1fr}
+
+/* ── Responsive ───────────────────────────────────────── */
+@media(max-width:900px){
+  /* Hide desktop-only elements */
+  nav{display:none}
+  #logo{display:none}
+
+  /* Window becomes full-screen */
+  html,body{overflow:auto}
+  #desktop{display:block;height:auto;min-height:100vh;min-height:100dvh}
+  .mwin{
+    width:100%;
+    border-radius:0;
+    box-shadow:none;
+    border:none;
+    animation:none;opacity:1;
+  }
+
+  /* Simplify title bar */
+  .mwin-bar{height:44px;padding:0 16px}
+  .traffic-lights{display:none}
+  .mwin-title{
+    position:static;transform:none;
+    font-size:13px;font-weight:400;
+  }
+  .mwin-counter{
+    position:static;margin-left:auto;
+  }
+
+  /* Hide chrome (tabs + toolbar) */
+  .mwin-chrome{display:none!important;max-height:0!important}
+
+  /* Views become full height */
+  .mwin-views{
+    aspect-ratio:auto;
+    overflow:visible;
+  }
+  .mwin-view{
+    position:relative;
+    inset:auto;
+    display:none!important;
+    min-height:calc(100vh - 44px - 56px);
+    min-height:calc(100dvh - 44px - 56px);
+  }
+  .mwin-view.active{
+    display:flex!important;flex-direction:column;
+    opacity:1;pointer-events:auto;
+  }
+
+  /* ── Projects mobile ── */
+  #view-proj.active{display:flex!important;flex-direction:column}
+  .proj-slide{
+    position:relative;inset:auto;
+    display:none;opacity:1;pointer-events:auto;
+    width:100%;aspect-ratio:16/10;
+    flex-shrink:0;
+  }
+  .proj-slide.active{display:block}
+  .proj-info{display:none}
+  .proj-slide{aspect-ratio:auto;height:auto;display:none!important;position:relative}
+  .proj-slide.active{display:block!important}
+  .proj-placeholder{position:relative;aspect-ratio:4/3}
+  .proj-iframe{position:relative;aspect-ratio:4/3;width:100%;height:auto;overflow:hidden}
+  .slide-loader{position:absolute;inset:0;aspect-ratio:auto}
+
+  /* Show mobile elements */
+  .mob-tabbar{display:flex}
+  .mob-dots{display:flex}
+  .mob-proj-info{display:flex}
+
+  /* ── About mobile (stacked) ── */
+  #view-ap.active{display:flex;flex-direction:column}
+  .ap-left{
+    width:100%;padding:28px 20px;gap:14px;
+  }
+  .ap-photo{width:72px;height:72px}
+  .ap-name{font-size:36px}
+  .ap-right{
+    width:100%;padding:24px 20px;
+  }
+  .ap-stats{gap:20px}
+  .ap-stat-val{font-size:24px}
+
+  /* ── Contact mobile (stacked, hook first) ── */
+  #view-ct.active{display:flex;flex-direction:column}
+  .ct-left{
+    width:100%;padding:24px 20px;order:-1;
+  }
+  .ct-hook{font-size:28px}
+  .ct-right{
+    width:100%;padding:20px 20px;flex:1;
+  }
+  .ct-row{flex-direction:column;gap:14px}
+  .ct-form{max-width:100%}
+
+  /* ── Case study modal fullscreen ── */
+  .case-modal{
+    width:100%;height:100%;
+    border-radius:0;
+    transform:translate(-50%,-50%) scale(1);
+  }
+  .case-modal.active{transform:translate(-50%,-50%) scale(1)}
+  .case-features{grid-template-columns:1fr}
+
+  /* Case study overlay on mobile */
+  .case-backdrop,.case-modal{position:fixed}
+
+  /* Bottom padding for tab bar */
+  .mwin-views{padding-bottom:56px}
+}
+</style>
+</head>
+<body>
+
+<!-- Logo -->
+<div id="logo"><span>Nathan </span><span>Leray</span></div>
+
+<!-- Navigation -->
+<nav>
+  <a href="#" class="nav-link active" data-view="proj">Projets</a>
+  <a href="#" class="nav-link" data-view="ap">À propos</a>
+  <a href="#" class="nav-link" data-view="ct">Contact</a>
+</nav>
+
+<!-- Desktop -->
+<div id="desktop">
+  <div class="mwin">
+
+    <!-- Title Bar -->
+    <div class="mwin-bar">
+      <div class="traffic-lights">
+        <span class="tl tl-r"></span>
+        <span class="tl tl-y"></span>
+        <span class="tl tl-g"></span>
+      </div>
+      <span class="mwin-title">Projets</span>
+      <span class="mwin-counter"></span>
+    </div>
+
+    <!-- Chrome (tabs + toolbar) -->
+    <div class="mwin-chrome">
+      <div class="mwin-tabs"></div>
+      <div class="mwin-toolbar">
+        <button class="tb-arrow tb-prev" aria-label="Précédent">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="10 3 5 8 10 13"/></svg>
+        </button>
+        <button class="tb-arrow tb-next" aria-label="Suivant">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 3 11 8 6 13"/></svg>
+        </button>
+        <button class="tb-arrow" aria-label="Recharger" style="margin-right:4px">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8a5 5 0 0 1 9-3M13 8a5 5 0 0 1-9 3"/><polyline points="3 3 3 6 6 6"/><polyline points="13 13 13 10 10 10"/></svg>
+        </button>
+        <div class="tb-sep"></div>
+        <span class="tb-lock">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="7" width="8" height="7" rx="1"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2"/></svg>
+        </span>
+        <span class="tb-url"></span>
+        <button class="tb-arrow tb-case" aria-label="Case study" style="display:none">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4h12v9H2z"/><path d="M5 4V2.5A.5.5 0 0 1 5.5 2h5a.5.5 0 0 1 .5.5V4"/><line x1="2" y1="7.5" x2="14" y2="7.5"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Views -->
+    <div class="mwin-views">
+      <!-- Projects (JS-generated) -->
+      <div id="view-proj" class="mwin-view active"></div>
+
+      <!-- About -->
+      <div id="view-ap" class="mwin-view">
+        <div class="ap-left">
+          <div class="ap-photo"><span class="ap-photo-placeholder">Photo</span></div>
+          <div class="ap-name"></div>
+          <div class="ap-title"></div>
+          <div class="ap-location">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 14s-5-4.58-5-7.5a5 5 0 0 1 10 0C13 9.42 8 14 8 14z"/><circle cx="8" cy="6.5" r="1.5"/></svg>
+            <span>France</span>
+          </div>
+        </div>
+        <div class="ap-right">
+          <div class="ap-label">À propos</div>
+          <div class="ap-bio"></div>
+          <div class="ap-stack-section">
+            <div class="ap-label">Stack</div>
+            <div class="ap-stack"></div>
+          </div>
+          <div class="ap-stats">
+            <div class="ap-stat">
+              <span class="ap-stat-val">6</span>
+              <span class="ap-stat-label">Projets</span>
+            </div>
+            <div class="ap-stat">
+              <span class="ap-stat-val">2+</span>
+              <span class="ap-stat-label">Ans d'exp.</span>
+            </div>
+            <div class="ap-stat">
+              <span class="ap-stat-val">100%</span>
+              <span class="ap-stat-label">Passionné</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact -->
+      <div id="view-ct" class="mwin-view">
+        <div class="ct-left">
+          <div class="ct-hook">Un projet<br>en <em>tête</em> ?</div>
+          <div class="ct-sub">Discutons de votre idée.<br>Je réponds sous 24h.</div>
+          <div class="ct-socials"></div>
+        </div>
+        <div class="ct-right">
+          <div class="ct-form-label">Envoyer un message</div>
+          <form class="ct-form" id="contact-form" action="https://formspree.io/f/xpqoablg" method="POST">
+            <div class="ct-row">
+              <div class="ct-field">
+                <label for="ct-name">Nom</label>
+                <input type="text" id="ct-name" name="name" placeholder="Votre nom" required>
+              </div>
+              <div class="ct-field">
+                <label for="ct-email">Email</label>
+                <input type="email" id="ct-email" name="email" placeholder="vous@email.com" required>
+              </div>
+            </div>
+            <div class="ct-field">
+              <label for="ct-subject">Sujet</label>
+              <input type="text" id="ct-subject" name="subject" placeholder="De quoi s'agit-il ?">
+            </div>
+            <div class="ct-field">
+              <label for="ct-message">Message</label>
+              <textarea id="ct-message" name="message" placeholder="Décrivez votre projet..." required></textarea>
+            </div>
+            <button type="submit" class="ct-submit">Envoyer →</button>
+            <div class="ct-feedback" id="ct-feedback"></div>
+          </form>
+          <div class="ct-email-alt">Ou directement par email — <a href=""></a></div>
+        </div>
+      </div>
+
+      <!-- Case Study Overlay -->
+      <div id="case-backdrop" class="case-backdrop"></div>
+      <div id="case-modal" class="case-modal">
+        <div class="case-modal-bar">
+          <button class="case-modal-close" id="case-close">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="4" x2="12" y2="12"/><line x1="12" y1="4" x2="4" y2="12"/></svg>
+          </button>
+          <span class="case-modal-title"></span>
+        </div>
+        <div class="case-modal-body" id="case-body"></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Mobile Bottom Sheet (case study) -->
+<div class="mob-sheet-backdrop" id="mob-sheet-backdrop"></div>
+<div class="mob-sheet" id="mob-sheet">
+  <div class="mob-sheet-handle"></div>
+  <div class="mob-sheet-content" id="mob-sheet-content"></div>
+</div>
+
+<!-- Mobile Bottom Tab Bar -->
+<div class="mob-tabbar">
+  <button class="mob-tab active" data-view="proj">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+    <span>Projets</span>
+  </button>
+  <button class="mob-tab" data-view="ap">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 12 0v1"/></svg>
+    <span>À propos</span>
+  </button>
+  <button class="mob-tab" data-view="ct">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+    <span>Contact</span>
+  </button>
+</div>
+
+<script>
+/* ═══════════════════════════════════════════════════════
+   Configuration — modifier ici pour personnaliser
+   ═══════════════════════════════════════════════════════ */
+const CFG = {
+  name:  { first: 'Nathan', last: 'Leray' },
+  title: 'Designer & Développeur',
+  bio:   'Passionné par le design et le développement web, je crée des expériences numériques soignées, performantes et mémorables. Chaque projet est une opportunité de repousser les limites entre esthétique et fonctionnalité.',
+  stack: ['React', 'Next.js', 'TypeScript', 'Figma', 'Node.js', 'Tailwind CSS', 'Three.js', 'Framer Motion'],
+  email:    'hello@nathanleray.com',
+  github:   'https://github.com/nathanleray',
+  linkedin: 'https://linkedin.com/in/nathanleray',
+};
+
+const PROJECTS = [
+  {
+    name:  'Sève Restaurant',
+    desc:  'Site vitrine gastronomique — design immersif, typographie soignée, ambiance sombre et dorée.',
+    url:   'https://seve-restaurant.fr',
+    image: '',
+    live:  'sites/seve/index.html',
+    tags:  ['HTML/CSS', 'JavaScript', 'Design'],
+    color: '#C9A96E',
+    case: {
+      role: 'Design & Développement',
+      year: '2024',
+      client: 'Sève — Barbizon',
+      duration: '3 semaines',
+      brief: 'Créer l\'identité numérique d\'un restaurant gastronomique à Barbizon. Le site devait transmettre l\'atmosphère intime et raffinée du lieu, avec une navigation immersive et une esthétique sombre et dorée rappelant les soirées à la bougie.',
+      approach: 'Direction artistique sombre et dorée inspirée de l\'ambiance du restaurant. Typographie serif élégante combinée à des animations subtiles pour créer une expérience immersive. Développement 100% vanilla HTML/CSS/JS sans framework, optimisé pour la performance.',
+      features: [
+        { title: 'Navigation immersive', desc: 'Menu plein écran avec animations fluides et transitions soignées.' },
+        { title: 'Multi-pages', desc: 'Accueil, menu, chef, galerie et réservation — chaque page avec sa propre identité.' },
+        { title: 'Design responsive', desc: 'Adaptation complète mobile, tablette et desktop sans compromis visuel.' },
+        { title: 'Performance', desc: 'Chargement optimisé, images lazy-loaded, animations GPU-accelerated.' },
+      ],
+      result: 'Un site vitrine qui capture l\'essence du restaurant — élégant, immersif et performant. Le design sombre et doré crée une atmosphère unique qui se distingue des sites de restauration classiques.',
+    },
+  },
+  {
+    name:  'Orbit Finance',
+    desc:  'Dashboard de gestion financière avec visualisation de données en temps réel.',
+    url:   'https://orbit-finance.app',
+    image: '',
+    tags:  ['Next.js', 'D3.js', 'Node.js'],
+    color: '#2D7FFF',
+    case: {
+      role: 'Front-end & Data Viz',
+      year: '2024',
+      client: 'Orbit Finance',
+      brief: 'Conception et développement d\'un dashboard financier avec graphiques interactifs, données en temps réel et interface responsive optimisée pour la prise de décision rapide.',
+    },
+  },
+  {
+    name:  'Verde Market',
+    desc:  'Plateforme e-commerce éco-responsable — du design au déploiement.',
+    url:   'https://verde-market.com',
+    image: '',
+    tags:  ['Next.js', 'Tailwind CSS', 'Stripe'],
+    color: '#00C853',
+    case: {
+      role: 'Full-Stack & Design',
+      year: '2024',
+      client: 'Verde Market',
+      brief: 'Développement complet d\'une plateforme e-commerce éco-responsable avec système de paiement Stripe, gestion de catalogue produits et expérience d\'achat fluide.',
+    },
+  },
+  {
+    name:  'Pulse Health',
+    desc:  'Interface mobile-first pour le suivi de santé et bien-être.',
+    url:   'https://pulse-health.io',
+    image: '',
+    tags:  ['React Native', 'Figma', 'TypeScript'],
+    color: '#FF9500',
+    case: {
+      role: 'UI/UX & Mobile Dev',
+      year: '2023',
+      client: 'Pulse Health',
+      brief: 'Design et développement d\'une application mobile-first de suivi santé avec tableaux de bord personnalisés, suivi d\'objectifs et notifications intelligentes.',
+    },
+  },
+  {
+    name:  'Aura Creative',
+    desc:  'Portfolio et site vitrine pour une agence créative parisienne.',
+    url:   'https://aura-creative.fr',
+    image: '',
+    tags:  ['Three.js', 'GSAP', 'Figma'],
+    color: '#AF52DE',
+    case: {
+      role: 'Design & Creative Dev',
+      year: '2023',
+      client: 'Aura Creative — Paris',
+      brief: 'Création d\'un portfolio immersif pour une agence créative parisienne, avec animations 3D, transitions fluides et une navigation narrative qui raconte l\'histoire de l\'agence.',
+    },
+  },
+  {
+    name:  'Neon Social',
+    desc:  'Refonte complète d\'une plateforme communautaire — UX research et développement.',
+    url:   'https://neon-social.app',
+    image: '',
+    tags:  ['React', 'Node.js', 'PostgreSQL'],
+    color: '#FF375F',
+    case: {
+      role: 'UX Research & Full-Stack',
+      year: '2023',
+      client: 'Neon Social',
+      brief: 'Refonte UX complète d\'une plateforme communautaire : recherche utilisateur, refonte de l\'architecture d\'information, nouveau design system et développement front/back.',
+    },
+  },
+];
+
+/* ═══════════════════════════════════════════════════════
+   DOM references
+   ═══════════════════════════════════════════════════════ */
+const $ = s => document.querySelector(s);
+const $$ = s => document.querySelectorAll(s);
+
+const viewProj   = $('#view-proj');
+const viewAp     = $('#view-ap');
+const viewCt     = $('#view-ct');
+const navLinks   = $$('.nav-link');
+const mwinTitle  = $('.mwin-title');
+const mwinCounter= $('.mwin-counter');
+const mwinChrome = $('.mwin-chrome');
+const tabsCont   = $('.mwin-tabs');
+const tbUrl      = $('.tb-url');
+
+const views = { proj: viewProj, ap: viewAp, ct: viewCt };
+const viewMeta = {
+  proj: { title: 'Projets', chrome: true },
+  ap:   { title: 'À propos', chrome: false },
+  ct:   { title: 'Contact',  chrome: false },
+};
+
+const caseBackdrop = $('#case-backdrop');
+const caseModal    = $('#case-modal');
+const caseBody     = $('#case-body');
+const caseTitle    = $('.case-modal-title');
+const tbCase       = $('.tb-case');
+
+/* ═══════════════════════════════════════════════════════
+   State
+   ═══════════════════════════════════════════════════════ */
+let currentView = 'proj';
+let currentProject = 0;
+
+/* ═══════════════════════════════════════════════════════
+   Render functions
+   ═══════════════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════
+   Mobile helpers
+   ═══════════════════════════════════════════════════════ */
+function renderMobileDots() {
+  let dotsEl = document.querySelector('.mob-dots');
+  if (!dotsEl) {
+    dotsEl = document.createElement('div');
+    dotsEl.className = 'mob-dots';
+    viewProj.appendChild(dotsEl);
+  }
+  dotsEl.innerHTML = PROJECTS.map((_, i) =>
+    `<span class="mob-dot${i === 0 ? ' active' : ''}"></span>`
+  ).join('');
+}
+
+function renderMobileProjInfo() {
+  let infoEl = document.querySelector('.mob-proj-info');
+  if (!infoEl) {
+    infoEl = document.createElement('div');
+    infoEl.className = 'mob-proj-info';
+    viewProj.appendChild(infoEl);
+  }
+  return infoEl;
+}
+
+function openMobileSheet(index) {
+  const p = PROJECTS[index];
+  if (!p || !p.case) return;
+  const c = p.case;
+  const tags = p.tags.map(t => `<span class="case-tag">${t}</span>`).join('');
+
+  const featuresHTML = c.features ? `
+    <div class="case-section">
+      <div class="case-section-title">Fonctionnalités clés</div>
+      <div class="case-features">
+        ${c.features.map(f => `<div class="case-feature"><div class="case-feature-title">${f.title}</div><div class="case-feature-desc">${f.desc}</div></div>`).join('')}
+      </div>
+    </div>` : '';
+  const approachHTML = c.approach ? `<div class="case-section"><div class="case-section-title">Approche</div><div class="case-section-text">${c.approach}</div></div>` : '';
+  const resultHTML = c.result ? `<div class="case-section"><div class="case-section-title">Résultat</div><div class="case-section-text">${c.result}</div></div>` : '';
+
+  const sheetContent = document.querySelector('#mob-sheet-content');
+  sheetContent.innerHTML = `
+    <div class="case-header">
+      <div class="case-title">${p.name}</div>
+      <a href="${p.url}" target="_blank" rel="noopener" class="case-visit">Voir le site ↗</a>
+    </div>
+    <div class="case-meta">
+      <div class="case-meta-item"><span class="case-meta-label">Rôle</span><span class="case-meta-value">${c.role}</span></div>
+      <div class="case-meta-item"><span class="case-meta-label">Année</span><span class="case-meta-value">${c.year}</span></div>
+      <div class="case-meta-item"><span class="case-meta-label">Client</span><span class="case-meta-value">${c.client}</span></div>
+    </div>
+    <div class="case-divider"></div>
+    <div class="case-section"><div class="case-section-title">Contexte</div><div class="case-section-text">${c.brief}</div></div>
+    ${approachHTML}${featuresHTML}${resultHTML}
+    <div class="case-tags">${tags}</div>`;
+
+  const backdrop = document.querySelector('#mob-sheet-backdrop');
+  const sheet = document.querySelector('#mob-sheet');
+  backdrop.style.display = 'block';
+  sheet.style.display = 'block';
+  requestAnimationFrame(() => {
+    backdrop.classList.add('active');
+    sheet.classList.add('active');
+  });
+}
+
+function closeMobileSheet() {
+  const backdrop = document.querySelector('#mob-sheet-backdrop');
+  const sheet = document.querySelector('#mob-sheet');
+  backdrop.classList.remove('active');
+  sheet.classList.remove('active');
+  setTimeout(() => {
+    backdrop.style.display = 'none';
+    sheet.style.display = 'none';
+  }, 350);
+}
+
+function updateMobileInfo(index) {
+  const p = PROJECTS[index];
+  const infoEl = document.querySelector('.mob-proj-info');
+  if (!infoEl) return;
+  const tags = p.tags.map(t => `<span class="mob-proj-tag">${t}</span>`).join('');
+  infoEl.innerHTML = `
+    <div class="mob-proj-name">${p.name}</div>
+    <div class="mob-proj-desc">${p.desc}</div>
+    <div class="mob-proj-tags">${tags}</div>
+    <div class="mob-proj-actions">
+      <a href="${p.url}" target="_blank" rel="noopener" class="mob-proj-btn">Voir le site ↗</a>
+      ${p.case ? `<span class="mob-swipe-hint" onclick="openMobileSheet(${index})"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><polyline points="3 10 8 5 13 10"/></svg> Détails</span>` : ''}
+    </div>`;
+
+  // Update dots
+  document.querySelectorAll('.mob-dot').forEach((d, i) => {
+    d.classList.toggle('active', i === index);
+  });
+}
+
+function initSwipe() {
+  let startX = 0;
+  let startY = 0;
+  const threshold = 50;
+
+  viewProj.addEventListener('touchstart', e => {
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+  }, { passive: true });
+
+  viewProj.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - startX;
+    const dy = e.changedTouches[0].clientY - startY;
+    if (Math.abs(dx) < threshold || Math.abs(dy) > Math.abs(dx)) return;
+    if (dx < 0) goToProject((currentProject + 1) % PROJECTS.length);
+    else goToProject((currentProject - 1 + PROJECTS.length) % PROJECTS.length);
+  }, { passive: true });
+}
+
+function renderTabs() {
+  tabsCont.innerHTML = '';
+  PROJECTS.forEach((p, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'tab' + (i === 0 ? ' active' : '');
+    btn.innerHTML = `<span class="tab-dot" style="background:${p.color}"></span>${p.name}`;
+    btn.addEventListener('click', () => goToProject(i));
+    tabsCont.appendChild(btn);
+  });
+}
+
+function renderSlides() {
+  viewProj.innerHTML = '';
+  PROJECTS.forEach((p, i) => {
+    const slide = document.createElement('div');
+    slide.className = 'proj-slide' + (i === 0 ? ' active' : '');
+
+    const bg = p.live
+      ? `<iframe data-src="${p.live}" class="proj-iframe" title="${p.name}"></iframe>`
+      : p.image
+        ? `<img src="${p.image}" alt="${p.name}" style="width:100%;height:100%;object-fit:cover;object-position:top center">`
+        : `<div class="proj-placeholder" style="--ph-color:${p.color}10"><span class="ph-name">${p.name}</span><span class="ph-badge">À venir</span></div>`;
+
+    if (p.live) slide.classList.add('has-iframe');
+    if (!p.live && !p.image) slide.classList.add('is-placeholder');
+
+    const tags = p.tags.map(t => `<span class="proj-tag">${t}</span>`).join('');
+
+    const loaderHTML = `
+      <div class="slide-loader">
+        <svg class="slide-loader-apple" viewBox="0 0 842 1000" fill="currentColor">
+          <path d="M702 960c-54.2 52.6-114 44.6-171.6 19.8-60.8-25.4-116.4-27.2-180 0-79.6 34.4-121.6 24.4-169.6-19.8C-28.2 728.8 21 370.2 222.2 354c67.8 3.4 115 38.2 154.8 40.8 59.2-12 116-46.4 179.2-41.8 75.8 5.8 132.8 34.4 170.6 86.4-156.4 93.4-119.2 299 30.4 356.4-34.6 90.8-79 179-185.2 264.2zM575.4 7.2c-73.6 7.8-157 56.4-204.6 122.4-42.8 59.4-80.2 155-66 245.6 79.2 5.8 161.2-48 210.8-119.4 45.2-65 76.4-155 59.8-248.6z"/>
+        </svg>
+        <div class="slide-loader-bar-wrap">
+          <div class="slide-loader-bar"></div>
+        </div>
+      </div>`;
+
+    slide.innerHTML = `
+      ${bg}
+      ${loaderHTML}
+      <div class="proj-info">
+        <div class="proj-info-left">
+          <div class="proj-name">${p.name}</div>
+          <div class="proj-desc">${p.desc}</div>
+          <div class="proj-tags">${tags}</div>
+        </div>
+        <div class="proj-info-right">
+          ${p.case ? `<button class="cta-btn cta-case" data-index="${i}">En savoir + <span class="cta-arrow">→</span></button>` : ''}
+          <a href="${p.url}" target="_blank" rel="noopener" class="cta-btn">
+            Voir le site <span class="cta-arrow">↗</span>
+          </a>
+        </div>
+      </div>`;
+
+    // Handle iframe load event
+    const iframe = slide.querySelector('.proj-iframe');
+    const loader = slide.querySelector('.slide-loader');
+    if (iframe) {
+      iframe.addEventListener('load', () => {
+        setTimeout(() => loader.classList.add('hidden'), 600);
+      });
+    } else {
+      // No iframe — hide loader after animation completes
+      setTimeout(() => loader.classList.add('hidden'), 1200);
+    }
+
+    viewProj.appendChild(slide);
+  });
+}
+
+function renderAbout() {
+  $('.ap-name').innerHTML = `<em>${CFG.name.first}</em><br>${CFG.name.last}`;
+  $('.ap-title').textContent = CFG.title;
+  $('.ap-bio').textContent = CFG.bio;
+  const stackEl = $('.ap-stack');
+  stackEl.innerHTML = CFG.stack.map(s => `<span class="ap-stack-tag">${s}</span>`).join('');
+}
+
+function renderContact() {
+  const emailAlt = $('.ct-email-alt a');
+  emailAlt.href = 'mailto:' + CFG.email;
+  emailAlt.textContent = CFG.email;
+
+  const socials = $('.ct-socials');
+  socials.innerHTML = `
+    <a href="${CFG.github}" target="_blank" rel="noopener" class="ct-social" aria-label="GitHub">
+      <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+    </a>
+    <a href="${CFG.linkedin}" target="_blank" rel="noopener" class="ct-social" aria-label="LinkedIn">
+      <svg viewBox="0 0 16 16" fill="currentColor"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/></svg>
+    </a>`;
+}
+
+/* ═══════════════════════════════════════════════════════
+   Navigation
+   ═══════════════════════════════════════════════════════ */
+function switchView(key) {
+  if (key === currentView) return;
+
+  // Update views
+  views[currentView].classList.remove('active');
+  views[key].classList.add('active');
+
+  navLinks.forEach(a => a.classList.toggle('active', a.dataset.view === key));
+
+  // Update title bar
+  mwinTitle.textContent = viewMeta[key].title;
+
+  // Chrome collapse/expand
+  if (viewMeta[key].chrome) {
+    mwinChrome.classList.remove('collapsed');
+    mwinCounter.style.display = '';
+  } else {
+    mwinChrome.classList.add('collapsed');
+    mwinCounter.style.display = 'none';
+  }
+
+  currentView = key;
+
+  // Mobile: show/hide dots and info only on Projects
+  const mobDots = document.querySelector('.mob-dots');
+  const mobInfo = document.querySelector('.mob-proj-info');
+  if (mobDots) mobDots.style.display = key === 'proj' ? '' : 'none';
+  if (mobInfo) mobInfo.style.display = key === 'proj' ? '' : 'none';
+}
+
+function goToProject(index) {
+  const slides = $$('.proj-slide');
+  const tabs   = $$('.tab');
+
+  slides[currentProject].classList.remove('active');
+  tabs[currentProject].classList.remove('active');
+
+  currentProject = index;
+
+  slides[currentProject].classList.add('active');
+  tabs[currentProject].classList.add('active');
+
+  // Scroll active tab into view
+  tabs[currentProject].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+
+  // Update counter
+  const num = String(index + 1).padStart(2, '0');
+  const total = String(PROJECTS.length).padStart(2, '0');
+  mwinCounter.textContent = `${num} / ${total}`;
+
+  // Update toolbar URL
+  tbUrl.textContent = PROJECTS[index].url.replace(/^https?:\/\//, '');
+
+  // Show/hide case study button
+  tbCase.style.display = PROJECTS[index].case ? '' : 'none';
+
+  // Lazy-load iframe if needed
+  const iframe = slides[currentProject].querySelector('.proj-iframe[data-src]');
+  if (iframe && !iframe.src) {
+    iframe.src = iframe.dataset.src;
+  }
+
+  // Update mobile info
+  updateMobileInfo(index);
+
+  // Re-trigger loader animation on tab switch
+  const loader = slides[currentProject].querySelector('.slide-loader');
+  if (loader) {
+    loader.classList.remove('hidden');
+    const bar = loader.querySelector('.slide-loader-bar');
+    if (bar) {
+      bar.style.animation = 'none';
+      bar.offsetHeight; // force reflow
+      bar.style.animation = '';
+    }
+
+    const iframe = slides[currentProject].querySelector('.proj-iframe');
+    if (iframe) {
+      // For iframes: hide when loaded (or after timeout fallback)
+      const hideLoader = () => setTimeout(() => loader.classList.add('hidden'), 400);
+      if (iframe.contentDocument && iframe.contentDocument.readyState === 'complete') {
+        hideLoader();
+      } else {
+        iframe.addEventListener('load', hideLoader, { once: true });
+        setTimeout(() => loader.classList.add('hidden'), 3000); // fallback
+      }
+    } else {
+      // For placeholders: hide after bar animation
+      setTimeout(() => loader.classList.add('hidden'), 1200);
+    }
+  }
+
+  // Re-trigger infobar fade (only for non-iframe slides)
+  if (!slides[currentProject].classList.contains('has-iframe')) {
+    const info = slides[currentProject].querySelector('.proj-info');
+    if (info) {
+      info.style.transition = 'none';
+      info.style.opacity = '0';
+      requestAnimationFrame(() => {
+        info.style.transition = '';
+        info.style.opacity = '';
+      });
+    }
+  }
+}
+
+/* ═══════════════════════════════════════════════════════
+   Case Study
+   ═══════════════════════════════════════════════════════ */
+function openCaseStudy(index) {
+  const p = PROJECTS[index];
+  if (!p || !p.case) return;
+
+  const tags = p.tags.map(t => `<span class="case-tag">${t}</span>`).join('');
+  const c = p.case;
+
+  const featuresHTML = c.features ? `
+    <div class="case-section">
+      <div class="case-section-title">Fonctionnalités clés</div>
+      <div class="case-features">
+        ${c.features.map(f => `
+          <div class="case-feature">
+            <div class="case-feature-title">${f.title}</div>
+            <div class="case-feature-desc">${f.desc}</div>
+          </div>
+        `).join('')}
+      </div>
+    </div>` : '';
+
+  const approachHTML = c.approach ? `
+    <div class="case-section">
+      <div class="case-section-title">Approche</div>
+      <div class="case-section-text">${c.approach}</div>
+    </div>` : '';
+
+  const resultHTML = c.result ? `
+    <div class="case-section">
+      <div class="case-section-title">Résultat</div>
+      <div class="case-section-text">${c.result}</div>
+    </div>` : '';
+
+  caseTitle.textContent = p.name;
+
+  caseBody.innerHTML = `
+    <div class="case-content">
+      <div class="case-header">
+        <div class="case-title">${p.name}</div>
+        <a href="${p.url}" target="_blank" rel="noopener" class="case-visit">
+          Visiter le site <span class="cta-arrow">↗</span>
+        </a>
+      </div>
+      <div class="case-meta">
+        <div class="case-meta-item">
+          <span class="case-meta-label">Rôle</span>
+          <span class="case-meta-value">${c.role}</span>
+        </div>
+        <div class="case-meta-item">
+          <span class="case-meta-label">Année</span>
+          <span class="case-meta-value">${c.year}</span>
+        </div>
+        <div class="case-meta-item">
+          <span class="case-meta-label">Client</span>
+          <span class="case-meta-value">${c.client}</span>
+        </div>
+        ${c.duration ? `<div class="case-meta-item">
+          <span class="case-meta-label">Durée</span>
+          <span class="case-meta-value">${c.duration}</span>
+        </div>` : ''}
+      </div>
+      <div class="case-divider"></div>
+      <div class="case-section">
+        <div class="case-section-title">Contexte</div>
+        <div class="case-section-text">${c.brief}</div>
+      </div>
+      ${approachHTML}
+      ${featuresHTML}
+      ${resultHTML}
+      <div class="case-tags">${tags}</div>
+    </div>`;
+
+  caseBackdrop.classList.add('active');
+  caseModal.classList.add('active');
+  caseBody.scrollTop = 0;
+}
+
+function closeCaseStudy() {
+  caseBackdrop.classList.remove('active');
+  caseModal.classList.remove('active');
+  setTimeout(() => { caseBody.innerHTML = ''; }, 300);
+}
+
+/* ═══════════════════════════════════════════════════════
+   Events
+   ═══════════════════════════════════════════════════════ */
+document.addEventListener('DOMContentLoaded', () => {
+  renderTabs();
+  renderSlides();
+  renderAbout();
+  renderContact();
+  renderMobileDots();
+  renderMobileProjInfo();
+  goToProject(0);
+  initSwipe();
+
+  // Nav links (desktop)
+  navLinks.forEach(a => a.addEventListener('click', e => {
+    e.preventDefault();
+    switchView(a.dataset.view);
+  }));
+
+  // Mobile tab bar
+  document.querySelectorAll('.mob-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.mob-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      switchView(tab.dataset.view);
+    });
+  });
+
+  // Case study buttons (event delegation from infobar)
+  viewProj.addEventListener('click', e => {
+    const btn = e.target.closest('.cta-case');
+    if (btn) {
+      e.preventDefault();
+      openCaseStudy(parseInt(btn.dataset.index));
+    }
+  });
+
+  // Case study toolbar button
+  tbCase.addEventListener('click', () => {
+    openCaseStudy(currentProject);
+  });
+
+  // Close case study
+  $('#case-close').addEventListener('click', closeCaseStudy);
+  caseBackdrop.addEventListener('click', closeCaseStudy);
+
+  // Escape to close case study
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && caseModal.classList.contains('active')) {
+      closeCaseStudy();
+    }
+  });
+
+  // Toolbar arrows
+  $('.tb-prev').addEventListener('click', () => {
+    goToProject((currentProject - 1 + PROJECTS.length) % PROJECTS.length);
+  });
+  $('.tb-next').addEventListener('click', () => {
+    goToProject((currentProject + 1) % PROJECTS.length);
+  });
+
+  // Keyboard navigation
+  document.addEventListener('keydown', e => {
+    if (currentView !== 'proj') return;
+    if (e.key === 'ArrowRight') goToProject((currentProject + 1) % PROJECTS.length);
+    if (e.key === 'ArrowLeft') goToProject((currentProject - 1 + PROJECTS.length) % PROJECTS.length);
+  });
+  // Mobile sheet close
+  document.querySelector('#mob-sheet-backdrop').addEventListener('click', closeMobileSheet);
+
+  // Swipe down to close sheet
+  let sheetStartY = 0;
+  const mobSheet = document.querySelector('#mob-sheet');
+  mobSheet.addEventListener('touchstart', e => { sheetStartY = e.touches[0].clientY; }, { passive: true });
+  mobSheet.addEventListener('touchend', e => {
+    const dy = e.changedTouches[0].clientY - sheetStartY;
+    if (dy > 80) closeMobileSheet();
+  }, { passive: true });
+
+  // Contact form submission
+  const contactForm = $('#contact-form');
+  const ctFeedback = $('#ct-feedback');
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = contactForm.querySelector('.ct-submit');
+    btn.classList.add('sending');
+    btn.textContent = 'Envoi...';
+    ctFeedback.className = 'ct-feedback';
+    ctFeedback.textContent = '';
+
+    try {
+      const res = await fetch(contactForm.action, {
+        method: 'POST',
+        body: new FormData(contactForm),
+        headers: { 'Accept': 'application/json' },
+      });
+      if (res.ok) {
+        ctFeedback.textContent = 'Merci ! Je vous recontacte sous 24h.';
+        ctFeedback.classList.add('show', 'success');
+        contactForm.reset();
+      } else {
+        throw new Error();
+      }
+    } catch {
+      ctFeedback.textContent = 'Erreur d\'envoi. Essayez par email.';
+      ctFeedback.classList.add('show', 'error');
+    }
+    btn.classList.remove('sending');
+    btn.textContent = 'Envoyer →';
+  });
+});
+</script>
+</body>
+</html>

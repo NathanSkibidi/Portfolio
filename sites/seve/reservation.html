@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Réservation — SÈVE · Restaurant Gastronomique</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Playfair+Display:wght@400;500&family=DM+Sans:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="shared.css">
+  <style>
+    .resa-layout { display:grid; grid-template-columns:1fr 1fr; min-height:100vh; }
+    .resa-visual { position:relative; overflow:hidden; }
+    .resa-visual img { display:block; width:100%; height:100%; object-fit:cover; position:absolute; inset:0; }
+    .resa-visual::after { content:''; position:absolute; inset:0; background:linear-gradient(to right,transparent 50%,var(--noir) 100%); }
+    .resa-form-side { display:flex; flex-direction:column; justify-content:center; padding:clamp(100px,10vw,160px) clamp(32px,5vw,80px) clamp(48px,6vw,80px); }
+    .resa-form-side .eyebrow { font-family:var(--font-label); font-size:10px; letter-spacing:0.25em; text-transform:uppercase; color:var(--or); margin-bottom:24px; }
+    .resa-form-side h1 { font-family:var(--font-display); font-size:clamp(36px,4vw,56px); font-weight:300; font-style:italic; color:var(--creme); line-height:1.1; margin-bottom:12px; }
+    .resa-form-side .subtitle { font-size:14px; color:var(--gris); margin-bottom:48px; max-width:420px; }
+    .form-group { margin-bottom:24px; }
+    .form-group label { display:block; font-family:var(--font-label); font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:var(--gris); margin-bottom:10px; }
+    .form-group input,.form-group select,.form-group textarea { width:100%; background:transparent; border:none; border-bottom:1px solid rgba(255,255,255,0.1); padding:12px 0; font-family:var(--font-body); font-size:15px; font-weight:300; color:var(--blanc); outline:none; transition:border-color 0.3s; -webkit-appearance:none; }
+    .form-group input:focus,.form-group select:focus,.form-group textarea:focus { border-color:var(--or); }
+    .form-group input::placeholder,.form-group textarea::placeholder { color:var(--gris-fonce); }
+    .form-group select option { background:var(--brun); color:var(--blanc); }
+    .form-row { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+    .btn-submit { display:inline-flex; align-items:center; gap:10px; font-family:var(--font-label); font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--creme); padding:18px 40px; background:rgba(201,169,110,0.08); border:1px solid rgba(201,169,110,0.25); border-radius:100px; backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); cursor:pointer; margin-top:16px; transition:all 0.4s var(--ease-out-expo); position:relative; overflow:hidden; }
+    .btn-submit::before { content:''; position:absolute; top:0; left:10%; right:10%; height:1px; background:linear-gradient(90deg,transparent,rgba(245,237,216,0.12),transparent); }
+    .btn-submit:hover { background:rgba(201,169,110,0.15); border-color:rgba(201,169,110,0.4); box-shadow:0 4px 20px rgba(201,169,110,0.1); }
+    .resa-contact { margin-top:56px; padding-top:32px; border-top:1px solid rgba(255,255,255,0.06); }
+    .resa-contact p { font-size:13px; color:var(--gris); line-height:1.8; }
+    .resa-contact a { color:var(--or); transition:color 0.3s; }
+    .resa-contact a:hover { color:var(--creme); }
+    @media(max-width:768px){ .resa-layout{grid-template-columns:1fr;} .resa-visual{aspect-ratio:16/9;position:relative;} .resa-visual::after{background:linear-gradient(to bottom,transparent 30%,var(--noir) 100%);} .form-row{grid-template-columns:1fr;} }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-glass" id="navbar">
+    <a href="index.html" class="nav-logo">Sève</a>
+    <div class="nav-links">
+      <a href="menu.html">Menu</a>
+      <a href="chef.html">Le Chef</a>
+      <a href="galerie.html">Galerie</a>
+      <a href="reservation.html" class="nav-cta nav-cta-desktop active">Réserver →</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="nav-mobile" id="navMobile"><div class="nav-mobile-inner">
+    <a href="index.html" class="mobile-link">Accueil</a><a href="menu.html" class="mobile-link">Menu</a><a href="chef.html" class="mobile-link">Le Chef</a><a href="galerie.html" class="mobile-link">Galerie</a><div class="mobile-divider"></div><a href="reservation.html" class="mobile-link mobile-cta">Réserver →</a>
+  </div></div>
+
+  <div class="resa-layout">
+    <div class="resa-visual">
+      <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=1200&q=80&auto=format&fit=crop" alt="Intérieur du restaurant SÈVE" loading="eager">
+    </div>
+    <div class="resa-form-side">
+      <div class="eyebrow">Réservation</div>
+      <h1>Votre table vous attend.</h1>
+      <p class="subtitle">Réservation recommandée, particulièrement les vendredis et samedis soir. Menu dégustation sur demande.</p>
+      <form onsubmit="event.preventDefault();">
+        <div class="form-row">
+          <div class="form-group"><label for="name">Nom</label><input type="text" id="name" placeholder="Votre nom"></div>
+          <div class="form-group"><label for="email">Email</label><input type="email" id="email" placeholder="votre@email.fr"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label for="date">Date</label><input type="date" id="date"></div>
+          <div class="form-group"><label for="time">Heure</label><select id="time"><option value="">Choisir un créneau</option><option>12h00</option><option>12h30</option><option>13h00</option><option>13h30</option><option>19h30</option><option>20h00</option><option>20h30</option><option>21h00</option></select></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label for="guests">Convives</label><select id="guests"><option>2 personnes</option><option>3 personnes</option><option>4 personnes</option><option>5 personnes</option><option>6 personnes</option><option>7+ personnes</option></select></div>
+          <div class="form-group"><label for="phone">Téléphone</label><input type="tel" id="phone" placeholder="+33 6 00 00 00 00"></div>
+        </div>
+        <div class="form-group"><label for="message">Message (optionnel)</label><input type="text" id="message" placeholder="Allergies, occasion spéciale..."></div>
+        <button type="submit" class="btn-submit">Confirmer la réservation <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+      </form>
+      <div class="resa-contact">
+        <p>Vous préférez nous appeler ?<br><a href="tel:+33164664040">+33 (0)1 64 66 40 40</a><br><a href="mailto:contact@seve-barbizon.fr">contact@seve-barbizon.fr</a></p>
+      </div>
+    </div>
+  </div>
+  <script src="shared.js"></script>
+</body>
+</html>
