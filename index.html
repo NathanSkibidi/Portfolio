@@ -1892,7 +1892,7 @@ function goToProject(index) {
 
   // Lazy-load iframe if needed
   const iframe = slides[currentProject].querySelector('.proj-iframe[data-src]');
-  if (iframe && !iframe.src) {
+  if (iframe && !iframe.getAttribute('src')) {
     iframe.src = iframe.dataset.src;
   }
 
@@ -1904,8 +1904,8 @@ function goToProject(index) {
     const toUnload = recentProjects.splice(2); // keep first 2, get the rest
     toUnload.forEach(i => {
       const oldIframe = slides[i]?.querySelector('.proj-iframe[data-src]');
-      if (oldIframe && oldIframe.src) {
-        oldIframe.src = '';
+      if (oldIframe && oldIframe.getAttribute('src')) {
+        oldIframe.removeAttribute('src');
         loadedSlides.delete(i);
       }
     });
@@ -1979,7 +1979,7 @@ function enterSiteMode(index) {
   if (currentProject !== index) goToProject(index);
   const slides = getSlides();
   const iframe = slides[index].querySelector('.proj-iframe[data-src]');
-  if (iframe && !iframe.src) iframe.src = iframe.dataset.src;
+  if (iframe && !iframe.getAttribute('src')) iframe.src = iframe.dataset.src;
 
   // Enter fullscreen mode
   document.body.classList.add('site-mode');
