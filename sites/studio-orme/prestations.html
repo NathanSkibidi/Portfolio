@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prestations — Studio Orme</title>
+  <meta name="description" content="Services proposés par Studio Orme : conception, coordination de chantier, conseil et rénovation complète à Bordeaux.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .prestations-header {
+      padding: 5rem 0 0;
+    }
+
+    .prestations-header h1 { margin-bottom: 1rem; }
+
+    .prestations-header p {
+      font-family: var(--font-sans);
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--mid-taupe);
+      max-width: 48ch;
+    }
+
+    .prestation {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 4rem;
+      align-items: start;
+      padding: 3.5rem 0;
+      border-top: 0.5px solid var(--separator);
+    }
+
+    .prestation:first-child { border-top: none; }
+
+    .prestation__number {
+      font-family: var(--font-sans);
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: var(--taupe);
+      margin-bottom: 0.8rem;
+      display: block;
+    }
+
+    .prestation__title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.4rem, 2.2vw, 1.8rem);
+      font-weight: 300;
+      line-height: 1.2;
+    }
+
+    .prestation__body p {
+      font-family: var(--font-sans);
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.85;
+      margin-bottom: 1.5rem;
+      max-width: 52ch;
+    }
+
+    .prestation__includes {
+      font-family: var(--font-sans);
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--mid-taupe);
+      line-height: 1.85;
+    }
+
+    .prestation__includes span {
+      display: block;
+    }
+
+    .prestation__includes-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--taupe);
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      .prestation { grid-template-columns: 1fr; gap: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="site-nav">
+    <div class="site-nav__inner">
+      <a href="index.html" class="site-nav__logo">Studio Orme</a>
+      <ul class="site-nav__links" id="navLinks">
+        <li><a href="projets.html">Projets</a></li>
+        <li><a href="a-propos.html">À propos</a></li>
+        <li><a href="prestations.html" class="is-active">Prestations</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button class="nav-burger" id="navBurger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="nav-spacer"></div>
+
+  <!-- Header -->
+  <section class="prestations-header">
+    <div class="wrap">
+      <p class="t-eyebrow mb-m">Ce que nous faisons</p>
+      <h1 class="t-h1">Prestations</h1>
+      <p>Chaque intervention est dimensionnée au projet. Pas de forfait, pas de grille tarifaire standard — un cadre défini ensemble.</p>
+    </div>
+  </section>
+
+  <!-- Prestations -->
+  <section class="section">
+    <div class="wrap">
+
+      <div class="prestation">
+        <div>
+          <span class="prestation__number">01</span>
+          <h2 class="prestation__title">Conception &<br>Coordination</h2>
+        </div>
+        <div class="prestation__body">
+          <p>De l'esquisse au suivi de chantier. Nous prenons en charge l'ensemble du processus : relevé de l'existant, programme, plans, choix des matériaux, consultation des entreprises et direction des travaux.</p>
+          <span class="prestation__includes-label">Inclut</span>
+          <div class="prestation__includes">
+            <span>Relevé et diagnostic de l'existant</span>
+            <span>Plans d'aménagement et vues 3D</span>
+            <span>Sélection matériaux et mobilier</span>
+            <span>Consultation et suivi des entreprises</span>
+            <span>Réception de chantier</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="prestation">
+        <div>
+          <span class="prestation__number">02</span>
+          <h2 class="prestation__title">Conseil &<br>Orientation</h2>
+        </div>
+        <div class="prestation__body">
+          <p>Une session de deux heures, sur site, pour cadrer un projet avant de s'engager. Idéal pour valider une intuition, identifier les priorités ou éviter une erreur coûteuse.</p>
+          <span class="prestation__includes-label">Inclut</span>
+          <div class="prestation__includes">
+            <span>Visite du lieu</span>
+            <span>Analyse des contraintes et potentiel</span>
+            <span>Premières orientations d'aménagement</span>
+            <span>Compte-rendu écrit sous 48h</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="prestation">
+        <div>
+          <span class="prestation__number">03</span>
+          <h2 class="prestation__title">Rénovation<br>complète</h2>
+        </div>
+        <div class="prestation__body">
+          <p>Pilotage intégral d'un projet de rénovation, clé en main. De la première visite à la remise des clés, le studio coordonne chaque intervenant et chaque décision.</p>
+          <span class="prestation__includes-label">Inclut</span>
+          <div class="prestation__includes">
+            <span>Tout le périmètre Conception & Coordination</span>
+            <span>Gestion administrative (déclarations, autorisations)</span>
+            <span>Planification et phasage du chantier</span>
+            <span>Contrôle qualité en continu</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="prestation">
+        <div>
+          <span class="prestation__number">04</span>
+          <h2 class="prestation__title">Architecture<br>commerciale</h2>
+        </div>
+        <div class="prestation__body">
+          <p>Espaces de travail, boutiques, cabinets, lieux d'accueil. Nous concevons des environnements professionnels qui servent l'activité sans sacrifier la qualité spatiale.</p>
+          <span class="prestation__includes-label">Inclut</span>
+          <div class="prestation__includes">
+            <span>Étude de flux et d'usage</span>
+            <span>Conformité ERP et accessibilité</span>
+            <span>Signalétique et identité spatiale</span>
+            <span>Coordination corps d'état techniques</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section--border">
+    <div class="wrap">
+      <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:2rem;">
+        <h2 class="t-h1">Un projet ?<br>Parlons-en.</h2>
+        <a href="contact.html" class="btn btn--primary">Nous contacter</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div>
+        <p class="site-footer__name">Studio Orme</p>
+        <p class="site-footer__meta">Thomas Vial · Architecture d'intérieur · Bordeaux</p>
+      </div>
+      <div class="site-footer__right">
+        <p class="site-footer__meta">contact@studio-orme.fr</p>
+        <p class="site-footer__meta">+33 5 56 00 00 00</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const burger = document.getElementById('navBurger');
+    const links = document.getElementById('navLinks');
+    burger.addEventListener('click', () => {
+      burger.classList.toggle('is-open');
+      links.classList.toggle('is-open');
+    });
+  </script>
+
+</body>
+</html>

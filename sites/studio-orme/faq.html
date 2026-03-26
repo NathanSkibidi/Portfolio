@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ — Studio Orme</title>
+  <meta name="description" content="Questions fréquentes sur les prestations de Studio Orme, architecte d'intérieur à Bordeaux.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .faq-header { padding: 5rem 0 0; }
+    .faq-header h1 { margin-bottom: 1rem; }
+    .faq-header p {
+      font-family: var(--font-sans);
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--mid-taupe);
+      max-width: 45ch;
+    }
+    .faq-list { max-width: 680px; }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="site-nav">
+    <div class="site-nav__inner">
+      <a href="index.html" class="site-nav__logo">Studio Orme</a>
+      <ul class="site-nav__links" id="navLinks">
+        <li><a href="projets.html">Projets</a></li>
+        <li><a href="a-propos.html">À propos</a></li>
+        <li><a href="prestations.html">Prestations</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button class="nav-burger" id="navBurger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="nav-spacer"></div>
+
+  <!-- Header -->
+  <section class="faq-header">
+    <div class="wrap">
+      <p class="t-eyebrow mb-m">Questions fréquentes</p>
+      <h1 class="t-h1">FAQ</h1>
+      <p>Les questions que l'on nous pose le plus souvent. Pour tout le reste, écrivez-nous.</p>
+    </div>
+  </section>
+
+  <!-- FAQ Accordion -->
+  <section class="section">
+    <div class="wrap">
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Comment se déroule une première prise de contact ?
+            <em class="faq-icon">+</em>
+          </button>
+          <div class="faq-answer">
+            Un premier échange par email ou téléphone permet de qualifier le projet. Si les ambitions sont alignées, nous organisons une visite du lieu — sans engagement — pour évaluer ensemble les possibilités.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Intervenez-vous en dehors de Bordeaux ?
+            <em class="faq-icon">+</em>
+          </button>
+          <div class="faq-answer">
+            Principalement dans la métropole bordelaise et sur le Bassin d'Arcachon. Des projets en dehors de cette zone sont envisageables selon leur nature et leur ampleur.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Quelle est la durée moyenne d'un projet de rénovation ?
+            <em class="faq-icon">+</em>
+          </button>
+          <div class="faq-answer">
+            De 4 à 12 mois selon la surface et la complexité — phase de conception comprise. Le calendrier est défini contractuellement dès la validation du programme.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Travaillez-vous avec vos propres artisans ?
+            <em class="faq-icon">+</em>
+          </button>
+          <div class="faq-answer">
+            Nous collaborons avec un réseau restreint d'artisans et d'entreprises sélectionnés pour leur savoir-faire. Le choix final vous appartient, mais nous recommandons des intervenants dont nous connaissons la fiabilité.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Proposez-vous des prestations partielles ?
+            <em class="faq-icon">+</em>
+          </button>
+          <div class="faq-answer">
+            Oui. Une session de conseil de deux heures permet de cadrer un projet sans s'engager sur une mission complète. Nous pouvons aussi intervenir uniquement en conception, sans suivi de chantier.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Quels sont vos tarifs ?
+            <em class="faq-icon">+</em>
+          </button>
+          <div class="faq-answer">
+            Nos honoraires sont calculés en pourcentage du montant des travaux ou au forfait, selon la nature de la mission. Un devis détaillé est établi après la première visite. Nous ne communiquons pas de grille tarifaire standard.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section--border">
+    <div class="wrap">
+      <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:2rem;">
+        <div>
+          <h2 class="t-h2">Une question qui n'est pas ici ?</h2>
+          <p class="t-body-sm mt-s">Écrivez-nous, nous répondons sous 48h.</p>
+        </div>
+        <a href="contact.html" class="btn btn--primary">Nous contacter</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div>
+        <p class="site-footer__name">Studio Orme</p>
+        <p class="site-footer__meta">Thomas Vial · Architecture d'intérieur · Bordeaux</p>
+      </div>
+      <div class="site-footer__right">
+        <p class="site-footer__meta">contact@studio-orme.fr</p>
+        <p class="site-footer__meta">+33 5 56 00 00 00</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const burger = document.getElementById('navBurger');
+    const links = document.getElementById('navLinks');
+    burger.addEventListener('click', () => {
+      burger.classList.toggle('is-open');
+      links.classList.toggle('is-open');
+    });
+
+    function toggleFaq(btn) {
+      const answer = btn.nextElementSibling;
+      const isOpen = answer.classList.contains('is-open');
+      document.querySelectorAll('.faq-answer.is-open').forEach(el => el.classList.remove('is-open'));
+      document.querySelectorAll('.faq-question.is-active').forEach(el => el.classList.remove('is-active'));
+      if (!isOpen) {
+        answer.classList.add('is-open');
+        btn.classList.add('is-active');
+      }
+    }
+  </script>
+
+</body>
+</html>

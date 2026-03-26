@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Studio Orme — Architecture d'intérieur · Bordeaux</title>
+  <meta name="description" content="Studio Orme, le studio d'architecture d'intérieur de Thomas Vial à Bordeaux. Rénovation d'appartements, maisons et commerces.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .hero {
+      min-height: calc(100vh - 64px);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 var(--outer-margin) 6rem;
+      position: relative;
+    }
+    .hero__bg {
+      position: absolute; inset: 0; z-index: 0; overflow: hidden;
+    }
+    .hero__bg img {
+      width: 100%; height: 100%; object-fit: cover;
+      filter: saturate(0.5) contrast(1.05) brightness(1.05);
+    }
+    .hero__bg::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(250,250,248,0.2) 0%, rgba(250,250,248,0.55) 45%, rgba(250,250,248,0.95) 85%, rgba(250,250,248,1) 100%);
+    }
+    .hero__content {
+      position: relative; z-index: 1; max-width: var(--max-width); margin: 0 auto; width: 100%;
+    }
+    .hero__eyebrow {
+      font-family: var(--font-sans); font-size: 11px; font-weight: 500;
+      letter-spacing: 0.22em; text-transform: uppercase; color: var(--deep-black); margin-bottom: 1.5rem;
+    }
+    .hero__title {
+      font-family: var(--font-serif); font-size: clamp(3rem, 7vw, 6rem); font-weight: 300;
+      line-height: 1.02; letter-spacing: -0.02em; margin-bottom: 1.8rem;
+    }
+    .hero__subtitle {
+      font-family: var(--font-sans); font-size: 15px; font-weight: 400;
+      color: var(--mid-taupe); line-height: 1.7; max-width: 38ch; margin-bottom: 2.5rem;
+    }
+    .featured { display: grid; grid-template-columns: 1.3fr 1fr; gap: 2rem; }
+    .featured__large { grid-row: 1 / 3; }
+    .featured__large .img-frame { aspect-ratio: 3/4; }
+    .featured__small .img-frame { aspect-ratio: 4/3; }
+    .manifesto { max-width: 680px; }
+    .manifesto__text {
+      font-family: var(--font-serif); font-size: clamp(1.3rem, 2.2vw, 1.65rem);
+      font-weight: 300; line-height: 1.55;
+    }
+    .cta-block {
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 2rem;
+    }
+    .cta-block__heading {
+      font-family: var(--font-serif); font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 300; line-height: 1.15;
+    }
+    @media (max-width: 768px) {
+      .hero { min-height: 85vh; padding-bottom: 4rem; }
+      .featured { grid-template-columns: 1fr; }
+      .featured__large { grid-row: auto; }
+      .featured__large .img-frame { aspect-ratio: 3/2; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="site-nav__inner">
+      <a href="index.html" class="site-nav__logo">Studio Orme</a>
+      <ul class="site-nav__links" id="navLinks">
+        <li><a href="projets.html">Projets</a></li>
+        <li><a href="a-propos.html">À propos</a></li>
+        <li><a href="prestations.html">Prestations</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button class="nav-burger" id="navBurger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="nav-spacer"></div>
+
+  <section class="hero">
+    <div class="hero__bg">
+      <img src="https://images.pexels.com/photos/6492397/pexels-photo-6492397.jpeg?auto=compress&cs=tinysrgb&w=1800&h=1000&fit=crop" alt="Intérieur lumineux">
+    </div>
+    <div class="hero__content">
+      <p class="hero__eyebrow">Architecture d'intérieur · Bordeaux</p>
+      <h1 class="hero__title">L'espace,<br>avant tout.</h1>
+      <p class="hero__subtitle">Rénovation d'appartements, maisons et commerces. Chaque projet est traité comme un problème singulier — jamais une variante d'un précédent.</p>
+      <a href="projets.html" class="btn btn--primary">Voir les projets</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <p class="t-eyebrow mb-l">Projets récents</p>
+      <div class="featured">
+        <a href="projet-chartrons.html" class="project-card featured__large">
+          <div class="project-card__img">
+            <div class="img-frame"><img class="img-cover" src="https://images.pexels.com/photos/6527054/pexels-photo-6527054.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Appartement Quai des Chartrons" loading="lazy"></div>
+          </div>
+          <div class="project-card__body">
+            <div><p class="project-card__title">Appartement Quai des Chartrons</p><p class="project-card__meta">Bordeaux · 140 m²</p></div>
+            <span class="project-card__arrow">↗</span>
+          </div>
+        </a>
+        <a href="projet-bassin.html" class="project-card featured__small">
+          <div class="project-card__img">
+            <div class="img-frame"><img class="img-cover" src="https://images.pexels.com/photos/7174105/pexels-photo-7174105.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Maison Bassin" loading="lazy"></div>
+          </div>
+          <div class="project-card__body">
+            <div><p class="project-card__title">Maison Bassin</p><p class="project-card__meta">Arcachon · 220 m²</p></div>
+            <span class="project-card__arrow">↗</span>
+          </div>
+        </a>
+        <a href="projet-medicis.html" class="project-card featured__small">
+          <div class="project-card__img">
+            <div class="img-frame"><img class="img-cover" src="https://images.pexels.com/photos/33812025/pexels-photo-33812025.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Cabinet Médicis" loading="lazy"></div>
+          </div>
+          <div class="project-card__body">
+            <div><p class="project-card__title">Cabinet Médicis</p><p class="project-card__meta">Bordeaux · 85 m²</p></div>
+            <span class="project-card__arrow">↗</span>
+          </div>
+        </a>
+      </div>
+      <div style="margin-top:3.5rem;"><a href="projets.html" class="btn btn--text">Tous les projets →</a></div>
+    </div>
+  </section>
+
+  <section class="section section--border">
+    <div class="wrap">
+      <div class="manifesto">
+        <p class="t-eyebrow mb-l">Le studio</p>
+        <p class="manifesto__text">Nous concevons des intérieurs qui tiennent dans la durée. Chaque décision — matériau, proportion, lumière — est pesée avec la même rigueur. Le superflu est écarté. Ce qui reste est juste.</p>
+        <div class="mt-l"><a href="a-propos.html" class="btn btn--text">Découvrir le studio →</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--border">
+    <div class="wrap">
+      <div class="cta-block">
+        <h2 class="cta-block__heading">Un projet ?<br>Parlons-en.</h2>
+        <a href="contact.html" class="btn btn--primary">Nous contacter</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer"><div class="site-footer__inner"><div><p class="site-footer__name">Studio Orme</p><p class="site-footer__meta">Thomas Vial · Architecture d'intérieur · Bordeaux</p></div><div class="site-footer__right"><p class="site-footer__meta">contact@studio-orme.fr</p><p class="site-footer__meta">+33 5 56 00 00 00</p></div></div></footer>
+
+  <script>document.getElementById('navBurger').addEventListener('click',function(){this.classList.toggle('is-open');document.getElementById('navLinks').classList.toggle('is-open');});</script>
+</body>
+</html>

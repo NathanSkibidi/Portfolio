@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>À propos — Studio Orme</title>
+  <meta name="description" content="Thomas Vial, architecte d'intérieur à Bordeaux. Fondateur de Studio Orme.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .about-hero { padding: 5rem 0 0; }
+    .about-hero__grid { display: grid; grid-template-columns: 5fr 6fr; gap: 5rem; align-items: start; }
+    .about-portrait { overflow: hidden; }
+    .about-portrait .img-frame { aspect-ratio: 3/4; }
+    .about-text { padding-top: 2rem; }
+    .about-text__name { font-family: var(--font-serif); font-size: clamp(2rem,3.5vw,3rem); font-weight: 300; line-height: 1.1; margin-bottom: 0.5rem; }
+    .about-text__role { font-family: var(--font-sans); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--taupe); margin-bottom: 2.5rem; }
+    .about-text p { font-family: var(--font-sans); font-size: 16px; font-weight: 300; line-height: 1.85; margin-bottom: 1.2rem; max-width: 52ch; }
+    .figures { display: flex; gap: 4rem; flex-wrap: wrap; }
+    .figures__item { display: flex; flex-direction: column; gap: 0.3rem; }
+    .figures__number { font-family: var(--font-serif); font-size: clamp(2rem,3vw,2.8rem); font-weight: 300; line-height: 1; }
+    .figures__label { font-family: var(--font-sans); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--taupe); }
+    .approach { max-width: 640px; }
+    .approach p { font-family: var(--font-sans); font-size: 16px; font-weight: 300; line-height: 1.85; margin-bottom: 1.2rem; }
+    @media (max-width: 768px) {
+      .about-hero__grid { grid-template-columns: 1fr; gap: 3rem; }
+      .about-portrait .img-frame { aspect-ratio: 4/3; }
+      .about-text { padding-top: 0; }
+      .figures { gap: 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav"><div class="site-nav__inner"><a href="index.html" class="site-nav__logo">Studio Orme</a><ul class="site-nav__links" id="navLinks"><li><a href="projets.html">Projets</a></li><li><a href="a-propos.html" class="is-active">À propos</a></li><li><a href="prestations.html">Prestations</a></li><li><a href="contact.html">Contact</a></li></ul><button class="nav-burger" id="navBurger" aria-label="Menu"><span></span><span></span><span></span></button></div></nav>
+  <div class="nav-spacer"></div>
+
+  <section class="section about-hero">
+    <div class="wrap">
+      <div class="about-hero__grid">
+        <div class="about-portrait">
+          <div class="img-frame">
+            <img class="img-cover" src="https://images.pexels.com/photos/5378700/pexels-photo-5378700.jpeg?auto=compress&cs=tinysrgb&w=600&h=800&fit=crop" alt="Thomas Vial, architecte d'intérieur">
+          </div>
+        </div>
+        <div class="about-text">
+          <h1 class="about-text__name">Thomas Vial</h1>
+          <p class="about-text__role">Fondateur · Architecte d'intérieur</p>
+          <p>Thomas Vial travaille à l'échelle du corps et de la lumière. Chaque projet est traité comme un problème singulier — jamais une variante d'un précédent.</p>
+          <p>Formé à l'École Nationale Supérieure d'Architecture et de Paysage de Bordeaux, il a dirigé plusieurs chantiers de rénovation complexe avant de fonder Studio Orme en 2013.</p>
+          <p>Son approche repose sur une écoute exigeante, un vocabulaire matériel restreint et une attention constante aux proportions. Les espaces qu'il conçoit ne cherchent pas à impressionner — ils cherchent à durer.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--border">
+    <div class="wrap">
+      <div class="figures">
+        <div class="figures__item"><span class="figures__number">12 ans</span><span class="figures__label">d'expérience</span></div>
+        <div class="figures__item"><span class="figures__number">80+</span><span class="figures__label">Projets livrés</span></div>
+        <div class="figures__item"><span class="figures__number">Bordeaux</span><span class="figures__label">& sa région</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--border">
+    <div class="wrap">
+      <p class="t-eyebrow mb-l">Approche</p>
+      <div class="approach">
+        <h2 class="t-h2" style="margin-bottom:2rem;">Une méthode, pas une formule.</h2>
+        <p>Chaque projet commence par une écoute attentive. Avant de dessiner quoi que ce soit, nous prenons le temps de comprendre la façon de vivre, les contraintes du bâti, et ce qui ne sera jamais dit directement.</p>
+        <p>Nous travaillons avec un réseau restreint d'artisans et d'entreprises dont nous connaissons la rigueur. Le suivi de chantier n'est pas délégué — il est au cœur de notre engagement.</p>
+        <p>Ce que Studio Orme ne fait pas : décoration d'événement, home staging, conseil en mobilier sans projet de fond. Nous intervenons là où l'architecture intérieure a un vrai rôle à jouer.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--border">
+    <div class="wrap">
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:2rem;">
+        <h2 class="t-h1">Un projet ?<br>Parlons-en.</h2>
+        <a href="contact.html" class="btn btn--primary">Nous contacter</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer"><div class="site-footer__inner"><div><p class="site-footer__name">Studio Orme</p><p class="site-footer__meta">Thomas Vial · Architecture d'intérieur · Bordeaux</p></div><div class="site-footer__right"><p class="site-footer__meta">contact@studio-orme.fr</p><p class="site-footer__meta">+33 5 56 00 00 00</p></div></div></footer>
+  <script>document.getElementById('navBurger').addEventListener('click',function(){this.classList.toggle('is-open');document.getElementById('navLinks').classList.toggle('is-open');});</script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projets — Studio Orme</title>
+  <meta name="description" content="Rénovations résidentielles et commerciales réalisées par Studio Orme à Bordeaux et sa région.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .projects-header { padding: 5rem 0 3rem; }
+    .projects-header h1 { margin-bottom: 1rem; }
+    .projects-header p { font-family: var(--font-sans); font-size: 15px; font-weight: 300; color: var(--mid-taupe); max-width: 45ch; }
+    .filters { display: flex; gap: 0.75rem; flex-wrap: wrap; padding-bottom: 3rem; }
+    .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .projects-grid .project-card:nth-child(1) { grid-column: 1 / -1; }
+    .projects-grid .project-card:nth-child(1) .img-frame { aspect-ratio: 16/9; }
+    .projects-grid .project-card:nth-child(n+2) .img-frame { aspect-ratio: 3/2; }
+    .projects-grid .project-card:nth-child(4) { grid-column: 1 / -1; }
+    .projects-grid .project-card:nth-child(4) .img-frame { aspect-ratio: 2.5/1; }
+    @media (max-width: 768px) {
+      .projects-grid { grid-template-columns: 1fr; }
+      .projects-grid .project-card:nth-child(4) .img-frame { aspect-ratio: 3/2; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav"><div class="site-nav__inner"><a href="index.html" class="site-nav__logo">Studio Orme</a><ul class="site-nav__links" id="navLinks"><li><a href="projets.html" class="is-active">Projets</a></li><li><a href="a-propos.html">À propos</a></li><li><a href="prestations.html">Prestations</a></li><li><a href="contact.html">Contact</a></li></ul><button class="nav-burger" id="navBurger" aria-label="Menu"><span></span><span></span><span></span></button></div></nav>
+  <div class="nav-spacer"></div>
+
+  <section class="projects-header">
+    <div class="wrap">
+      <p class="t-eyebrow mb-m">Portfolio</p>
+      <h1 class="t-h1">Projets</h1>
+      <p>Résidentiel, commercial, hôtellerie — chaque lieu appelle sa propre logique.</p>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="filters">
+      <button class="tag is-active" data-filter="all">Tous</button>
+      <button class="tag" data-filter="residentiel">Résidentiel</button>
+      <button class="tag" data-filter="commercial">Commercial</button>
+    </div>
+  </div>
+
+  <section class="section" style="padding-top:0;">
+    <div class="wrap">
+      <div class="projects-grid" id="projectsGrid">
+
+        <a href="projet-chartrons.html" class="project-card" data-cat="residentiel">
+          <div class="project-card__img"><div class="img-frame"><img class="img-cover" src="https://images.pexels.com/photos/6527054/pexels-photo-6527054.jpeg?auto=compress&cs=tinysrgb&w=1200&h=675&fit=crop" alt="Appartement Quai des Chartrons" loading="lazy"></div></div>
+          <div class="project-card__body"><div><p class="project-card__title">Appartement Quai des Chartrons</p><p class="project-card__meta">Bordeaux · 140 m² · Résidentiel</p></div><span class="project-card__arrow">↗</span></div>
+        </a>
+
+        <a href="projet-bassin.html" class="project-card" data-cat="residentiel">
+          <div class="project-card__img"><div class="img-frame"><img class="img-cover" src="https://images.pexels.com/photos/7174105/pexels-photo-7174105.jpeg?auto=compress&cs=tinysrgb&w=800&h=533&fit=crop" alt="Maison Bassin" loading="lazy"></div></div>
+          <div class="project-card__body"><div><p class="project-card__title">Maison Bassin</p><p class="project-card__meta">Arcachon · 220 m² · Résidentiel</p></div><span class="project-card__arrow">↗</span></div>
+        </a>
+
+        <a href="projet-medicis.html" class="project-card" data-cat="commercial">
+          <div class="project-card__img"><div class="img-frame"><img class="img-cover" src="https://images.pexels.com/photos/33812025/pexels-photo-33812025.jpeg?auto=compress&cs=tinysrgb&w=800&h=533&fit=crop" alt="Cabinet Médicis" loading="lazy"></div></div>
+          <div class="project-card__body"><div><p class="project-card__title">Cabinet Médicis</p><p class="project-card__meta">Bordeaux · 85 m² · Commercial</p></div><span class="project-card__arrow">↗</span></div>
+        </a>
+
+        <a href="projet-bacalan.html" class="project-card" data-cat="residentiel">
+          <div class="project-card__img"><div class="img-frame"><img class="img-cover" src="https://images.pexels.com/photos/7587827/pexels-photo-7587827.jpeg?auto=compress&cs=tinysrgb&w=1200&h=480&fit=crop" alt="Loft Bacalan" loading="lazy"></div></div>
+          <div class="project-card__body"><div><p class="project-card__title">Loft Bacalan</p><p class="project-card__meta">Bordeaux · 110 m² · Résidentiel</p></div><span class="project-card__arrow">↗</span></div>
+        </a>
+
+        <a href="projet-rive-gauche.html" class="project-card" data-cat="commercial">
+          <div class="project-card__img"><div class="img-frame"><img class="img-cover" src="https://images.pexels.com/photos/5531746/pexels-photo-5531746.jpeg?auto=compress&cs=tinysrgb&w=800&h=533&fit=crop" alt="Boutique Rive Gauche" loading="lazy"></div></div>
+          <div class="project-card__body"><div><p class="project-card__title">Boutique Rive Gauche</p><p class="project-card__meta">Bordeaux · 60 m² · Commercial</p></div><span class="project-card__arrow">↗</span></div>
+        </a>
+
+        <a href="projet-merignac.html" class="project-card" data-cat="residentiel">
+          <div class="project-card__img"><div class="img-frame"><img class="img-cover" src="https://images.pexels.com/photos/7587880/pexels-photo-7587880.jpeg?auto=compress&cs=tinysrgb&w=800&h=533&fit=crop" alt="Villa Mérignac" loading="lazy"></div></div>
+          <div class="project-card__body"><div><p class="project-card__title">Villa Mérignac</p><p class="project-card__meta">Mérignac · 310 m² · Résidentiel</p></div><span class="project-card__arrow">↗</span></div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer"><div class="site-footer__inner"><div><p class="site-footer__name">Studio Orme</p><p class="site-footer__meta">Thomas Vial · Architecture d'intérieur · Bordeaux</p></div><div class="site-footer__right"><p class="site-footer__meta">contact@studio-orme.fr</p><p class="site-footer__meta">+33 5 56 00 00 00</p></div></div></footer>
+
+  <script>
+    document.getElementById('navBurger').addEventListener('click',function(){this.classList.toggle('is-open');document.getElementById('navLinks').classList.toggle('is-open');});
+    document.querySelectorAll('.tag').forEach(function(tag){tag.addEventListener('click',function(){document.querySelectorAll('.tag').forEach(function(t){t.classList.remove('is-active');});tag.classList.add('is-active');var f=tag.dataset.filter;document.querySelectorAll('.project-card').forEach(function(c){c.style.display=(f==='all'||c.dataset.cat===f)?'':'none';});});});
+  </script>
+</body>
+</html>
