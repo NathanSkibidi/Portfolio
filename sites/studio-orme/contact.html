@@ -2,6 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact — Studio Orme</title>
   <meta name="description" content="Contactez Studio Orme pour vos projets d'architecture d'intérieur à Bordeaux.">
@@ -98,7 +99,7 @@
     <div class="wrap">
       <div class="contact-grid">
 
-        <div class="contact-form">
+        <form class="contact-form" action="#" method="POST">
           <div class="form-group">
             <label class="form-label" for="nom">Nom</label>
             <input class="form-input" type="text" id="nom" name="nom" placeholder="Votre nom">
@@ -127,8 +128,8 @@
             <label class="form-label" for="message">Message</label>
             <textarea class="form-textarea" id="message" name="message" placeholder="Décrivez votre projet en quelques lignes…" rows="4"></textarea>
           </div>
-          <button type="submit" class="btn btn--primary" style="margin-top: 0.5rem;">Envoyer</button>
-        </div>
+          <button type="submit" class="btn btn--primary mt-s">Envoyer</button>
+        </form>
 
         <div class="contact-info">
           <div class="contact-info__block">

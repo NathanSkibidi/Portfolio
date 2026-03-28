@@ -2,6 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Prestations — Studio Orme</title>
   <meta name="description" content="Services proposés par Studio Orme : conception, coordination de chantier, conseil et rénovation complète à Bordeaux.">
@@ -39,7 +40,7 @@
       font-family: var(--font-sans);
       font-size: 10px;
       letter-spacing: 0.2em;
-      color: var(--taupe);
+      color: var(--terracotta);
       margin-bottom: 0.8rem;
       display: block;
     }
@@ -221,6 +222,7 @@
     burger.addEventListener('click', () => {
       burger.classList.toggle('is-open');
       links.classList.toggle('is-open');
+      document.body.classList.toggle('menu-open');
     });
   </script>
 

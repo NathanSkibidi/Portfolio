@@ -2,6 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>À propos — Studio Orme</title>
   <meta name="description" content="Thomas Vial, architecte d'intérieur à Bordeaux. Fondateur de Studio Orme.">
@@ -20,7 +21,7 @@
     .about-text p { font-family: var(--font-sans); font-size: 16px; font-weight: 300; line-height: 1.85; margin-bottom: 1.2rem; max-width: 52ch; }
     .figures { display: flex; gap: 4rem; flex-wrap: wrap; }
     .figures__item { display: flex; flex-direction: column; gap: 0.3rem; }
-    .figures__number { font-family: var(--font-serif); font-size: clamp(2rem,3vw,2.8rem); font-weight: 300; line-height: 1; }
+    .figures__number { font-family: var(--font-serif); font-size: clamp(2rem,3vw,2.8rem); font-weight: 300; line-height: 1; color: var(--terracotta); }
     .figures__label { font-family: var(--font-sans); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--taupe); }
     .approach { max-width: 640px; }
     .approach p { font-family: var(--font-sans); font-size: 16px; font-weight: 300; line-height: 1.85; margin-bottom: 1.2rem; }
@@ -42,7 +43,7 @@
       <div class="about-hero__grid">
         <div class="about-portrait">
           <div class="img-frame">
-            <img class="img-cover" src="https://images.pexels.com/photos/5378700/pexels-photo-5378700.jpeg?auto=compress&cs=tinysrgb&w=600&h=800&fit=crop" alt="Thomas Vial, architecte d'intérieur">
+            <img class="img-cover" src="images/portrait-thomas.jpg" alt="Thomas Vial, architecte d'intérieur">
           </div>
         </div>
         <div class="about-text">
@@ -88,6 +89,6 @@
   </section>
 
   <footer class="site-footer"><div class="site-footer__inner"><div><p class="site-footer__name">Studio Orme</p><p class="site-footer__meta">Thomas Vial · Architecture d'intérieur · Bordeaux</p></div><div class="site-footer__right"><p class="site-footer__meta">contact@studio-orme.fr</p><p class="site-footer__meta">+33 5 56 00 00 00</p></div></div></footer>
-  <script>document.getElementById('navBurger').addEventListener('click',function(){this.classList.toggle('is-open');document.getElementById('navLinks').classList.toggle('is-open');});</script>
+  <script>document.getElementById('navBurger').addEventListener('click',function(){this.classList.toggle('is-open');document.getElementById('navLinks').classList.toggle('is-open');document.body.classList.toggle('menu-open');});</script>
 </body>
 </html>
