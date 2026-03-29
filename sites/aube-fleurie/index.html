@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maison Aube Fleurie — Fleuriste Événementielle · Rennes</title>
+  <meta name="description" content="Studio floral événementiel haut de gamme à Rennes. Créations florales pour mariages, hôtels et événements de prestige. Par Juliette Renaud.">
+  <meta property="og:title" content="Maison Aube Fleurie">
+  <link rel="canonical" href="https://maisonaubefleurie.fr">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:ital,wght@0,300;0,400;1,300&display=swap" as="style">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:url" content="https://maisonaubefleurie.fr">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1508610048659-a06b669e3321?w=1200&q=85&auto=format&fit=crop">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Maison Aube Fleurie — Fleuriste Événementielle · Rennes">
+  <meta name="twitter:description" content="Studio floral événementiel haut de gamme à Rennes. Créations florales pour mariages, hôtels et événements de prestige.">
+  <meta name="theme-color" content="#FAF7F2">
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1508610048659-a06b669e3321?w=1800&q=85&auto=format&fit=crop">
+  <style>
+    :root {
+      --blanc-casse: #FAF7F2;
+      --vert-sauge: #8A9E8C;
+      --vert-profond: #6B7F6B;
+      --vert-doux: rgba(138,158,140,0.07);
+      --vieux-rose: #C9A9A0;
+      --beige: #E8DDD0;
+      --presque-noir: #2C2C2A;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Jost', system-ui, sans-serif;
+      --max-width: 1440px;
+      --gutter: clamp(24px, 6vw, 120px);
+      --gap-section: clamp(100px, 14vw, 200px);
+      --gap-block: clamp(48px, 7vw, 96px);
+      --ease-out: cubic-bezier(0.25, 0.1, 0.25, 1);
+      --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html.lenis, html.lenis body { height: auto; }
+    .lenis.lenis-smooth { scroll-behavior: auto !important; }
+
+    body {
+      font-family: var(--font-sans); font-weight: 300;
+      font-size: clamp(15px, 1.1vw, 17px); line-height: 1.75;
+      color: var(--presque-noir); background: var(--blanc-casse);
+      overflow-x: hidden; cursor: none;
+    }
+    @media (max-width: 768px) { body { cursor: auto; } }
+
+    img { max-width: 100%; display: block; height: auto; }
+    a { color: inherit; text-decoration: none; }
+    :focus-visible { outline: 2px solid var(--vert-sauge); outline-offset: 4px; }
+    h1 { font-family: var(--font-serif); font-weight: 300; font-size: clamp(52px, 9vw, 110px); letter-spacing: -0.03em; line-height: 1.0; }
+    h2 { font-family: var(--font-serif); font-weight: 400; font-size: clamp(36px, 5.5vw, 64px); letter-spacing: -0.02em; line-height: 1.1; }
+    h3 { font-family: var(--font-serif); font-weight: 600; font-style: italic; font-size: clamp(20px, 2.5vw, 28px); line-height: 1.3; }
+    p { max-width: 60ch; }
+    .ornament { display: block; width: 40px; height: 1px; background: var(--vert-sauge); margin: 24px 0; }
+    figcaption { font-family: var(--font-sans); font-weight: 300; font-style: italic; font-size: 13px; color: var(--vieux-rose); margin-top: 10px; }
+
+    /* ═══ GRAIN OVERLAY ═══ */
+    body::after {
+      content: ''; position: fixed; inset: 0; z-index: 9999;
+      pointer-events: none; opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 200px 200px;
+    }
+
+    /* ═══ CUSTOM CURSOR ═══ */
+    .cursor { position: fixed; top: 0; left: 0; width: 32px; height: 32px; border: 1.5px solid var(--presque-noir); border-radius: 50%; pointer-events: none; z-index: 10000; transform: translate(-50%, -50%); will-change: transform; transition: width 0.4s var(--ease-expo), height 0.4s var(--ease-expo), border-color 0.3s, background 0.3s; background: rgba(44,44,42,0.06); }
+    .cursor--light { border-color: var(--blanc-casse); background: rgba(250,247,242,0.12); }
+    .cursor.hover { width: 64px; height: 64px; border-color: var(--vert-sauge); background: rgba(138,158,140,0.12); }
+    .cursor.hover-gallery { width: 88px; height: 88px; border-color: var(--blanc-casse); background: rgba(44,44,42,0.35); }
+    .cursor-label { position: fixed; pointer-events: none; z-index: 10001; font-family: var(--font-sans); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blanc-casse); transform: translate(-50%, -50%); will-change: transform; opacity: 0; transition: opacity 0.3s; }
+    .cursor-label.show { opacity: 1; }
+    @media (max-width: 768px) { .cursor, .cursor-label { display: none; } }
+
+    /* ═══ REDUCED MOTION ═══ */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+      .marquee__track { animation: none; }
+      .hero__scroll svg { animation: none; }
+    }
+
+    /* ═══ CONTENT VISIBILITY ═══ */
+    #evenements, #galerie, #temoignages, #contact, .footer { content-visibility: auto; contain-intrinsic-size: auto 800px; }
+
+    /* ═══ PRELOADER ═══ */
+    .preloader { position: fixed; inset: 0; z-index: 99999; background: var(--presque-noir); display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 16px; }
+    .preloader__text { font-family: var(--font-serif); font-weight: 300; font-size: clamp(28px, 5vw, 48px); color: var(--blanc-casse); letter-spacing: 0.02em; overflow: hidden; }
+    .preloader__text .word { display: inline-block; transform: translateY(100%); opacity: 0; }
+    .preloader__line { width: 0; height: 1px; background: var(--vert-sauge); }
+    .preloader__sub { font-family: var(--font-sans); font-weight: 300; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--vieux-rose); opacity: 0; }
+
+    /* ═══ NAV ═══ */
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 24px var(--gutter); mix-blend-mode: difference; }
+    .nav * { color: var(--blanc-casse); }
+    .nav__logo { font-family: var(--font-serif); font-weight: 400; font-size: 18px; letter-spacing: 0.05em; }
+    .nav__links { display: flex; align-items: center; gap: clamp(20px, 3vw, 40px); list-style: none; }
+    .nav__link { font-family: var(--font-sans); font-weight: 400; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; position: relative; }
+    .nav__link::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 100%; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: right; transition: transform 0.5s var(--ease-expo); }
+    .nav__link:hover::after { transform: scaleX(1); transform-origin: left; }
+    .nav__hamburger { display: none; flex-direction: column; gap: 6px; background: none; border: none; cursor: pointer; padding: 4px; z-index: 1100; }
+    .nav__hamburger span { display: block; width: 26px; height: 1px; background: var(--blanc-casse); transition: transform 0.5s var(--ease-expo), opacity 0.3s; }
+    .nav__hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .nav__hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav__hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+    .nav__overlay { display: none; }
+    @media (max-width: 768px) {
+      .nav__links { display: none; }
+      .nav__hamburger { display: flex; }
+      .nav__overlay { display: flex; position: fixed; inset: 0; background: var(--presque-noir); flex-direction: column; align-items: center; justify-content: center; gap: 36px; opacity: 0; pointer-events: none; transition: opacity 0.6s var(--ease-expo); z-index: 1050; }
+      .nav__overlay.open { opacity: 1; pointer-events: all; }
+      .nav__overlay a { font-family: var(--font-serif); font-weight: 300; font-size: 36px; color: var(--blanc-casse); }
+    }
+
+    /* ═══ HERO ═══ */
+    .hero { position: relative; height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; background: var(--presque-noir); }
+    .hero__bg { position: absolute; inset: -10%; background-size: cover; background-position: center; will-change: transform; }
+    @media (max-width: 768px) { .hero__bg { inset: 0; } }
+    .hero__bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(44,44,42,0.3) 0%, rgba(44,44,42,0.1) 40%, rgba(44,44,42,0.5) 100%); }
+    .hero__content { position: relative; z-index: 2; max-width: 900px; padding: 0 var(--gutter); text-align: center; display: flex; flex-direction: column; align-items: center; }
+    .hero h1 { color: var(--blanc-casse); margin-bottom: 28px; text-align: center; width: 100%; }
+    .hero h1 .line { display: block; overflow: hidden; text-align: center; }
+    .hero h1 .line-inner { display: block; transform: translateY(110%); text-align: center; }
+    .hero__subtitle { font-family: var(--font-sans); font-weight: 300; font-size: clamp(13px, 1.1vw, 16px); color: var(--beige); letter-spacing: 0.06em; margin-bottom: 48px; opacity: 0; transform: translateY(20px); text-align: center; max-width: none; }
+    .hero__cta { font-family: var(--font-sans); font-weight: 300; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blanc-casse); border-bottom: 1px solid rgba(250,247,242,0.4); padding-bottom: 4px; opacity: 0; transform: translateY(20px); transition: border-color 0.4s, color 0.4s; }
+    .hero__cta:hover { border-color: var(--vert-sauge); color: var(--vert-sauge); }
+    .hero__scroll { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); z-index: 2; opacity: 0; }
+    .hero__scroll svg { width: 18px; height: 18px; stroke: var(--beige); opacity: 0.5; animation: scrollFloat 2.5s ease-in-out infinite; }
+    @keyframes scrollFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(8px); } }
+
+    /* ═══ SECTIONS ═══ */
+    .section { padding: var(--gap-section) var(--gutter); max-width: var(--max-width); margin: 0 auto; }
+    .section__label { font-family: var(--font-sans); font-weight: 400; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--vieux-rose); margin-bottom: 20px; }
+    .cta-link { font-family: var(--font-sans); font-weight: 300; font-size: 13px; letter-spacing: 0.1em; border-bottom: 1px solid var(--presque-noir); padding-bottom: 3px; transition: border-color 0.4s var(--ease-expo), color 0.4s; display: inline-block; }
+    .cta-link:hover { border-color: var(--vert-sauge); color: var(--vert-sauge); }
+
+    /* ═══ IMG REVEAL ═══ */
+    .img-reveal { position: relative; overflow: hidden; }
+    .img-reveal img { width: 100%; height: auto; transform: scale(1.2); will-change: transform, clip-path; }
+
+    /* ═══ STYLE FLORAL ═══ */
+    .style-wrap { background: var(--vert-doux); }
+    .style { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap-block); align-items: center; }
+    .style__text { padding-right: clamp(20px, 4vw, 80px); }
+    .style__text h2 { margin-bottom: 32px; }
+    .style__text h2 .line { display: block; overflow: hidden; }
+    .style__text h2 .line-inner { display: block; }
+    .style__text p { margin-bottom: 20px; opacity: 0; transform: translateY(16px); }
+    .style__text blockquote { font-family: var(--font-serif); font-weight: 300; font-style: italic; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; border-left: 2px solid var(--vert-sauge); padding-left: 32px; margin: 40px 0; opacity: 0; transform: translateY(16px); }
+    .style__image .img-wrapper { margin-right: calc(-1 * var(--gutter)); }
+    .style__image .img-reveal { background: linear-gradient(145deg,#E8DDD0 0%,#C9A9A0 50%,#d4bfb5 100%); }
+    @media (max-width: 768px) {
+      .style { grid-template-columns: 1fr; }
+      .style__text { padding-right: 0; order: 2; }
+      .style__image { order: 1; }
+      .style__image .img-wrapper { margin-right: 0; }
+      .style__text blockquote { padding-left: 20px; font-size: clamp(20px, 5vw, 28px); }
+    }
+
+    /* ═══ MARIAGES ═══ */
+    .mariages__header { margin-bottom: var(--gap-block); max-width: 600px; }
+    .mariages__header h2 { margin-bottom: 20px; }
+    .mariages__header h2 .line { display: block; overflow: hidden; }
+    .mariages__header h2 .line-inner { display: block; }
+    .mariages__grid { display: grid; grid-template-columns: 1.2fr 0.8fr; grid-template-rows: auto auto; gap: 16px; }
+    .mariages__main { grid-row: 1 / 3; }
+    .mariages__main .img-reveal { height: 100%; background: linear-gradient(160deg,#E8DDD0 0%,#C9A9A0 45%,#b89890 100%); }
+    .mariages__main .img-reveal img { width: 100%; height: 100%; object-fit: cover; }
+    .mariages__grid .img-reveal--sq { background: linear-gradient(135deg,#FAF7F2 0%,#E8DDD0 60%,rgba(138,158,140,0.15) 100%); }
+    .mariages__grid .img-reveal--land { background: linear-gradient(120deg,#E8DDD0 0%,#d4c4b4 50%,#C9A9A0 100%); }
+    .mariages__text { margin-top: var(--gap-block); display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap-block); align-items: start; }
+    .mariages__process { list-style: none; display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
+    .mariages__process li { font-family: var(--font-sans); font-weight: 400; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--vert-profond); padding: 8px 16px; border: 1px solid var(--vert-sauge); transition: background 0.3s, color 0.3s; }
+    .mariages__process li:hover { background: var(--vert-sauge); color: var(--blanc-casse); }
+    @media (max-width: 768px) {
+      .mariages__grid { grid-template-columns: 1fr; }
+      .mariages__main { grid-row: auto; }
+      .mariages__main .img-reveal { height: auto; }
+      .mariages__main .img-reveal img { height: auto; }
+      .mariages__text { grid-template-columns: 1fr; }
+    }
+
+    /* ═══ MARQUEE ═══ */
+    .marquee { padding: clamp(32px, 5vw, 56px) 0; overflow: hidden; border-top: 1px solid var(--beige); border-bottom: 1px solid var(--beige); }
+    .marquee__track { display: flex; width: max-content; animation: marqueeScroll 30s linear infinite; }
+    .marquee__item { font-family: var(--font-serif); font-weight: 300; font-style: italic; font-size: clamp(24px, 3.5vw, 44px); color: var(--beige); white-space: nowrap; padding: 0 clamp(24px, 4vw, 56px); }
+    .marquee__item .dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--vert-sauge); margin: 0 clamp(24px, 4vw, 56px); vertical-align: middle; opacity: 0.5; }
+    @keyframes marqueeScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    .marquee:hover .marquee__track { animation-play-state: paused; }
+
+    /* ═══ ÉVÉNEMENTS ═══ */
+    .events { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: var(--gap-block); align-items: center; }
+    .events__images { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .events__images .img-wrapper:first-child { grid-column: 1 / -1; }
+    .events__images .img-reveal--wide { background: linear-gradient(135deg,#d5cdc4 0%,#8A9E8C22 40%,#E8DDD0 100%); }
+    .events__images .img-reveal--sq { }
+    .events__text h2 { margin-bottom: 24px; }
+    .events__text h2 .line { display: block; overflow: hidden; }
+    .events__text h2 .line-inner { display: block; }
+    .events__text p { margin-bottom: 16px; }
+    .events__clients { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 16px; }
+    .events__clients span { font-family: var(--font-sans); font-weight: 300; font-style: italic; font-size: 13px; color: var(--vert-profond); }
+    .events__clients span::after { content: '·'; margin-left: 16px; color: var(--beige); }
+    .events__clients span:last-child::after { display: none; }
+    @media (max-width: 768px) {
+      .events { grid-template-columns: 1fr; }
+      .events__images { order: 1; grid-template-columns: 1fr; }
+      .events__text { order: 2; }
+      .events__clients { gap: 8px; }
+      .events__clients span { font-size: 12px; }
+    }
+
+    /* ═══ GALERIE GRID ═══ */
+    .galerie-section { padding: var(--gap-section) var(--gutter); max-width: var(--max-width); margin: 0 auto; }
+    .galerie__header { text-align: center; margin-bottom: var(--gap-block); }
+    .galerie__header h2 { margin-bottom: 8px; }
+    .galerie__grid { display: grid; grid-template-columns: 1fr 1.4fr 0.9fr; gap: 14px; }
+    .galerie__item { position: relative; overflow: hidden; }
+    .galerie__item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s var(--ease-expo); }
+    .galerie__item:hover img { transform: scale(1.04); }
+    .galerie__item--tall { grid-row: span 2; }
+    .galerie__caption { position: absolute; bottom: 0; left: 0; right: 0; padding: 20px; background: linear-gradient(to top, rgba(44,44,42,0.5) 0%, transparent 100%); color: var(--blanc-casse); font-family: var(--font-sans); font-weight: 300; font-style: italic; font-size: 13px; opacity: 0; transform: translateY(10px); transition: opacity 0.4s var(--ease-expo), transform 0.4s var(--ease-expo); }
+    .galerie__item:hover .galerie__caption { opacity: 1; transform: translateY(0); }
+    @media (max-width: 768px) {
+      .galerie__grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .galerie__item--tall { grid-row: auto; }
+      .galerie__item img { height: auto; }
+      .galerie__caption { opacity: 1; transform: none; }
+    }
+    @media (max-width: 480px) { .galerie__grid { grid-template-columns: 1fr; } }
+
+    /* ═══ TÉMOIGNAGES ═══ */
+    .temoignages { background: var(--beige); padding: var(--gap-section) var(--gutter); }
+    .temoignages__inner { max-width: var(--max-width); margin: 0 auto; }
+    .temoignages__header { text-align: center; margin-bottom: var(--gap-block); }
+    .temoignages__list { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap-block); }
+    .temoignage { padding: clamp(24px, 4vw, 48px); }
+    .temoignage blockquote { font-family: var(--font-serif); font-weight: 300; font-style: italic; font-size: clamp(20px, 2.5vw, 30px); line-height: 1.45; margin-bottom: 24px; }
+    .temoignage blockquote::before { content: '«\00a0'; color: var(--vert-sauge); }
+    .temoignage blockquote::after { content: '\00a0»'; color: var(--vert-sauge); }
+    .temoignage cite { display: block; font-family: var(--font-sans); font-style: normal; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--vieux-rose); }
+    @media (max-width: 768px) { .temoignages__list { grid-template-columns: 1fr; } }
+
+    /* ═══ CONTACT ═══ */
+    .contact { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap-block); align-items: start; }
+    .contact__intro h2 { margin-bottom: 24px; }
+    .contact__intro h2 .line { display: block; overflow: hidden; }
+    .contact__intro h2 .line-inner { display: block; }
+    .contact__intro p { margin-bottom: 16px; }
+    .contact__info { margin-top: 40px; }
+    .contact__info p { font-size: 14px; margin-bottom: 8px; }
+    .contact__info a { border-bottom: 1px solid var(--beige); transition: border-color 0.4s; }
+    .contact__info a:hover { border-color: var(--vert-sauge); }
+    .contact__form { display: flex; flex-direction: column; gap: 28px; }
+    .form-label { display: block; font-family: var(--font-sans); font-size: 11px; font-weight: 400; letter-spacing: 0.15em; text-transform: uppercase; color: var(--vieux-rose); margin-bottom: 8px; }
+    .form-field { border: none; border-bottom: 1px solid var(--beige); background: transparent; font-family: var(--font-sans); font-weight: 300; font-size: 15px; color: var(--presque-noir); padding: 12px 0; width: 100%; outline: none; transition: border-color 0.4s var(--ease-expo); }
+    .form-field:focus { border-bottom-color: var(--vert-sauge); }
+    .form-field::placeholder { color: var(--beige); }
+    textarea.form-field { resize: vertical; min-height: 100px; font-family: var(--font-sans); }
+    select.form-field { appearance: none; cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23C9A9A0' fill='none' stroke-width='1'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 4px center; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .btn-submit { position: relative; background: var(--vert-profond); color: var(--blanc-casse); font-family: var(--font-sans); font-weight: 400; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; border: none; padding: 20px 48px; cursor: pointer; transition: background 0.4s var(--ease-expo), transform 0.3s var(--ease-expo); align-self: flex-start; }
+    .btn-submit:hover { background: var(--vert-sauge); }
+    @media (max-width: 768px) {
+      .contact { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .form-field { font-size: 16px; padding: 14px 0; }
+      .btn-submit { width: 100%; text-align: center; padding: 18px 32px; }
+    }
+
+    /* ═══ FOOTER ═══ */
+    .footer { padding: 48px var(--gutter); border-top: 1px solid var(--beige); }
+    .footer__content { max-width: var(--max-width); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+    .footer__copy { font-size: 12px; color: var(--vieux-rose); font-weight: 300; }
+    .footer__links { display: flex; gap: 24px; }
+    .footer__links a { font-size: 12px; color: var(--vieux-rose); font-weight: 300; transition: color 0.4s; }
+    .footer__links a:hover { color: var(--vert-sauge); }
+    @media (max-width: 768px) { .footer__content { flex-direction: column; gap: 16px; text-align: center; } }
+
+    /* ═══ ANIM HELPERS ═══ */
+    .fade-up { opacity: 0; transform: translateY(24px); }
+    .mt-sm { margin-top: 16px; }
+    .mt-md { margin-top: 32px; }
+    .mt-lg { margin-top: 48px; }
+  </style>
+</head>
+<body>
+
+  <!-- CURSOR -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-label" id="cursorLabel">Voir</div>
+
+  <!-- PRELOADER -->
+  <div class="preloader" id="preloader">
+    <div class="preloader__text" id="preloaderText">
+      <span class="word">Maison</span> <span class="word">Aube</span> <span class="word">Fleurie</span>
+    </div>
+    <div class="preloader__line" id="preloaderLine"></div>
+    <div class="preloader__sub" id="preloaderSub">Studio floral · Rennes</div>
+  </div>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav" aria-label="Navigation principale">
+    <a href="#" class="nav__logo">Maison Aube Fleurie</a>
+    <ul class="nav__links">
+      <li><a href="#style" class="nav__link">Style</a></li>
+      <li><a href="#mariages" class="nav__link">Mariages</a></li>
+      <li><a href="#evenements" class="nav__link">Événements</a></li>
+      <li><a href="#galerie" class="nav__link">Galerie</a></li>
+      <li><a href="#contact" class="nav__link">Contact</a></li>
+    </ul>
+    <button class="nav__hamburger" id="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="nav__overlay" id="mobileMenu">
+    <a href="#style">Style</a><a href="#mariages">Mariages</a><a href="#evenements">Événements</a><a href="#galerie">Galerie</a><a href="#contact">Contact</a>
+  </div>
+
+  <!-- HERO -->
+  <header class="hero" id="hero">
+    <div class="hero__bg" id="heroBg" role="img" aria-label="Composition florale pastel en lumière douce"
+         style="background-image: url('https://images.unsplash.com/photo-1508610048659-a06b669e3321?w=1800&q=85&auto=format&fit=crop'); background-size: cover; background-position: center;"></div>
+    <div class="hero__content">
+      <h1>
+        <span class="line"><span class="line-inner">L'instant où la fleur</span></span>
+        <span class="line"><span class="line-inner">devient mémoire.</span></span>
+      </h1>
+      <p class="hero__subtitle">Créations florales pour les jours qui comptent — Rennes & France entière.</p>
+      <a href="#style" class="hero__cta">Découvrir notre univers</a>
+    </div>
+    <div class="hero__scroll" id="heroScroll" aria-hidden="true">
+      <svg viewBox="0 0 20 20" fill="none"><path d="M10 4L10 16M4 11L10 16L16 11" stroke="currentColor" stroke-width="1"/></svg>
+    </div>
+  </header>
+
+  <!-- STYLE FLORAL -->
+  <div class="style-wrap">
+    <section class="section" id="style">
+      <div class="style">
+        <div class="style__text">
+          <p class="section__label fade-up">Notre approche</p>
+          <h2>
+            <span class="line"><span class="line-inner">Un geste floral,</span></span>
+            <span class="line"><span class="line-inner">une émotion.</span></span>
+          </h2>
+          <span class="ornament fade-up"></span>
+          <p>Il y a dans chaque fleur une lumière qui ne demande qu'à être libérée. Chez Maison Aube Fleurie, nous travaillons avec les saisons, non contre elles. Chaque composition naît d'une écoute — de vous, du lieu, du moment.</p>
+          <p>Nous choisissons des fleurs françaises cultivées localement quand cela est possible, des textures organiques, des palettes douces et vraies. Rien d'artificiel. Rien de forcé.</p>
+          <blockquote>Nous ne décorons pas un lieu. Nous révélons son âme.</blockquote>
+        </div>
+        <div class="style__image">
+          <figure class="img-wrapper">
+            <div class="img-reveal">
+              <img src="https://images.unsplash.com/photo-1487530811176-3780de880c2d?w=800&q=85&auto=format&fit=crop"
+                   alt="Bouquet de fleurs de saison à l'atelier, lumière naturelle" loading="lazy" decoding="async"
+                   onerror="this.style.display='none'">
+            </div>
+            <figcaption class="fade-up">L'atelier · saison des pivoines</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- MARIAGES -->
+  <section class="section" id="mariages">
+    <div class="mariages__header">
+      <p class="section__label fade-up">Mariages</p>
+      <h2>
+        <span class="line"><span class="line-inner">Des compositions</span></span>
+        <span class="line"><span class="line-inner">à votre image.</span></span>
+      </h2>
+      <p class="mt-sm fade-up">Champêtre, classique, bohème ou architectural — nous composons l'atmosphère florale de votre jour, dans ses moindres détails.</p>
+    </div>
+    <div class="mariages__grid">
+      <div class="mariages__main">
+        <figure class="img-wrapper">
+          <div class="img-reveal">
+            <img src="https://images.unsplash.com/photo-1748546639032-203c5bd8ef85?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000"
+                 alt="Bouquet de mariée pastel porté à la main" loading="lazy" decoding="async" onerror="this.style.display='none'">
+          </div>
+          <figcaption>Bouquet de cérémonie · lumière de fin d'après-midi</figcaption>
+        </figure>
+      </div>
+      <figure class="img-wrapper">
+        <div class="img-reveal img-reveal--sq">
+          <img src="https://images.unsplash.com/photo-1752416158993-46d289a2646f?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000"
+               alt="Macro de pivoine blanche et rose" loading="lazy" decoding="async" onerror="this.style.display='none'">
+        </div>
+        <figcaption>Pivoine · détail</figcaption>
+      </figure>
+      <figure class="img-wrapper">
+        <div class="img-reveal img-reveal--land">
+          <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=900&q=85&auto=format&fit=crop"
+               alt="Table de réception fleurie avec compositions élégantes" loading="lazy" decoding="async" onerror="this.style.display='none'">
+        </div>
+        <figcaption>Chemin de table · réception</figcaption>
+      </figure>
+    </div>
+    <div class="mariages__text">
+      <div class="fade-up">
+        <p>De la première consultation à l'installation le jour J, nous accompagnons chaque couple avec la même attention. Chaque détail compte — du choix des variétés au dernier pétale posé sur les tables.</p>
+        <ul class="mariages__process"><li>Consultation</li><li>Proposition</li><li>Installation</li><li>Jour J</li></ul>
+      </div>
+      <div class="fade-up">
+        <p>Nous intervenons dans toute la Bretagne et au-delà, dans les domaines, manoirs, châteaux et lieux atypiques qui font la singularité de chaque union.</p>
+        <div class="mt-md"><a href="#contact" class="cta-link">→ Parlons de votre jour</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee">
+    <div class="marquee__track">
+      <span class="marquee__item">Pivoines <span class="dot"></span> Roses de jardin <span class="dot"></span> Renoncules <span class="dot"></span> Eucalyptus <span class="dot"></span> Lisianthus <span class="dot"></span> Anémones <span class="dot"></span> Hortensias</span>
+      <span class="marquee__item">Pivoines <span class="dot"></span> Roses de jardin <span class="dot"></span> Renoncules <span class="dot"></span> Eucalyptus <span class="dot"></span> Lisianthus <span class="dot"></span> Anémones <span class="dot"></span> Hortensias</span>
+    </div>
+  </div>
+
+  <!-- ÉVÉNEMENTS -->
+  <section class="section" id="evenements">
+    <div class="events">
+      <div class="events__images">
+        <figure class="img-wrapper">
+          <div class="img-reveal img-reveal--wide">
+            <img src="https://images.unsplash.com/photo-1769812343760-f01a489acabc?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000"
+                 alt="Salle de réception haut de gamme fleurie" loading="lazy" decoding="async" onerror="this.style.display='none'">
+          </div>
+          <figcaption>Dîner de prestige · Hôtel particulier</figcaption>
+        </figure>
+        <figure class="img-wrapper">
+          <div class="img-reveal img-reveal--sq" style="background:linear-gradient(160deg,#E8DDD0 0%,#cfc3b5 60%,#C9A9A0 100%)">
+            <img src="https://images.unsplash.com/photo-1715521801502-42db7b79573b?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000"
+                 alt="Centre de table pastel pour dîner de gala" loading="lazy" decoding="async" onerror="this.style.display='none'">
+          </div>
+          <figcaption>Centre de table · dîner de gala</figcaption>
+        </figure>
+        <figure class="img-wrapper">
+          <div class="img-reveal img-reveal--sq" style="background:linear-gradient(120deg,#FAF7F2 0%,#E8DDD0 50%,#8A9E8C33 100%)">
+            <img src="https://images.unsplash.com/photo-1769812343774-3673ecca0c7b?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000"
+                 alt="Arrangement floral blanc dans un salon haut de gamme" loading="lazy" decoding="async" onerror="this.style.display='none'">
+          </div>
+          <figcaption>Lancement de collection · maison de parfum</figcaption>
+        </figure>
+      </div>
+      <div class="events__text">
+        <p class="section__label fade-up">Événements</p>
+        <h2>
+          <span class="line"><span class="line-inner">L'art floral</span></span>
+          <span class="line"><span class="line-inner">au service</span></span>
+          <span class="line"><span class="line-inner">de l'exceptionnel.</span></span>
+        </h2>
+        <span class="ornament fade-up"></span>
+        <p class="fade-up">Décoration florale récurrente, événements de lancement, dîners de prestige — nous maîtrisons la mise en fleur à grande échelle sans rien perdre en délicatesse.</p>
+        <p class="fade-up">Chaque projet repose sur une compréhension fine de vos codes, de votre image et de l'expérience que vous souhaitez offrir à vos invités.</p>
+        <div class="events__clients fade-up"><span>Hôtels</span><span>Restaurants gastronomiques</span><span>Marques de luxe</span><span>Agences événementielles</span></div>
+        <div class="mt-lg fade-up"><a href="#contact" class="cta-link">→ Nous écrire</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERIE -->
+  <section class="galerie-section" id="galerie">
+    <div class="galerie__header">
+      <p class="section__label fade-up">Galerie</p>
+      <h2 class="fade-up">Carnets d'instants.</h2>
+    </div>
+    <div class="galerie__grid">
+      <div class="galerie__item galerie__item--tall" data-cursor="gallery">
+        <img src="https://images.unsplash.com/photo-1773005695125-61e31301b0ce?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000"
+             alt="Composition florale sophistiquée sur rebord de fenêtre" loading="lazy" decoding="async" onerror="this.parentElement.style.display='none'">
+        <div class="galerie__caption">Composition florale · lumière du matin</div>
+      </div>
+      <div class="galerie__item" data-cursor="gallery">
+        <img src="https://images.unsplash.com/photo-1769230361357-8278572302d2?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000"
+             alt="Table d'honneur sous une installation de fleurs blanches" loading="lazy" decoding="async" onerror="this.parentElement.style.display='none'">
+        <div class="galerie__caption">Fleurs blanches · réception</div>
+      </div>
+      <div class="galerie__item" data-cursor="gallery">
+        <img src="https://images.unsplash.com/photo-1739611840500-920c69372697?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000"
+             alt="Tulipes corail et feuillage en gros plan" loading="lazy" decoding="async" onerror="this.parentElement.style.display='none'">
+        <div class="galerie__caption">Fleur de saison · détail</div>
+      </div>
+      <div class="galerie__item" data-cursor="gallery">
+        <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=700&q=85&auto=format&fit=crop"
+             alt="Réception élégante avec compositions florales" loading="lazy" decoding="async" onerror="this.parentElement.style.display='none'">
+        <div class="galerie__caption">Table de réception · automne</div>
+      </div>
+      <div class="galerie__item galerie__item--tall" data-cursor="gallery">
+        <img src="https://images.unsplash.com/photo-1767552140523-281306dda6d6?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000"
+             alt="Rose abricot en vase minimaliste" loading="lazy" decoding="async" onerror="this.parentElement.style.display='none'">
+        <div class="galerie__caption">Rose abricot · lumière douce</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TÉMOIGNAGES -->
+  <section class="temoignages" id="temoignages">
+    <div class="temoignages__inner">
+      <div class="temoignages__header">
+        <p class="section__label fade-up">Témoignages</p>
+        <h2 class="fade-up">Ce qu'ils en disent.</h2>
+      </div>
+      <div class="temoignages__list">
+        <div class="temoignage fade-up">
+          <blockquote>Juliette a su créer exactement l'atmosphère dont nous rêvions sans que nous sachions vraiment comment la décrire.</blockquote>
+          <cite>Sophie & Antoine · Mariage · Domaine de la Bourbansais, 2025</cite>
+        </div>
+        <div class="temoignage fade-up">
+          <blockquote>Nos tables n'ont jamais été aussi belles. Les clients en parlent encore.</blockquote>
+          <cite>Claire M. · Directrice · Hôtel Le Coq-Gadby · Rennes, 2025</cite>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <div class="contact">
+      <div class="contact__intro">
+        <p class="section__label fade-up">Contact</p>
+        <h2>
+          <span class="line"><span class="line-inner">Parlons de</span></span>
+          <span class="line"><span class="line-inner">votre projet.</span></span>
+        </h2>
+        <span class="ornament fade-up"></span>
+        <p class="fade-up">Chaque collaboration commence par un échange. Décrivez-nous votre projet, votre envie, votre rêve — nous vous répondrons avec la même attention que celle que nous portons à nos compositions.</p>
+        <div class="contact__info mt-lg fade-up">
+          <p style="font-weight:400">Maison Aube Fleurie</p>
+          <p>Rennes, Bretagne</p>
+          <p class="mt-sm"><a href="mailto:bonjour@maisonaubefleurie.fr">bonjour@maisonaubefleurie.fr</a></p>
+          <p><a href="https://instagram.com/maisonaubefleurie" target="_blank" rel="noopener">@maisonaubefleurie</a></p>
+        </div>
+      </div>
+      <form class="contact__form fade-up" action="mailto:bonjour@maisonaubefleurie.fr" method="post" enctype="text/plain">
+        <div class="form-row">
+          <div><label for="prenom" class="form-label">Prénom</label><input type="text" id="prenom" name="prenom" class="form-field" placeholder="Votre prénom" required></div>
+          <div><label for="nom" class="form-label">Nom</label><input type="text" id="nom" name="nom" class="form-field" placeholder="Votre nom"></div>
+        </div>
+        <div><label for="email" class="form-label">Email</label><input type="email" id="email" name="email" class="form-field" placeholder="votre@email.com" required></div>
+        <div class="form-row">
+          <div><label for="projet" class="form-label">Type de projet</label><select id="projet" name="projet" class="form-field" required><option value="" disabled selected>Choisir…</option><option value="mariage">Mariage</option><option value="evenement">Événement</option><option value="autre">Autre</option></select></div>
+          <div><label for="date" class="form-label">Date envisagée</label><input type="text" id="date" name="date" class="form-field" placeholder="Mois / Année"></div>
+        </div>
+        <div><label for="message" class="form-label">Message</label><textarea id="message" name="message" class="form-field" placeholder="Parlez-nous de votre projet, de l'ambiance rêvée…" rows="4"></textarea></div>
+        <button type="submit" class="btn-submit" data-magnetic>Envoyer</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__content">
+      <p class="footer__copy">© 2026 Maison Aube Fleurie — Juliette Renaud · Rennes</p>
+      <div class="footer__links"><a href="#">Mentions légales</a><a href="https://instagram.com/maisonaubefleurie" target="_blank" rel="noopener">Instagram</a></div>
+    </div>
+  </footer>
+
+  <!-- LIBS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+
+  <script>
+    /* ═══ LENIS SMOOTH SCROLL ═══ */
+    const lenis = new Lenis({ duration: 1.2, easing: function(t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); } });
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(function(time) { lenis.raf(time * 1000); });
+    gsap.ticker.lagSmoothing(0);
+
+    /* ═══ CUSTOM CURSOR ═══ */
+    var cursor = document.getElementById('cursor');
+    var cursorLabel = document.getElementById('cursorLabel');
+    var mx = 0, my = 0, cx = 0, cy = 0;
+    if (window.innerWidth > 768) {
+      document.addEventListener('mousemove', function(e) { mx = e.clientX; my = e.clientY; }, { passive: true });
+      (function animCursor() {
+        cx += (mx - cx) * 0.12; cy += (my - cy) * 0.12;
+        cursor.style.left = cx + 'px'; cursor.style.top = cy + 'px';
+        cursorLabel.style.left = cx + 'px'; cursorLabel.style.top = cy + 'px';
+        requestAnimationFrame(animCursor);
+      })();
+      document.querySelectorAll('a, button, .nav__link, .cta-link, .form-field, select').forEach(function(el) {
+        el.addEventListener('mouseenter', function() { cursor.classList.add('hover'); }, { passive: true });
+        el.addEventListener('mouseleave', function() { cursor.classList.remove('hover'); }, { passive: true });
+      });
+      document.querySelectorAll('[data-cursor="gallery"]').forEach(function(el) {
+        el.addEventListener('mouseenter', function() { cursor.classList.add('hover-gallery'); cursorLabel.classList.add('show'); }, { passive: true });
+        el.addEventListener('mouseleave', function() { cursor.classList.remove('hover-gallery'); cursorLabel.classList.remove('show'); }, { passive: true });
+      });
+      var heroEl = document.getElementById('hero');
+      heroEl.addEventListener('mouseenter', function() { cursor.classList.add('cursor--light'); }, { passive: true });
+      heroEl.addEventListener('mouseleave', function() { cursor.classList.remove('cursor--light'); }, { passive: true });
+    }
+
+    /* ═══ MAGNETIC BUTTONS (desktop only) ═══ */
+    if (window.innerWidth > 768) {
+      document.querySelectorAll('[data-magnetic]').forEach(function(btn) {
+        btn.addEventListener('mousemove', function(e) {
+          var rect = btn.getBoundingClientRect();
+          var x = e.clientX - rect.left - rect.width / 2;
+          var y = e.clientY - rect.top - rect.height / 2;
+          btn.style.transform = 'translate(' + x * 0.2 + 'px,' + y * 0.2 + 'px)';
+        });
+        btn.addEventListener('mouseleave', function() { btn.style.transform = ''; });
+      });
+    }
+
+    /* ═══ MOBILE MENU ═══ */
+    var hamburger = document.getElementById('hamburger');
+    var mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', function() {
+      var isOpen = hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', isOpen);
+      if (isOpen) { lenis.stop(); document.body.style.overflow = 'hidden'; }
+      else { lenis.start(); document.body.style.overflow = ''; }
+    });
+    mobileMenu.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        hamburger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        lenis.start(); document.body.style.overflow = '';
+      });
+    });
+
+    /* ═══ PRELOADER ═══ */
+    var tl = gsap.timeline();
+    tl.to('.preloader .word', { y: 0, opacity: 1, duration: 0.8, stagger: 0.15, ease: 'expo.out', delay: 0.3 })
+      .to('#preloaderLine', { width: 60, duration: 0.6, ease: 'expo.out' }, '-=0.3')
+      .to('#preloaderSub', { opacity: 1, duration: 0.5 }, '-=0.2')
+      .to('#preloader', { yPercent: -100, duration: 1, ease: 'expo.inOut', delay: 0.6 })
+      .set('#preloader', { display: 'none' })
+      .to('.hero .line-inner', { y: 0, duration: 1, stagger: 0.12, ease: 'expo.out' }, '-=0.6')
+      .to('.hero__subtitle', { opacity: 1, y: 0, duration: 0.8, ease: 'expo.out' }, '-=0.5')
+      .to('.hero__cta', { opacity: 1, y: 0, duration: 0.8, ease: 'expo.out' }, '-=0.6')
+      .to('#heroScroll', { opacity: 1, duration: 0.6 }, '-=0.3');
+
+    /* ═══ HERO PARALLAX (desktop only) ═══ */
+    if (window.innerWidth > 768) {
+      gsap.to('.hero__bg', {
+        y: '20%',
+        scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1.5 }
+      });
+    }
+
+    /* ═══ TEXT REVEALS (lines) ═══ */
+    document.querySelectorAll('section h2 .line-inner, .events__text h2 .line-inner, .contact h2 .line-inner').forEach(function(line) {
+      gsap.from(line, {
+        y: '100%', duration: 0.9, ease: 'expo.out',
+        scrollTrigger: { trigger: line.closest('h2'), start: 'top 85%', toggleActions: 'play none none none' }
+      });
+    });
+
+    /* ═══ FADE-UP ELEMENTS ═══ */
+    gsap.utils.toArray('.fade-up').forEach(function(el) {
+      gsap.to(el, {
+        opacity: 1, y: 0, duration: 0.8, ease: 'expo.out',
+        scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' }
+      });
+    });
+
+    /* ═══ STYLE TEXT PARAGRAPHS ═══ */
+    document.querySelectorAll('.style__text p, .style__text blockquote').forEach(function(el) {
+      gsap.to(el, {
+        opacity: 1, y: 0, duration: 0.8, ease: 'expo.out',
+        scrollTrigger: { trigger: el, start: 'top 88%' }
+      });
+    });
+
+    /* ═══ IMAGE REVEALS ═══ */
+    gsap.utils.toArray('.img-reveal').forEach(function(el) {
+      gsap.fromTo(el, { clipPath: 'inset(0 100% 0 0)' }, {
+        clipPath: 'inset(0 0% 0 0)', duration: 1.2, ease: 'expo.inOut',
+        scrollTrigger: { trigger: el, start: 'top 82%', toggleActions: 'play none none none' }
+      });
+      var img = el.querySelector('img');
+      if (img) {
+        gsap.fromTo(img, { scale: 1.3 }, {
+          scale: 1, duration: 1.6, ease: 'expo.out',
+          scrollTrigger: { trigger: el, start: 'top 82%', toggleActions: 'play none none none' }
+        });
+      }
+    });
+
+    /* ═══ GALLERY STAGGERED REVEAL ═══ */
+    gsap.utils.toArray('.galerie__item').forEach(function(item, i) {
+      gsap.fromTo(item,
+        { opacity: 0, y: 60, scale: 0.95 },
+        { opacity: 1, y: 0, scale: 1, duration: 0.9, ease: 'expo.out', delay: i * 0.1,
+          scrollTrigger: { trigger: item, start: 'top 90%', toggleActions: 'play none none none' }
+        }
+      );
+    });
+
+    /* ═══ SECTION BG TRANSITIONS ═══ */
+    ScrollTrigger.create({
+      trigger: '.temoignages',
+      start: 'top 80%',
+      end: 'bottom 20%',
+      onEnter: function() { gsap.to('body', { backgroundColor: '#E8DDD0', duration: 0.6 }); },
+      onLeave: function() { gsap.to('body', { backgroundColor: '#FAF7F2', duration: 0.6 }); },
+      onEnterBack: function() { gsap.to('body', { backgroundColor: '#E8DDD0', duration: 0.6 }); },
+      onLeaveBack: function() { gsap.to('body', { backgroundColor: '#FAF7F2', duration: 0.6 }); }
+    });
+  </script>
+</body>
+</html>
