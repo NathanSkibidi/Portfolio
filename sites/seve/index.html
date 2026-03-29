@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>if(window!==window.top)document.documentElement.classList.add('in-iframe')</script>
   <title>SÈVE — Là où la saison devient table</title>
   <meta name="description" content="Restaurant gastronomique à Barbizon. Cuisine de saison, produits bruts d'exception. Menu dégustation 7 services.">
   <meta property="og:title" content="SÈVE — Restaurant Gastronomique · Barbizon">
@@ -22,6 +23,7 @@
 
     /* ═══════ HERO ═══════ */
     .hero { position:relative; height:100vh; min-height:600px; display:flex; align-items:flex-end; overflow:hidden; }
+    html.in-iframe .hero { height:auto; min-height:400px; }
     .hero-bg { position:absolute; inset:0; z-index:0; }
     .hero-bg img { width:100%; height:100%; object-fit:cover; transform:scale(1.05); }
     .hero-bg::after { content:''; position:absolute; inset:0; background:linear-gradient(to top, rgba(10,10,8,0.92) 0%, rgba(10,10,8,0.65) 35%, rgba(10,10,8,0.35) 65%, rgba(10,10,8,0.25) 100%); }
