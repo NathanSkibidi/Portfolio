@@ -1456,7 +1456,7 @@ const PROJECTS = [
     name:  'Studio Orme',
     desc:  'Site vitrine pour un studio d\'architecture d\'intérieur — design épuré, typographie éditoriale, tons naturels.',
     url:   'https://studio-orme.fr',
-    // live:  'sites/studio-orme/index.html',  // TEMP DISABLED FOR DIAGNOSTIC
+    live:  'sites/studio-orme/index.html',
     tags:  ['HTML/CSS', 'Design', 'Multi-pages'],
     color: '#9E9589',
     case: {
@@ -1767,7 +1767,7 @@ function renderSlides() {
     slide.className = 'proj-slide' + (i === 0 ? ' active' : '');
 
     const bg = p.live
-      ? `<div class="proj-iframe-wrap"><iframe data-src="${p.live}" class="proj-iframe" title="${p.name}"></iframe></div>`
+      ? `<div class="proj-iframe-wrap" data-live="${p.live}" data-title="${p.name}"></div>`
       : p.image
         ? `<img src="${p.image}" alt="${p.name}" style="width:100%;height:100%;object-fit:cover;object-position:top center">`
         : `<div class="proj-placeholder" style="--ph-color:${p.color}10"><span class="ph-name">${p.name}</span><span class="ph-badge">À venir</span></div>`;
@@ -1910,16 +1910,23 @@ function goToProject(index) {
   // Show/hide case study button
   tbCase.style.display = PROJECTS[index].case ? '' : 'none';
 
-  // Lazy-load iframe if needed
-  const iframe = slides[currentProject].querySelector('.proj-iframe[data-src]');
-  if (iframe && !iframe.getAttribute('src')) {
-    iframe.src = iframe.dataset.src;
+  // Single-iframe strategy: only ONE iframe in the DOM at a time (iOS fix)
+  // Remove all other iframes first
+  slides.forEach((s, i) => {
+    if (i !== index) {
+      const oldIframe = s.querySelector('.proj-iframe');
+      if (oldIframe) { oldIframe.remove(); loadedSlides.delete(i); }
+    }
+  });
+  // Create iframe for current slide if needed
+  const wrap = slides[currentProject].querySelector('.proj-iframe-wrap');
+  if (wrap && !wrap.querySelector('.proj-iframe')) {
+    const iframe = document.createElement('iframe');
+    iframe.className = 'proj-iframe';
+    iframe.title = wrap.dataset.title;
+    iframe.src = wrap.dataset.live;
+    wrap.appendChild(iframe);
   }
-
-  // Track recent projects (no unloading — causes scroll issues on mobile)
-  const recentIdx = recentProjects.indexOf(index);
-  if (recentIdx !== -1) recentProjects.splice(recentIdx, 1);
-  recentProjects.unshift(index);
 
   // Update mobile info
   updateMobileInfo(index);
@@ -1951,9 +1958,9 @@ function goToProject(index) {
         loader.classList.add('hidden');
         loadedSlides.add(index);
       };
-      const iframe = slides[currentProject].querySelector('.proj-iframe');
-      if (iframe) {
-        iframe.addEventListener('load', () => setTimeout(markLoaded, 400), { once: true });
+      const liveIframe = slides[currentProject].querySelector('.proj-iframe');
+      if (liveIframe) {
+        liveIframe.addEventListener('load', () => setTimeout(markLoaded, 400), { once: true });
         setTimeout(markLoaded, 3000);
       } else {
         setTimeout(markLoaded, 1200);
@@ -1988,8 +1995,7 @@ function enterSiteMode(index) {
   // Make sure this project is active and iframe is loaded
   if (currentProject !== index) goToProject(index);
   const slides = getSlides();
-  const iframe = slides[index].querySelector('.proj-iframe[data-src]');
-  if (iframe && !iframe.getAttribute('src')) iframe.src = iframe.dataset.src;
+  // iframe is already created by goToProject above
 
   // Enter fullscreen mode
   document.body.classList.add('site-mode');
