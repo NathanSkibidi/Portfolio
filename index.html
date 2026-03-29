@@ -480,6 +480,7 @@ nav{
 }
 .site-mode .mwin-bar{height:0;padding:0;border:none}
 .site-mode .mwin-views{aspect-ratio:auto;flex:1}
+.site-mode .proj-iframe-wrap{overflow:auto;-webkit-overflow-scrolling:touch}
 .site-mode .mwin{
   width:100%;height:100%;
   border-radius:0;border:none;
@@ -549,8 +550,11 @@ nav{
 }
 .proj-slide.active{opacity:1;pointer-events:auto}
 
-.proj-iframe{
+.proj-iframe-wrap{
   position:absolute;inset:0;
+  overflow:hidden;
+}
+.proj-iframe{
   width:100%;height:100%;
   border:none;
   background:var(--c-bg);
@@ -1119,7 +1123,11 @@ nav{
   .proj-slide{aspect-ratio:auto;height:auto;display:none!important;position:relative}
   .proj-slide.active{display:block!important}
   .proj-placeholder{position:relative;aspect-ratio:4/3}
-  .proj-iframe{position:relative;aspect-ratio:4/3;width:100%;height:auto;overflow:hidden}
+  .proj-iframe-wrap{
+    position:relative;aspect-ratio:4/3;width:100%;
+    overflow:auto;-webkit-overflow-scrolling:touch;
+  }
+  .proj-iframe{width:100%;height:100%;position:absolute;inset:0}
   .slide-loader{position:absolute;inset:0;aspect-ratio:auto}
 
   /* Show mobile elements */
@@ -1448,7 +1456,7 @@ const PROJECTS = [
     name:  'Studio Orme',
     desc:  'Site vitrine pour un studio d\'architecture d\'intérieur — design épuré, typographie éditoriale, tons naturels.',
     url:   'https://studio-orme.fr',
-    live:  'sites/studio-orme/index.html',
+    // live:  'sites/studio-orme/index.html',  // TEMP DISABLED FOR DIAGNOSTIC
     tags:  ['HTML/CSS', 'Design', 'Multi-pages'],
     color: '#9E9589',
     case: {
@@ -1759,7 +1767,7 @@ function renderSlides() {
     slide.className = 'proj-slide' + (i === 0 ? ' active' : '');
 
     const bg = p.live
-      ? `<iframe data-src="${p.live}" class="proj-iframe" title="${p.name}"></iframe>`
+      ? `<div class="proj-iframe-wrap"><iframe data-src="${p.live}" class="proj-iframe" title="${p.name}"></iframe></div>`
       : p.image
         ? `<img src="${p.image}" alt="${p.name}" style="width:100%;height:100%;object-fit:cover;object-position:top center">`
         : `<div class="proj-placeholder" style="--ph-color:${p.color}10"><span class="ph-name">${p.name}</span><span class="ph-badge">À venir</span></div>`;
