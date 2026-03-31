@@ -943,6 +943,7 @@ nav{
   font-family:'DM Mono',monospace;font-size:9px;font-weight:300;
   color:var(--c-muted);line-height:1.45;
 }
+.case-demo-badge{display:inline-block;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--c-ghost);border:.5px solid rgba(0,0,0,.15);border-radius:2px;padding:3px 7px;margin-top:6px}
 .case-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
 .case-tag{
   font-family:'DM Mono',monospace;font-size:8px;font-weight:400;
@@ -1201,6 +1202,7 @@ nav{
 </style>
 </head>
 <body>
+<script>if(window.innerWidth<=900&&!location.search.includes('force'))location.replace('pro.html');</script>
 
 <!-- Onboarding -->
 <div class="onboarding" id="onboarding">
@@ -1445,7 +1447,7 @@ const CFG = {
   title: 'Designer & Développeur',
   bio:   'Passionné par le design et le développement web, je crée des expériences numériques soignées, performantes et mémorables. Chaque projet est une opportunité de repousser les limites entre esthétique et fonctionnalité.',
   stack: ['React', 'Next.js', 'TypeScript', 'Figma', 'Node.js', 'Tailwind CSS', 'Three.js', 'Framer Motion'],
-  email:    'hello@nathanleray.com',
+  email:    'contact@nathanleray.com',
   github:   'https://github.com/nathanleray',
   linkedin: 'https://linkedin.com/in/nathanleray',
 };
@@ -1455,7 +1457,7 @@ const PROJECTS = [
     name:  'Sève Restaurant',
     desc:  'Site vitrine gastronomique — design immersif, typographie soignée, ambiance sombre et dorée.',
     url:   'https://seve-restaurant.fr',
-
+    demo:  true,
     live:  'sites/seve/index.html',
     tags:  ['HTML/CSS', 'JavaScript', 'Design'],
     color: '#C9A96E',
@@ -1479,6 +1481,7 @@ const PROJECTS = [
     name:  'Studio Orme',
     desc:  'Site vitrine pour un studio d\'architecture d\'intérieur — design épuré, typographie éditoriale, tons naturels.',
     url:   'https://studio-orme.fr',
+    demo:  true,
     live:  'sites/studio-orme/index.html',
     tags:  ['HTML/CSS', 'Design', 'Multi-pages'],
     color: '#9E9589',
@@ -1502,6 +1505,7 @@ const PROJECTS = [
     name:  'Aube Fleurie',
     desc:  'Site vitrine pour un studio floral événementiel — esthétique organique, animations soignées, palette vert sauge et vieux rose.',
     url:   'https://maisonaubefleurie.fr',
+    demo:  true,
     live:  'sites/aube-fleurie/index.html',
     tags:  ['HTML/CSS', 'JavaScript', 'Design'],
     color: '#8A9E8C',
@@ -1700,7 +1704,7 @@ function buildCaseHTML(p) {
   const approachHTML = c.approach ? `<div class="case-section"><div class="case-section-title">Approche</div><div class="case-section-text">${c.approach}</div></div>` : '';
   const resultHTML = c.result ? `<div class="case-section"><div class="case-section-title">Résultat</div><div class="case-section-text">${c.result}</div></div>` : '';
 
-  return `<div class="case-header"><div class="case-title">${p.name}</div><a href="${p.url}" target="_blank" rel="noopener" class="case-visit">Voir le site ↗</a></div>
+  return `<div class="case-header"><div class="case-title">${p.name}</div>${p.demo ? '<span class="case-demo-badge">Projet de démonstration</span>' : ''}<a href="${p.url}" target="_blank" rel="noopener" class="case-visit">Voir le site ↗</a></div>
     <div class="case-meta">
       <div class="case-meta-item"><span class="case-meta-label">Rôle</span><span class="case-meta-value">${c.role}</span></div>
       <div class="case-meta-item"><span class="case-meta-label">Année</span><span class="case-meta-value">${c.year}</span></div>

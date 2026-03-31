@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nathan Leray — Designer & Developpeur</title>
+<meta name="description" content="Nathan Leray — Experiences numeriques soignees, performantes et memorables.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Outfit:wght@300;400;500&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+/* Hide until fonts loaded */
+.fonts-loading{opacity:0}
+.fonts-ready{opacity:1;transition:opacity .15s}
+:root{
+  --bg:#FAFAF8;--ink:#0A0A0A;--secondary:#444;--muted:#777;--ghost:#AAA;
+  --border:rgba(0,0,0,.09);
+  --font-display:'Syne',sans-serif;
+  --font-body:'Outfit',system-ui,sans-serif;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --gutter:clamp(24px,8vw,120px);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{font-family:var(--font-body);font-weight:300;font-size:15px;line-height:1.7;color:var(--ink);background:var(--bg);overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+::selection{background:var(--ink);color:var(--bg)}
+
+/* ═══ SIDE NAV ═══ */
+.side-nav{position:fixed;left:20px;top:50%;transform:translateY(-50%);z-index:100;display:flex;flex-direction:column;gap:10px}
+.side-nav a{font-family:var(--font-display);font-size:13px;font-weight:700;color:var(--ink);transition:color .3s;line-height:1.2;text-transform:uppercase;letter-spacing:.06em}
+.side-nav a:hover{color:var(--secondary)}
+@media(max-width:900px){.side-nav{position:fixed;left:0;right:0;bottom:0;top:auto;transform:none;flex-direction:row;justify-content:center;gap:24px;padding:14px;background:rgba(250,250,248,.92);backdrop-filter:blur(12px);border-top:1px solid var(--border)}.side-nav a{font-size:11px}}
+
+/* ═══ HERO ═══ */
+.hero{padding:clamp(80px,12vh,140px) var(--gutter) 0;position:relative}
+.hero-title{font-family:var(--font-display);font-weight:800;font-size:76px;line-height:.88;text-transform:uppercase;letter-spacing:-.03em;color:var(--ink);user-select:none}
+.hero-title .line{display:block;overflow:hidden}
+.hero-title .line-inner{display:block;transform:translateY(105%);animation:lineReveal .8s var(--ease) forwards}
+.hero-title .line--leray{font-family:'Bebas Neue',sans-serif;font-size:221px;letter-spacing:.12em;overflow:visible}
+.hero-title .letter{display:inline-block;opacity:0;transform:translateY(40px);animation:letterIn .6s var(--ease) forwards;animation-delay:calc(.5s + var(--i) * .06s)}
+@keyframes letterIn{to{opacity:1;transform:translateY(0)}}
+@keyframes lineReveal{to{transform:translateY(0)}}
+.hero-sub{margin-top:clamp(20px,3vh,40px);padding-left:4px;font-size:clamp(13px,1vw,16px);color:var(--muted);max-width:480px;letter-spacing:.02em;opacity:0;transform:translateY(8px);animation:fadeUp .7s var(--ease) .85s forwards}
+.hero-cta{opacity:0;transform:translateY(6px);animation:fadeUp .6s var(--ease) 1s forwards}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+.projects-label{opacity:0;transform:translateY(8px);animation:fadeUp .6s var(--ease) 1.1s forwards}
+
+/* ═══ PROJECTS GRID ═══ */
+.projects{padding:clamp(40px,6vh,80px) var(--gutter)}
+.projects-label{font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--ghost);margin-bottom:24px}
+.projects-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:20px 28px;max-width:1200px;align-items:start}
+.projects-grid .project-thumb:nth-child(1){grid-column:1;grid-row:1/3}
+.projects-grid .project-thumb:nth-child(2){grid-column:2;grid-row:1;margin-top:40px;position:relative;left:50%}
+.projects-grid .project-thumb:nth-child(3){grid-column:2;grid-row:2;zoom:1.08}
+@media(max-width:768px){.projects-grid{grid-template-columns:1fr}.projects-grid .project-thumb{grid-column:1!important;grid-row:auto!important}.projects-grid .project-thumb:nth-child(2){margin-top:0}}
+
+/* ── Thumb card ── */
+.project-thumb{position:relative;cursor:pointer;padding-bottom:10px;opacity:0;transform:translateY(20px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.project-thumb.visible{opacity:1;transform:translateY(0)}
+.project-thumb-img-wrap{position:relative;overflow:hidden;border-radius:6px;box-shadow:0 2px 16px rgba(0,0,0,.06)}
+.project-thumb-img{display:block;width:100%;height:auto;transition:transform .6s var(--ease),filter .6s var(--ease)}
+.project-thumb:hover .project-thumb-img{transform:scale(1.02);filter:brightness(.96)}
+.project-thumb--placeholder{aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:clamp(20px,2vw,32px);color:#fff;text-transform:uppercase;border-radius:6px}
+
+/* ── Hover bubble (slides down from under image) ── */
+.project-thumb-bubble{position:relative;z-index:10;background:#fff;border:1px solid var(--border);border-radius:0 0 8px 8px;padding:0 14px;box-shadow:0 8px 30px rgba(0,0,0,.08);max-height:0;overflow:hidden;opacity:0;margin-top:-4px;transition:max-height .4s var(--ease),opacity .3s var(--ease),padding .4s var(--ease)}
+.project-thumb:hover .project-thumb-bubble{max-height:160px;opacity:1;padding:10px 14px}
+.project-bubble-name{font-family:var(--font-display);font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.02em;margin-bottom:2px}
+.project-bubble-desc{font-size:11px;color:var(--muted);line-height:1.4;margin-bottom:8px}
+.project-bubble-tags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:12px}
+.project-bubble-tag{font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);border:1px solid var(--border);padding:2px 6px;border-radius:2px}
+.project-bubble-actions{display:flex;gap:8px}
+.project-bubble-btn{font-family:var(--font-body);font-size:10px;font-weight:400;letter-spacing:.08em;text-transform:uppercase;padding:7px 16px;border-radius:4px;border:none;cursor:pointer;transition:background .3s,color .3s,border-color .3s}
+.project-bubble-btn--primary{background:var(--ink);color:#fff}
+.project-bubble-btn--primary:hover{background:#333}
+.project-bubble-btn--secondary{background:transparent;color:var(--ink);border:1px solid var(--border)}
+.project-bubble-btn--secondary:hover{border-color:var(--ink)}
+
+/* ═══ ABOUT ═══ */
+.about{padding:clamp(80px,10vh,140px) var(--gutter);max-width:720px}
+.about-label{font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--ghost);margin-bottom:16px}
+.about-title{font-family:var(--font-display);font-weight:800;font-size:clamp(32px,4vw,56px);line-height:1;text-transform:uppercase;letter-spacing:-.02em;margin-bottom:20px}
+.about-bio{font-size:clamp(14px,1.1vw,16px);color:var(--secondary);line-height:1.8;margin-bottom:28px}
+.about-stats{display:flex;gap:28px}
+.about-stat-val{font-family:var(--font-display);font-weight:700;font-size:24px}
+.about-stat-lbl{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:2px}
+.stack-label{font-size:10px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ghost);margin-bottom:10px}
+.stack-tags{display:flex;flex-wrap:wrap;gap:8px}
+.stack-tag{font-size:12px;color:var(--secondary);padding:6px 14px;border:1px solid var(--border);border-radius:2px;transition:border-color .3s,color .3s}
+.stack-tag:hover{border-color:var(--ink);color:var(--ink)}
+
+/* ═══ CONTACT ═══ */
+.contact{padding:clamp(80px,10vh,140px) var(--gutter);border-top:1px solid var(--border)}
+.contact-inner{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(40px,6vw,100px);max-width:1000px}
+@media(max-width:768px){.contact-inner{grid-template-columns:1fr;gap:32px}}
+.contact-title{font-family:var(--font-display);font-weight:800;font-size:clamp(28px,3.5vw,48px);text-transform:uppercase;letter-spacing:-.01em;line-height:1;margin-bottom:16px}
+.contact-sub{font-size:14px;color:var(--secondary);margin-bottom:20px}
+.contact-email{font-size:13px;color:var(--muted);border-bottom:1px solid var(--border);padding-bottom:2px;transition:color .3s,border-color .3s}
+.contact-email:hover{color:var(--ink);border-color:var(--ink)}
+.form-group{margin-bottom:14px}
+.form-label{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--ghost);margin-bottom:4px;display:block}
+.form-input,.form-textarea{width:100%;font-family:var(--font-body);font-size:14px;font-weight:300;color:var(--ink);padding:10px 0;background:none;border:none;border-bottom:1px solid var(--border);outline:none;transition:border-color .3s}
+.form-input:focus,.form-textarea:focus{border-color:var(--ink)}
+.form-textarea{resize:vertical;min-height:80px}
+.btn-send{display:inline-flex;align-items:center;gap:8px;margin-top:8px;padding:12px 28px;background:var(--ink);color:var(--bg);font-family:var(--font-body);font-size:12px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;border:none;cursor:pointer;transition:background .3s}
+.btn-send:hover{background:#333}
+.form-feedback{font-size:12px;margin-top:10px;color:var(--muted)}
+.form-feedback.success{color:#28C840}
+.form-feedback.error{color:#FF2D00}
+
+/* ═══ FOOTER ═══ */
+.footer{padding:32px var(--gutter);display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border);font-size:11px;color:var(--ghost)}
+.footer-links{display:flex;gap:16px}
+.footer-links a{color:var(--muted);transition:color .3s}
+.footer-links a:hover{color:var(--ink)}
+@media(max-width:640px){.footer{flex-direction:column;gap:12px;text-align:center}}
+
+/* ═══ MODAL ═══ */
+.modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:200;opacity:0;pointer-events:none;transition:opacity .4s}
+.modal-backdrop.active{opacity:1;pointer-events:auto}
+.modal{position:fixed;top:0;right:0;bottom:0;width:min(620px,92vw);background:var(--bg);z-index:201;transform:translateX(100%);transition:transform .5s var(--ease);overflow-y:auto;-webkit-overflow-scrolling:touch}
+.modal.active{transform:translateX(0)}
+.modal-bar{position:sticky;top:0;display:flex;align-items:center;justify-content:space-between;padding:14px 24px;background:rgba(250,250,248,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);z-index:1}
+.modal-close{background:none;border:none;font-size:12px;color:var(--muted);cursor:pointer;display:flex;align-items:center;gap:6px;padding:6px 10px;border-radius:3px;transition:background .2s,color .2s}
+.modal-close:hover{background:rgba(0,0,0,.04);color:var(--ink)}
+.modal-close svg{width:14px;height:14px}
+.modal-label{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.modal-body{padding:28px 24px 48px}
+.modal-title{font-family:var(--font-display);font-weight:800;font-size:clamp(24px,3.5vw,36px);text-transform:uppercase;letter-spacing:-.01em;line-height:1;margin-bottom:6px}
+.modal-demo{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--ghost);border:1px solid rgba(0,0,0,.1);padding:2px 6px;border-radius:2px;display:inline-block;margin-bottom:18px}
+.modal-meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:14px;padding:18px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-bottom:22px}
+.modal-meta-label{font-size:9px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ghost);margin-bottom:2px}
+.modal-meta-value{font-size:13px;color:var(--ink)}
+.modal-section{margin-bottom:20px}
+.modal-section-title{font-size:9px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ghost);margin-bottom:6px}
+.modal-section-text{font-size:13px;color:var(--secondary);line-height:1.7}
+.modal-features{display:grid;gap:10px}
+.modal-feature{padding:12px 14px;border:1px solid var(--border);border-radius:4px}
+.modal-feature-title{font-weight:500;font-size:12px;margin-bottom:2px}
+.modal-feature-desc{font-size:11px;color:var(--muted)}
+.modal-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:18px}
+.modal-tag{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);border:1px solid var(--border);padding:3px 8px;border-radius:2px}
+.modal-actions{display:flex;gap:10px;margin-top:24px;flex-wrap:wrap}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:11px 22px;background:var(--ink);color:#fff;font-family:var(--font-body);font-size:11px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;border:none;border-radius:2px;cursor:pointer;transition:background .3s}
+.btn-primary:hover{background:#333}
+.btn-secondary{display:inline-flex;align-items:center;gap:8px;padding:11px 22px;background:transparent;color:var(--ink);font-family:var(--font-body);font-size:11px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--border);border-radius:2px;cursor:pointer;transition:border-color .3s}
+.btn-secondary:hover{border-color:var(--ink)}
+/* ═══ FULLSCREEN SITE ═══ */
+.fullscreen-site{position:fixed;inset:0;z-index:300;background:var(--bg);display:none;flex-direction:column}
+.fullscreen-site.active{display:flex}
+.fullscreen-site iframe{flex:1;width:100%;border:none}
+.fullscreen-bar{position:fixed;top:8px;left:50%;z-index:301;height:28px;padding:0 16px;background:rgba(0,0,0,.45);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:99px;display:none;align-items:center;justify-content:center;gap:0;font-family:var(--font-body);font-size:10px;font-weight:400;color:rgba(255,255,255,.85);letter-spacing:.03em;cursor:pointer;transition:opacity 400ms ease,transform 400ms var(--ease);transform:translateX(-50%)}
+.fullscreen-bar:hover{color:#fff;background:rgba(0,0,0,.6)}
+.fullscreen-bar.visible{display:flex}
+.fullscreen-bar.hidden-bar{opacity:0;transform:translateX(-50%) translateY(-8px);pointer-events:none}
+.fullscreen-trigger{position:fixed;top:0;left:0;right:0;height:48px;z-index:302;display:none}
+
+/* ═══ SCROLL REVEAL ═══ */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ═══ MOBILE ═══ */
+@media(max-width:768px){
+  :root{--gutter:20px}
+  .hero{padding:44px var(--gutter) 0}
+  .hero-title{font-size:36px}
+  .hero-title .line--leray{font-size:105px;letter-spacing:.12em}
+  .about-title{font-size:22px}
+  .hero-sub{margin-top:16px;font-size:13px}
+  .projects{padding:32px var(--gutter)}
+  .projects-grid{grid-template-columns:1fr;gap:16px}
+  .projects-grid .project-thumb{grid-column:1!important;grid-row:auto!important;margin-top:0!important;left:auto!important;zoom:1!important}
+  .project-thumb{padding-bottom:8px}
+  .project-thumb-bubble{max-height:0;opacity:0;padding:0 14px}
+  .project-thumb.bubble-open .project-thumb-bubble{max-height:160px;opacity:1;padding:10px 14px}
+  .about{padding:48px var(--gutter)}
+  .contact{padding:48px var(--gutter)}
+  .contact-inner{grid-template-columns:1fr;gap:24px}
+  .contact-title{font-size:28px}
+  .footer{padding:24px var(--gutter) 80px;flex-direction:column;gap:12px;text-align:center}
+  .modal{width:100vw}
+}
+</style>
+</head>
+<body class="fonts-loading">
+<script>document.fonts.ready.then(()=>{document.body.classList.remove('fonts-loading');document.body.classList.add('fonts-ready');})</script>
+
+<!-- SIDE NAV -->
+<nav class="side-nav">
+  <a href="#projets">projets</a>
+  <a href="#apropos">a propos</a>
+  <a href="#contact">contact</a>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <h1 class="hero-title">
+    <span class="line"><span class="line-inner">NATHAN</span></span>
+    <span class="line line--leray"><span class="letter" style="--i:0">L</span><span class="letter" style="--i:1">E</span><span class="letter" style="--i:2">R</span><span class="letter" style="--i:3">A</span><span class="letter" style="--i:4">Y</span></span>
+  </h1>
+  <p class="hero-sub">Designer & developpeur web — experiences numeriques soignees, performantes et memorables.</p>
+</header>
+
+<!-- PROJECTS -->
+<section class="projects" id="projets">
+  <p class="projects-label">Projets selectionnes</p>
+  <div class="projects-grid" id="projectsGrid"></div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="apropos">
+  <p class="about-label reveal">A propos</p>
+  <h2 class="about-title reveal">Designer &<br>Developpeur</h2>
+  <p class="about-bio reveal">Passionne par le design et le developpement web, je cree des experiences numeriques soignees, performantes et memorables. Chaque projet est une opportunite de repousser les limites entre esthetique et fonctionnalite.</p>
+  <p class="stack-label reveal">Technologies</p>
+  <div class="stack-tags reveal">
+    <span class="stack-tag">React</span><span class="stack-tag">Next.js</span><span class="stack-tag">TypeScript</span>
+    <span class="stack-tag">Figma</span><span class="stack-tag">Node.js</span><span class="stack-tag">Tailwind CSS</span>
+    <span class="stack-tag">Three.js</span><span class="stack-tag">Framer Motion</span>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div>
+      <h2 class="contact-title reveal">Un projet<br>en tete ?</h2>
+      <p class="contact-sub reveal">Discutons de votre idee.<br>Je reponds sous 24h.</p>
+      <a href="mailto:contact@nathanleray.com" class="contact-email reveal">contact@nathanleray.com</a>
+    </div>
+    <form id="contactForm" action="https://formspree.io/f/xpqoablg" method="POST" class="reveal">
+      <div class="form-group"><label class="form-label">Nom</label><input type="text" name="name" class="form-input" placeholder="Votre nom" required></div>
+      <div class="form-group"><label class="form-label">Email</label><input type="email" name="email" class="form-input" placeholder="vous@email.com" required></div>
+      <div class="form-group"><label class="form-label">Sujet</label><input type="text" name="subject" class="form-input" placeholder="De quoi s'agit-il ?"></div>
+      <div class="form-group"><label class="form-label">Message</label><textarea name="message" class="form-textarea" placeholder="Decrivez votre projet..." required></textarea></div>
+      <button type="submit" class="btn-send">Envoyer <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+      <div class="form-feedback" id="formFeedback"></div>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <span>&copy; 2026 Nathan Leray</span>
+  <div class="footer-links">
+    <a href="https://github.com/nathanleray" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://linkedin.com/in/nathanleray" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://instagram.com/nathanleray" target="_blank" rel="noopener">Instagram</a>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<!-- FULLSCREEN SITE -->
+<div class="fullscreen-site" id="fullscreenSite"></div>
+<div class="fullscreen-trigger" id="fullscreenTrigger"></div>
+<div class="fullscreen-bar" id="fullscreenBar">
+  <span id="fullscreenName"></span>
+  <span style="margin:0 4px;opacity:.4">·</span>
+  <span style="opacity:.6">Retour au portfolio</span>
+</div>
+
+<div class="modal-backdrop" id="modalBackdrop"></div>
+<div class="modal" id="modal">
+  <div class="modal-bar">
+    <span class="modal-label" id="modalLabel"></span>
+    <button class="modal-close" id="modalClose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 6L6 18M6 6l12 12"/></svg> Fermer</button>
+  </div>
+  <div class="modal-body" id="modalBody"></div>
+</div>
+
+<script>
+const PROJECTS = [
+  {name:'Seve Restaurant',desc:'Site vitrine gastronomique — design immersif, ambiance sombre et doree.',url:'https://seve-restaurant.fr',demo:true,live:'sites/seve/index.html',screenshot:'screenshots/seve.jpg',tags:['HTML/CSS','JavaScript','Design'],color:'#C9A96E',
+    case:{role:'Design & Developpement',year:'2024',client:'Seve — Barbizon',duration:'3 semaines',
+      brief:'Creer l\'identite numerique d\'un restaurant gastronomique a Barbizon. Atmosphere intime et raffinee, navigation immersive, esthetique sombre et doree.',
+      approach:'Direction artistique sombre et doree. Typographie serif elegante, animations subtiles. 100% vanilla HTML/CSS/JS, zero framework.',
+      features:[{title:'Navigation immersive',desc:'Menu plein ecran avec animations fluides.'},{title:'Multi-pages',desc:'5 pages avec identite propre.'},{title:'Responsive',desc:'Mobile, tablette, desktop.'},{title:'Performance',desc:'Lazy-load, GPU-accelerated.'}],
+      result:'Un site qui capture l\'essence du restaurant — elegant, immersif et performant.'}},
+  {name:'Aube Fleurie',desc:'Studio floral evenementiel — esthetique organique, vert sauge et vieux rose.',url:'https://maisonaubefleurie.fr',demo:true,live:'sites/aube-fleurie/index.html',screenshot:'screenshots/aube.jpg',tags:['HTML/CSS','JavaScript','Design'],color:'#8A9E8C',
+    case:{role:'Design & Developpement',year:'2025',client:'Maison Aube Fleurie — Rennes',duration:'3 semaines',
+      brief:'Site vitrine d\'un studio floral evenementiel haut de gamme a Rennes.',
+      approach:'Direction organique, palette vert sauge et vieux rose. Cormorant Garamond, Lenis smooth scroll, GSAP, curseur personnalise.',
+      features:[{title:'Preloader cinematique',desc:'Animation d\'entree typographique.'},{title:'Galerie masonry',desc:'Parallaxe et curseur contextuel.'},{title:'Marquee infini',desc:'Bandeau defilant floral.'},{title:'Formulaire',desc:'Validation et design coherent.'}],
+      result:'Un site poetique et raffine qui positionne la marque sur le haut de gamme.'}},
+  {name:'Studio Orme',desc:'Studio d\'architecture d\'interieur — design epure, typographie editoriale.',url:'https://studio-orme.fr',demo:true,live:'sites/studio-orme/index.html',screenshot:'screenshots/orme.jpg',tags:['HTML/CSS','Design','Multi-pages'],color:'#9E9589',
+    case:{role:'Design & Developpement',year:'2024',client:'Studio Orme — Bordeaux',duration:'4 semaines',
+      brief:'Site vitrine d\'un studio d\'architecture d\'interieur bordelais. Approche rigoureuse et epuree.',
+      approach:'Minimalisme, tons naturels, Cormorant Garamond + DM Sans. Navigation fixe blur, galeries immersives.',
+      features:[{title:'Portfolio projets',desc:'6 projets, galeries photo, filtres.'},{title:'12 pages',desc:'Accueil, projets, prestations, contact, FAQ.'},{title:'Responsive',desc:'Grilles adaptatives, typo fluide.'},{title:'Identite forte',desc:'Palette terreux, mise en page editoriale.'}],
+      result:'Un site qui respire le calme et la rigueur.'}}
+];
+
+// ── Build grid ──
+const grid = document.getElementById('projectsGrid');
+PROJECTS.forEach((p, i) => {
+  const thumb = document.createElement('div');
+  thumb.className = 'project-thumb';
+  const visual = p.screenshot
+    ? `<img class="project-thumb-img" src="${p.screenshot}" alt="${p.name}" loading="lazy">`
+    : `<div class="project-thumb-bg project-thumb--placeholder" style="background:${p.color}">${p.name}</div>`;
+  thumb.innerHTML = `
+    <div class="project-thumb-img-wrap">${visual}</div>
+    <div class="project-thumb-bubble">
+      <div class="project-bubble-name">${p.name}</div>
+      <div class="project-bubble-desc">${p.desc.length > 60 ? p.desc.slice(0,60) + '...' : p.desc}</div>
+      <div class="project-bubble-actions">
+        ${p.live ? `<button class="project-bubble-btn project-bubble-btn--primary" onclick="event.stopPropagation();openSite(${i})">Voir le site ↗</button>` : ''}
+        <button class="project-bubble-btn project-bubble-btn--secondary" onclick="event.stopPropagation();openModal(${i})">Details</button>
+      </div>
+    </div>`;
+  thumb.addEventListener('click', () => openModal(i));
+  grid.appendChild(thumb);
+});
+
+// ── Modal ──
+const backdrop = document.getElementById('modalBackdrop');
+const modal = document.getElementById('modal');
+const modalBody = document.getElementById('modalBody');
+const modalLabel = document.getElementById('modalLabel');
+
+function openModal(i) {
+  const p = PROJECTS[i], c = p.case;
+  if (!c) return;
+  modalLabel.textContent = `${c.year} — ${c.role}`;
+
+  const feat = c.features ? c.features.map(f =>
+    `<div class="modal-feature"><div class="modal-feature-title">${f.title}</div><div class="modal-feature-desc">${f.desc}</div></div>`).join('') : '';
+  const tags = p.tags.map(t => `<span class="modal-tag">${t}</span>`).join('');
+
+  modalBody.innerHTML = `
+    <h2 class="modal-title">${p.name}</h2>
+    ${p.demo ? '<span class="modal-demo">Projet de demonstration</span>' : ''}
+    <div class="modal-meta">
+      <div><div class="modal-meta-label">Role</div><div class="modal-meta-value">${c.role}</div></div>
+      <div><div class="modal-meta-label">Annee</div><div class="modal-meta-value">${c.year}</div></div>
+      <div><div class="modal-meta-label">Client</div><div class="modal-meta-value">${c.client}</div></div>
+      ${c.duration ? `<div><div class="modal-meta-label">Duree</div><div class="modal-meta-value">${c.duration}</div></div>` : ''}
+    </div>
+    <div class="modal-section"><div class="modal-section-title">Contexte</div><div class="modal-section-text">${c.brief}</div></div>
+    ${c.approach ? `<div class="modal-section"><div class="modal-section-title">Approche</div><div class="modal-section-text">${c.approach}</div></div>` : ''}
+    ${feat ? `<div class="modal-section"><div class="modal-section-title">Fonctionnalites</div><div class="modal-features">${feat}</div></div>` : ''}
+    ${c.result ? `<div class="modal-section"><div class="modal-section-title">Resultat</div><div class="modal-section-text">${c.result}</div></div>` : ''}
+    <div class="modal-tags">${tags}</div>
+    <div class="modal-actions">
+      ${p.live ? `<button class="btn-primary" onclick="closeModal();openSite(${i})">Voir le site <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></button>` : `<a href="${p.url}" target="_blank" rel="noopener" class="btn-primary">Voir le site <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></a>`}
+    </div>`;
+
+  backdrop.classList.add('active');
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  backdrop.classList.remove('active');
+  modal.classList.remove('active');
+  document.body.style.overflow = '';
+  setTimeout(() => { modalBody.innerHTML = ''; }, 400);
+}
+
+// ── Fullscreen site (same pattern as index.html) ──
+const fullscreenEl = document.getElementById('fullscreenSite');
+const fullscreenBar = document.getElementById('fullscreenBar');
+const fullscreenTrigger = document.getElementById('fullscreenTrigger');
+const fullscreenName = document.getElementById('fullscreenName');
+let fsHideTimer;
+
+function openSite(i) {
+  const p = PROJECTS[i];
+  if (!p || !p.live) return;
+  fullscreenName.textContent = p.name;
+  const old = fullscreenEl.querySelector('iframe');
+  if (old) old.remove();
+  const iframe = document.createElement('iframe');
+  iframe.src = p.live; iframe.title = p.name;
+  fullscreenEl.appendChild(iframe);
+  fullscreenEl.classList.add('active');
+  fullscreenBar.classList.add('visible');
+  fullscreenBar.classList.remove('hidden-bar');
+  fullscreenTrigger.style.display = 'block';
+  document.body.style.overflow = 'hidden';
+  // Auto-hide after 2.5s
+  clearTimeout(fsHideTimer);
+  fsHideTimer = setTimeout(() => fullscreenBar.classList.add('hidden-bar'), 2500);
+}
+
+function closeSite() {
+  fullscreenEl.classList.remove('active');
+  fullscreenBar.classList.remove('visible', 'hidden-bar');
+  fullscreenTrigger.style.display = 'none';
+  document.body.style.overflow = '';
+  clearTimeout(fsHideTimer);
+  const f = fullscreenEl.querySelector('iframe');
+  if (f) f.remove();
+}
+
+// Bar click = close
+fullscreenBar.addEventListener('click', closeSite);
+// Trigger zone at top — hover reveals bar
+fullscreenTrigger.addEventListener('mouseenter', () => {
+  fullscreenBar.classList.remove('hidden-bar');
+  clearTimeout(fsHideTimer);
+  fsHideTimer = setTimeout(() => fullscreenBar.classList.add('hidden-bar'), 2000);
+});
+fullscreenBar.addEventListener('mouseenter', () => {
+  clearTimeout(fsHideTimer);
+  fullscreenBar.classList.remove('hidden-bar');
+});
+fullscreenBar.addEventListener('mouseleave', () => {
+  fsHideTimer = setTimeout(() => fullscreenBar.classList.add('hidden-bar'), 1500);
+});
+backdrop.addEventListener('click', closeModal);
+document.getElementById('modalClose').addEventListener('click', closeModal);
+document.addEventListener('keydown', e => {
+  if (e.key !== 'Escape') return;
+  if (fullscreenEl.classList.contains('active')) { closeSite(); return; }
+  closeModal();
+});
+
+// ── Contact form ──
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const fb = document.getElementById('formFeedback'), btn = this.querySelector('.btn-send');
+  btn.disabled = true; btn.textContent = 'Envoi...';
+  try {
+    const r = await fetch(this.action, { method:'POST', body:new FormData(this), headers:{'Accept':'application/json'} });
+    if (r.ok) { fb.textContent = 'Message envoye !'; fb.className = 'form-feedback success'; this.reset(); }
+    else { fb.textContent = 'Erreur. Reessayez.'; fb.className = 'form-feedback error'; }
+  } catch { fb.textContent = 'Erreur. Reessayez.'; fb.className = 'form-feedback error'; }
+  btn.disabled = false;
+  btn.innerHTML = 'Envoyer <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+});
+
+// ── Scroll reveal ──
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, { threshold: 0.15 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+// Stagger project thumbs
+document.querySelectorAll('.project-thumb').forEach((el, i) => {
+  el.style.transitionDelay = (1.2 + i * 0.2) + 's';
+  obs.observe(el);
+});
+
+// Mobile: bubble opens when project is most centered — one at a time, no jitter
+if (window.innerWidth <= 768) {
+  const thumbs = Array.from(document.querySelectorAll('.project-thumb'));
+  let activeBubble = null;
+  let scrollTimer = null;
+
+  function updateBubble() {
+    const viewMid = window.innerHeight / 2;
+    let closest = null;
+    let closestDist = Infinity;
+    thumbs.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      const elMid = rect.top + rect.height / 2;
+      const dist = Math.abs(elMid - viewMid);
+      // Only consider if at least partially visible
+      if (rect.bottom > 0 && rect.top < window.innerHeight && dist < closestDist) {
+        closest = el;
+        closestDist = dist;
+      }
+    });
+    if (closest !== activeBubble) {
+      if (activeBubble) activeBubble.classList.remove('bubble-open');
+      if (closest && closestDist < window.innerHeight * 0.4) {
+        closest.classList.add('bubble-open');
+        activeBubble = closest;
+      } else {
+        activeBubble = null;
+      }
+    }
+  }
+
+  window.addEventListener('scroll', () => {
+    if (scrollTimer) cancelAnimationFrame(scrollTimer);
+    scrollTimer = requestAnimationFrame(updateBubble);
+  }, { passive: true });
+  updateBubble();
+}
+</script>
+</body>
+</html>

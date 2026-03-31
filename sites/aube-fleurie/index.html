@@ -14,12 +14,12 @@
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:url" content="https://maisonaubefleurie.fr">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1561181286-d3fee7d55364?w=1200&q=85&auto=format&fit=crop">
+  <meta property="og:image" content="hero.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Maison Aube Fleurie — Fleuriste Événementielle · Rennes">
   <meta name="twitter:description" content="Studio floral événementiel haut de gamme à Rennes. Créations florales pour mariages, hôtels et événements de prestige.">
   <meta name="theme-color" content="#FAF7F2">
-  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1561181286-d3fee7d55364?w=1800&q=85&auto=format&fit=crop">
+  <link rel="preload" as="image" href="hero.jpg">
   <style>
     :root {
       --blanc-casse: #FAF7F2;
@@ -47,7 +47,8 @@
       font-family: var(--font-sans); font-weight: 300;
       font-size: clamp(15px, 1.1vw, 17px); line-height: 1.75;
       color: var(--presque-noir); background: var(--blanc-casse);
-      overflow-x: hidden; cursor: none;
+      overflow-x: hidden; cursor: none; }
+    body *, a, button, select, input { cursor: none !important;
     }
     @media (max-width: 768px) { body { cursor: auto; } }
 
@@ -323,7 +324,7 @@
   <!-- HERO -->
   <header class="hero" id="hero">
     <div class="hero__bg" id="heroBg" role="img" aria-label="Composition florale pastel en lumière douce"
-         style="background-image: url('https://images.unsplash.com/photo-1561181286-d3fee7d55364?w=1800&q=85&auto=format&fit=crop'); background-size: cover; background-position: center;"></div>
+         style="background-image: url('hero.jpg'); background-size: cover; background-position: center;"></div>
     <div class="hero__content">
       <h1>
         <span class="line"><span class="line-inner">L'instant où la fleur</span></span>
@@ -579,7 +580,7 @@
     if (window.innerWidth > 768) {
       document.addEventListener('mousemove', function(e) { mx = e.clientX; my = e.clientY; }, { passive: true });
       (function animCursor() {
-        cx += (mx - cx) * 0.12; cy += (my - cy) * 0.12;
+        cx += (mx - cx) * 0.22; cy += (my - cy) * 0.22;
         cursor.style.left = cx + 'px'; cursor.style.top = cy + 'px';
         cursorLabel.style.left = cx + 'px'; cursorLabel.style.top = cy + 'px';
         requestAnimationFrame(animCursor);
@@ -631,15 +632,29 @@
 
     /* ═══ PRELOADER ═══ */
     var tl = gsap.timeline();
-    tl.to('.preloader .word', { y: 0, opacity: 1, duration: 0.8, stagger: 0.15, ease: 'expo.out', delay: 0.3 })
-      .to('#preloaderLine', { width: 60, duration: 0.6, ease: 'expo.out' }, '-=0.3')
-      .to('#preloaderSub', { opacity: 1, duration: 0.5 }, '-=0.2')
-      .to('#preloader', { yPercent: -100, duration: 1, ease: 'expo.inOut', delay: 0.6 })
-      .set('#preloader', { display: 'none' })
-      .to('.hero .line-inner', { y: 0, duration: 1, stagger: 0.12, ease: 'expo.out' }, '-=0.6')
-      .to('.hero__subtitle', { opacity: 1, y: 0, duration: 0.8, ease: 'expo.out' }, '-=0.5')
-      .to('.hero__cta', { opacity: 1, y: 0, duration: 0.8, ease: 'expo.out' }, '-=0.6')
-      .to('#heroScroll', { opacity: 1, duration: 0.6 }, '-=0.3');
+    var inIframe = window !== window.top;
+    if (inIframe) {
+      // Dans un iframe (portfolio) : preloader raccourci
+      tl.to('.preloader .word', { y: 0, opacity: 1, duration: 0.5, stagger: 0.08, ease: 'expo.out', delay: 0.1 })
+        .to('#preloaderLine', { width: 60, duration: 0.4, ease: 'expo.out' }, '-=0.2')
+        .to('#preloaderSub', { opacity: 1, duration: 0.3 }, '-=0.1')
+        .to('#preloader', { yPercent: -100, duration: 0.7, ease: 'expo.inOut', delay: 0.2 })
+        .set('#preloader', { display: 'none' })
+        .to('.hero .line-inner', { y: 0, duration: 0.8, stagger: 0.1, ease: 'expo.out' }, '-=0.4')
+        .to('.hero__subtitle', { opacity: 1, y: 0, duration: 0.6, ease: 'expo.out' }, '-=0.4')
+        .to('.hero__cta', { opacity: 1, y: 0, duration: 0.6, ease: 'expo.out' }, '-=0.4')
+        .to('#heroScroll', { opacity: 1, duration: 0.4 }, '-=0.2');
+    } else {
+      tl.to('.preloader .word', { y: 0, opacity: 1, duration: 0.8, stagger: 0.15, ease: 'expo.out', delay: 0.3 })
+        .to('#preloaderLine', { width: 60, duration: 0.6, ease: 'expo.out' }, '-=0.3')
+        .to('#preloaderSub', { opacity: 1, duration: 0.5 }, '-=0.2')
+        .to('#preloader', { yPercent: -100, duration: 1, ease: 'expo.inOut', delay: 0.6 })
+        .set('#preloader', { display: 'none' })
+        .to('.hero .line-inner', { y: 0, duration: 1, stagger: 0.12, ease: 'expo.out' }, '-=0.6')
+        .to('.hero__subtitle', { opacity: 1, y: 0, duration: 0.8, ease: 'expo.out' }, '-=0.5')
+        .to('.hero__cta', { opacity: 1, y: 0, duration: 0.8, ease: 'expo.out' }, '-=0.6')
+        .to('#heroScroll', { opacity: 1, duration: 0.6 }, '-=0.3');
+    }
 
     /* ═══ HERO PARALLAX (desktop only) ═══ */
     if (window.innerWidth > 768) {
