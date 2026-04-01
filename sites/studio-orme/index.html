@@ -172,6 +172,12 @@
 
   <footer class="site-footer"><div class="site-footer__inner"><div><p class="site-footer__name">Studio Orme</p><p class="site-footer__meta">Thomas Vial · Architecture d'intérieur · Bordeaux</p></div><div class="site-footer__right"><p class="site-footer__meta">contact@studio-orme.fr</p><p class="site-footer__meta">+33 5 56 00 00 00</p></div></div></footer>
 
-  <script>document.getElementById('navBurger').addEventListener('click',function(){this.classList.toggle('is-open');document.getElementById('navLinks').classList.toggle('is-open');document.body.classList.toggle('menu-open');});</script>
+  <script>
+  var burger=document.getElementById('navBurger'),links=document.getElementById('navLinks');
+  function closeMenu(){burger.classList.remove('is-open');links.classList.remove('is-open');document.body.classList.remove('menu-open');}
+  burger.addEventListener('click',function(){this.classList.toggle('is-open');links.classList.toggle('is-open');document.body.classList.toggle('menu-open');});
+  links.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeMenu);});
+  links.addEventListener('click',function(e){if(e.target===links)closeMenu();});
+  </script>
 </body>
 </html>

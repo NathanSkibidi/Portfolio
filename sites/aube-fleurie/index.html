@@ -615,6 +615,13 @@
     /* ═══ MOBILE MENU ═══ */
     var hamburger = document.getElementById('hamburger');
     var mobileMenu = document.getElementById('mobileMenu');
+    function closeMenu() {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      document.querySelector('.nav').classList.remove('menu-open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      lenis.start(); document.body.style.overflow = '';
+    }
     hamburger.addEventListener('click', function() {
       var isOpen = hamburger.classList.toggle('open');
       mobileMenu.classList.toggle('open');
@@ -623,14 +630,12 @@
       if (isOpen) { lenis.stop(); document.body.style.overflow = 'hidden'; }
       else { lenis.start(); document.body.style.overflow = ''; }
     });
+    // Close menu when clicking on overlay background
+    mobileMenu.addEventListener('click', function(e) {
+      if (e.target === mobileMenu) closeMenu();
+    });
     mobileMenu.querySelectorAll('a').forEach(function(link) {
-      link.addEventListener('click', function() {
-        hamburger.classList.remove('open');
-        mobileMenu.classList.remove('open');
-        document.querySelector('.nav').classList.remove('menu-open');
-        hamburger.setAttribute('aria-expanded', 'false');
-        lenis.start(); document.body.style.overflow = '';
-      });
+      link.addEventListener('click', closeMenu);
     });
 
     /* ═══ PRELOADER ═══ */

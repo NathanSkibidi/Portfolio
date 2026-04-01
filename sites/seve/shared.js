@@ -10,17 +10,22 @@ if (navbar && !navbar.classList.contains('navbar-glass')) {
 const navToggle = document.getElementById('navToggle');
 const navMobile = document.getElementById('navMobile');
 if (navToggle && navMobile) {
+  function closeMobileNav() {
+    navToggle.classList.remove('active');
+    navMobile.classList.remove('open');
+    document.body.style.overflow = '';
+  }
   navToggle.addEventListener('click', () => {
     navToggle.classList.toggle('active');
     navMobile.classList.toggle('open');
     document.body.style.overflow = navMobile.classList.contains('open') ? 'hidden' : '';
   });
+  // Close when clicking on overlay background (not the inner card)
+  navMobile.addEventListener('click', (e) => {
+    if (e.target === navMobile) closeMobileNav();
+  });
   document.querySelectorAll('.mobile-link').forEach(link => {
-    link.addEventListener('click', () => {
-      navToggle.classList.remove('active');
-      navMobile.classList.remove('open');
-      document.body.style.overflow = '';
-    });
+    link.addEventListener('click', closeMobileNav);
   });
 }
 
