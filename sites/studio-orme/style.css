@@ -200,6 +200,7 @@ a { color: inherit; }
   width: 44px;
   height: 44px;
   position: relative;
+  z-index: 100;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -221,14 +222,13 @@ a { color: inherit; }
 @media (max-width: 768px) {
   .nav-burger { display: flex; }
   .site-nav__links {
+    display: flex;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(245,243,240,0.97);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background: #F5F3F0;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -242,10 +242,12 @@ a { color: inherit; }
     opacity: 1;
     pointer-events: auto;
   }
+  .site-nav__links li { list-style: none; }
   .site-nav__links a {
     font-family: var(--font-heading);
     font-size: clamp(24px, 5vw, 32px);
     letter-spacing: 0.06em;
+    color: var(--deep-black);
     padding: 0.75rem 1.5rem;
   }
   body.menu-open {
