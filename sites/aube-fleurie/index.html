@@ -106,10 +106,10 @@
     .nav__link:hover::after { transform: scaleX(1); transform-origin: left; }
     .nav__hamburger { display: none; flex-direction: column; gap: 6px; background: none; border: none; cursor: pointer; padding: 4px; z-index: 1100; }
     .nav__hamburger span { display: block; width: 26px; height: 1px; background: var(--blanc-casse); transition: transform 0.5s var(--ease-expo), opacity 0.3s; }
-    .nav__hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); background: var(--blanc-casse); }
+    .nav__hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
     .nav__hamburger.open span:nth-child(2) { opacity: 0; }
-    .nav__hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); background: var(--blanc-casse); }
-    .nav__hamburger.open { mix-blend-mode: normal; }
+    .nav__hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+    .nav.menu-open { mix-blend-mode: normal; }
     .nav__overlay { display: none; }
     @media (max-width: 768px) {
       .nav__links { display: none; }
@@ -618,6 +618,7 @@
     hamburger.addEventListener('click', function() {
       var isOpen = hamburger.classList.toggle('open');
       mobileMenu.classList.toggle('open');
+      document.querySelector('.nav').classList.toggle('menu-open', isOpen);
       hamburger.setAttribute('aria-expanded', isOpen);
       if (isOpen) { lenis.stop(); document.body.style.overflow = 'hidden'; }
       else { lenis.start(); document.body.style.overflow = ''; }
@@ -626,6 +627,7 @@
       link.addEventListener('click', function() {
         hamburger.classList.remove('open');
         mobileMenu.classList.remove('open');
+        document.querySelector('.nav').classList.remove('menu-open');
         hamburger.setAttribute('aria-expanded', 'false');
         lenis.start(); document.body.style.overflow = '';
       });
