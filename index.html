@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Nathan Leray — Sites web sur mesure</title>
-<meta name="description" content="Nathan Leray — Sites web sur mesure, performants et mémorables. Design & développement.">
+<title>Nathan Leray — Cr&eacute;ation de sites web &agrave; Rennes | D&egrave;s 699&euro;</title>
+<meta name="description" content="Cr&eacute;ation de sites web sur mesure &agrave; Rennes. Sites vitrines, boutiques en ligne et projets complexes. Design soign&eacute;, responsive, livr&eacute; cl&eacute; en main. D&egrave;s 699&euro;.">
 <link rel="canonical" href="https://nathanleray.com">
 <!-- Open Graph -->
 <meta property="og:type" content="website">
@@ -86,6 +86,12 @@ img{display:block;max-width:100%}
 
 /* ═══ SECTION ═══ */
 .section-label{font-size:10px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--ghost);margin-bottom:16px}
+
+/* ═══ SOCIAL PROOF BAR ═══ */
+.proof-bar{display:flex;justify-content:center;gap:clamp(24px,4vw,48px);padding:24px var(--gutter);border-top:1px solid var(--border);border-bottom:1px solid var(--border);flex-wrap:wrap}
+.proof-item{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--secondary);font-weight:500}
+.proof-num{font-family:var(--font-display);font-size:20px;font-weight:800;color:var(--ink)}
+@media(max-width:640px){.proof-bar{gap:16px;padding:20px var(--gutter)}.proof-item{font-size:12px}.proof-num{font-size:17px}}
 
 /* ═══ PROJECTS ═══ */
 .projects-section{padding:clamp(60px,10vh,120px) 0}
@@ -256,6 +262,10 @@ img{display:block;max-width:100%}
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
 .reveal.visible{opacity:1;transform:translateY(0)}
 
+/* ═══ FLOATING TEL BUTTON (mobile) ═══ */
+.float-tel{display:none}
+@media(max-width:768px){.float-tel{display:flex;position:fixed;bottom:70px;right:16px;z-index:99;width:48px;height:48px;background:var(--ink);color:#fff;border-radius:50%;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.2);transition:transform .3s var(--ease)}.float-tel:hover{transform:scale(1.08)}.float-tel svg{width:20px;height:20px}}
+
 /* ═══ MOBILE ═══ */
 @media(max-width:768px){
   :root{--gutter:20px}
@@ -286,8 +296,8 @@ img{display:block;max-width:100%}
   <div class="hero-mesh"><div class="hero-mesh-blob"></div><div class="hero-mesh-blob"></div><div class="hero-mesh-blob"></div><div class="hero-mesh-blob"></div></div>
   <div class="hero-content">
     <p class="hero-tag">Nathan Leray &mdash; Rennes &amp; toute la France</p>
-    <h1 class="hero-title">Cr&eacute;ation de sites web sur mesure</h1>
-    <p class="hero-sub">Des sites professionnels qui captivent vos visiteurs et font la diff&eacute;rence pour votre activit&eacute;. D&egrave;s 699&euro;.</p>
+    <h1 class="hero-title">Vos concurrents ont un site.<br>Et vous ?</h1>
+    <p class="hero-sub">Cr&eacute;ation de sites web sur mesure qui captivent vos visiteurs et font la diff&eacute;rence pour votre activit&eacute;. D&egrave;s 699&euro;.</p>
     <div class="hero-actions">
       <a href="#contact" class="hero-cta hero-cta--primary">Demander un devis gratuit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
       <a href="tel:+33651068773" class="hero-cta hero-cta--tel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> 06 51 06 87 73</a>
@@ -295,6 +305,14 @@ img{display:block;max-width:100%}
     <p class="hero-trust">Devis gratuit &middot; Sans engagement &middot; R&eacute;ponse sous 24h</p>
   </div>
 </section>
+
+<main>
+<!-- SOCIAL PROOF -->
+<div class="proof-bar">
+  <div class="proof-item"><span class="proof-num">3</span> sites livr&eacute;s</div>
+  <div class="proof-item"><span class="proof-num">100%</span> de clients satisfaits</div>
+  <div class="proof-item"><span class="proof-num">24h</span> de r&eacute;ponse max</div>
+</div>
 
 <!-- PROJECTS -->
 <section class="projects-section" id="projets">
@@ -364,6 +382,10 @@ img{display:block;max-width:100%}
         </ul>
         <a href="#contact" class="offre-cta" data-offer="&Eacute;change d&eacute;couverte &mdash; Projet sur mesure">Pr&eacute;parer l'&eacute;change &rarr;</a>
       </div>
+    </div>
+    <div class="offres-urgence reveal" style="text-align:center;margin-top:28px;padding:16px 20px;background:rgba(0,0,0,.02);border-radius:12px;max-width:520px;margin-left:auto;margin-right:auto">
+      <p style="font-size:13px;font-weight:600;color:var(--ink);margin-bottom:4px">&#9200; Disponibilit&eacute; limit&eacute;e</p>
+      <p style="font-size:12px;color:var(--muted)">Je prends un nombre limit&eacute; de projets par mois pour garantir la qualit&eacute;. <strong>Design non satisfaisant ? Je recommence gratuitement.</strong></p>
     </div>
     <a href="/offres/" class="offres-link reveal">Voir le comparatif d&eacute;taill&eacute; &rarr;</a>
   </div>
@@ -445,6 +467,11 @@ img{display:block;max-width:100%}
     </form>
   </div>
 </section>
+
+</main>
+
+<!-- FLOATING TEL -->
+<a href="tel:+33651068773" class="float-tel" aria-label="Appeler"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></a>
 
 <!-- FOOTER -->
 <footer class="footer">
