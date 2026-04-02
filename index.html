@@ -147,6 +147,17 @@ img{display:block;max-width:100%}
 .testimonial-name{font-weight:600;font-size:13px}
 .testimonial-role{font-size:11px;color:var(--ghost)}
 
+/* ═══ FAQ ═══ */
+.faq{padding:clamp(80px,10vh,140px) var(--gutter);border-top:1px solid var(--border)}
+.faq-inner{max-width:720px;margin:0 auto}
+.faq-title{font-family:var(--font-display);font-size:clamp(28px,3.5vw,48px);font-weight:800;line-height:1.15;margin-bottom:32px;text-align:center}
+.faq-item{border-bottom:1px solid var(--border);padding:20px 0;cursor:pointer}
+.faq-q{font-size:15px;font-weight:600;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.faq-q::after{content:'+';font-size:20px;font-weight:300;color:var(--ghost);transition:transform .3s var(--ease)}
+.faq-item.open .faq-q::after{transform:rotate(45deg)}
+.faq-a{font-size:14px;color:var(--muted);line-height:1.7;max-height:0;overflow:hidden;transition:max-height .5s var(--ease),padding .5s var(--ease);padding-top:0}
+.faq-item.open .faq-a{max-height:200px;padding-top:12px}
+
 /* ═══ ABOUT ═══ */
 .about{padding:clamp(80px,10vh,140px) var(--gutter);border-top:1px solid var(--border)}
 .about-inner{max-width:680px;margin:0 auto;text-align:center}
@@ -278,7 +289,8 @@ img{display:block;max-width:100%}
   .footer{padding-bottom:80px}
 }
 </style>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Nathan Leray","url":"https://nathanleray.com","jobTitle":"Designer & Développeur Web","description":"Sites web sur mesure, performants et mémorables.","sameAs":["https://github.com/nathanleray","https://linkedin.com/in/nathanleray","https://instagram.com/nathanleray"]}</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"ProfessionalService","name":"Nathan Leray — Création de sites web","url":"https://nathanleray.com","telephone":"+33651068773","email":"contact@nathanleray.com","address":{"@type":"PostalAddress","streetAddress":"9 Place du Maréchal Juin","addressLocality":"Rennes","postalCode":"35000","addressCountry":"FR"},"areaServed":[{"@type":"City","name":"Rennes"},{"@type":"AdministrativeArea","name":"Bretagne"},{"@type":"Country","name":"France"}],"priceRange":"699€ - 1490€+","description":"Création de sites web sur mesure à Rennes. Sites vitrines, boutiques en ligne et projets complexes. Design soigné, responsive, livré clé en main.","founder":{"@type":"Person","name":"Nathan Leray","jobTitle":"Designer & Développeur Web"},"sameAs":["https://github.com/nathanleray","https://linkedin.com/in/nathanleray","https://instagram.com/nathanleray"],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Offres création web","itemListElement":[{"@type":"Offer","name":"Site Vitrine","price":"699","priceCurrency":"EUR","description":"Jusqu'à 5 pages, design personnalisé, responsive, référencé sur Google. Livré en 14 jours."},{"@type":"Offer","name":"Site Sur Mesure","price":"1490","priceCurrency":"EUR","description":"Site complet avec vente en ligne, prise de rendez-vous, référencement avancé. Livré en 3-4 semaines."},{"@type":"Offer","name":"Projet Complexe","description":"Application web, marketplace, espace membre. Développement sur mesure, devis personnalisé."}]}},{"@context":"https://schema.org","@type":"WebSite","name":"Nathan Leray","url":"https://nathanleray.com"}]</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Combien coûte la création d'un site web ?","acceptedAnswer":{"@type":"Answer","text":"Un site vitrine démarre à 699€, un site avec des fonctionnalités avancées à partir de 1 490€. Un devis précis est établi gratuitement après un échange."}},{"@type":"Question","name":"Quel est le délai de livraison ?","acceptedAnswer":{"@type":"Answer","text":"Un site vitrine est livré en 14 jours. Un site sur mesure plus complexe prend généralement 3 à 4 semaines."}},{"@type":"Question","name":"Est-ce que le site sera visible sur mobile ?","acceptedAnswer":{"@type":"Answer","text":"Oui, tous les sites sont 100% responsives et s'adaptent à tous les écrans."}},{"@type":"Question","name":"Est-ce que mon site sera bien référencé sur Google ?","acceptedAnswer":{"@type":"Answer","text":"Oui, chaque site inclut un référencement technique de base. Pour les offres avancées, un travail SEO plus poussé est inclus."}},{"@type":"Question","name":"Que se passe-t-il si le design ne me plaît pas ?","acceptedAnswer":{"@type":"Answer","text":"Je reprends le design gratuitement jusqu'à votre satisfaction."}},{"@type":"Question","name":"Vous travaillez uniquement à Rennes ?","acceptedAnswer":{"@type":"Answer","text":"Je suis basé à Rennes mais je travaille avec des clients dans toute la France."}}]}</script>
 </head>
 <body class="fonts-loading">
 <script>document.fonts.ready.then(()=>{document.body.classList.remove('fonts-loading');document.body.classList.add('fonts-ready');})</script>
@@ -318,7 +330,7 @@ img{display:block;max-width:100%}
 <section class="projects-section" id="projets">
   <div class="projects-intro reveal">
     <p class="section-label">R&eacute;alisations</p>
-    <h2 class="projects-intro-title">Chaque projet, une identit&eacute; unique</h2>
+    <h2 class="projects-intro-title">Cr&eacute;ation de sites web &agrave; Rennes</h2>
     <p class="projects-intro-sub">Sites vitrines et exp&eacute;riences web con&ccedil;us pour marquer les esprits.</p>
   </div>
   <div id="projectsContainer"></div>
@@ -329,7 +341,7 @@ img{display:block;max-width:100%}
   <div class="offres-inner">
     <div class="offres-header reveal">
       <p class="section-label">Offres</p>
-      <h2 class="offres-title">Un site adapt&eacute; &agrave; vos besoins</h2>
+      <h2 class="offres-title">Nos offres de cr&eacute;ation web &agrave; Rennes</h2>
       <p class="offres-sub">Des formules claires, sans surprise. Chaque projet est livr&eacute; cl&eacute; en main.</p>
     </div>
     <div class="offres-grid">
@@ -424,6 +436,20 @@ img{display:block;max-width:100%}
   </div>
 </section>
 
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="faq-inner">
+    <p class="section-label reveal">Questions fr&eacute;quentes</p>
+    <h2 class="faq-title reveal">Tout savoir sur la cr&eacute;ation de votre site</h2>
+    <div class="faq-item reveal"><div class="faq-q">Combien co&ucirc;te la cr&eacute;ation d'un site web ?</div><div class="faq-a">Un site vitrine d&eacute;marre &agrave; 699&euro;, un site avec des fonctionnalit&eacute;s avanc&eacute;es (vente en ligne, r&eacute;servation) &agrave; partir de 1&nbsp;490&euro;. Un devis pr&eacute;cis est &eacute;tabli gratuitement apr&egrave;s un &eacute;change.</div></div>
+    <div class="faq-item reveal"><div class="faq-q">Quel est le d&eacute;lai de livraison ?</div><div class="faq-a">Un site vitrine est livr&eacute; en 14 jours. Un site sur mesure plus complexe prend g&eacute;n&eacute;ralement 3 &agrave; 4 semaines. Le d&eacute;lai exact est d&eacute;fini ensemble avant le d&eacute;but du projet.</div></div>
+    <div class="faq-item reveal"><div class="faq-q">Est-ce que le site sera visible sur mobile ?</div><div class="faq-a">Oui, tous les sites sont 100% responsives. Ils s'adaptent parfaitement &agrave; tous les &eacute;crans : t&eacute;l&eacute;phone, tablette et ordinateur.</div></div>
+    <div class="faq-item reveal"><div class="faq-q">Est-ce que mon site sera bien r&eacute;f&eacute;renc&eacute; sur Google ?</div><div class="faq-a">Oui, chaque site inclut un r&eacute;f&eacute;rencement technique de base (balises, performance, structure). Pour les offres avanc&eacute;es, un travail SEO plus pouss&eacute; est inclus avec ciblage de mots-cl&eacute;s.</div></div>
+    <div class="faq-item reveal"><div class="faq-q">Que se passe-t-il si le design ne me pla&icirc;t pas ?</div><div class="faq-a">Je travaille en &eacute;troite collaboration avec vous tout au long du projet. Si le design ne correspond pas &agrave; vos attentes, je le reprends gratuitement jusqu'&agrave; votre satisfaction.</div></div>
+    <div class="faq-item reveal"><div class="faq-q">Vous travaillez uniquement &agrave; Rennes ?</div><div class="faq-a">Je suis bas&eacute; &agrave; Rennes mais je travaille avec des clients dans toute la France. Tout se fait en visio et par &eacute;change num&eacute;rique.</div></div>
+  </div>
+</section>
+
 <!-- ABOUT -->
 <section class="about" id="apropos">
   <div class="about-inner">
@@ -447,7 +473,7 @@ img{display:block;max-width:100%}
   <div class="contact-inner">
     <div class="contact-left">
       <p class="section-label reveal" style="color:rgba(255,255,255,.25)">Contact</p>
-      <h2 class="contact-title reveal">Votre prochain projet commence ici</h2>
+      <h2 class="contact-title reveal">Un projet web &agrave; Rennes ? Parlons-en</h2>
       <p class="contact-sub reveal">Une id&eacute;e, un besoin, une question ? &Eacute;crivez-moi. Je r&eacute;ponds sous 24h.</p>
       <a href="mailto:contact@nathanleray.com" class="contact-email reveal">contact@nathanleray.com</a>
       <a href="tel:+33651068773" class="contact-email reveal" style="display:block;margin-top:8px">06 51 06 87 73</a>
@@ -532,7 +558,7 @@ PROJECTS.forEach((p, i) => {
   row.className = 'project-row reveal';
   row.innerHTML = `
     <div class="project-img-col">
-      <img class="project-img" src="${p.screenshot}" alt="${p.name}" loading="lazy">
+      <img class="project-img" src="${p.screenshot}" alt="Capture d'&eacute;cran du site ${p.name} — r&eacute;alisation Nathan Leray" width="1200" height="750" loading="lazy">
     </div>
     <div class="project-text-col">
       <div class="project-number">0${i + 1}</div>
@@ -665,6 +691,15 @@ document.querySelectorAll('.offre-cta').forEach(btn => {
       const subjectField = document.querySelector('input[name="subject"]');
       if (subjectField) subjectField.value = offer;
     }
+  });
+});
+
+// ── FAQ accordion ──
+document.querySelectorAll('.faq-item').forEach(item => {
+  item.addEventListener('click', () => {
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
   });
 });
 
