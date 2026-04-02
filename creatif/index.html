@@ -2232,9 +2232,7 @@ document.addEventListener('DOMContentLoaded', () => {
         headers: { 'Accept': 'application/json' },
       });
       if (res.ok) {
-        ctFeedback.textContent = 'Merci ! Je vous recontacte sous 24h.';
-        ctFeedback.classList.add('show', 'success');
-        contactForm.reset();
+        window.location.href = '/confirmation/'; return;
       } else {
         throw new Error();
       }

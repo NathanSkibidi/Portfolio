@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Message envoy&eacute; — Nathan Leray</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.88em' font-size='78' font-family='system-ui,sans-serif' font-weight='800' fill='%230C0C0C'>N</text></svg>">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-font-smoothing:antialiased}
+body{font-family:'Manrope',system-ui,sans-serif;font-weight:400;font-size:15px;line-height:1.8;color:#0C0C0C;background:#FAFAF8;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;position:relative;overflow:hidden}
+body::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");opacity:.04;pointer-events:none}
+a{color:#0C0C0C;text-decoration:none}
+.card{position:relative;text-align:center;max-width:480px;opacity:0;transform:translateY(12px);animation:fadeUp .8s cubic-bezier(.16,1,.3,1) .1s forwards}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+.check{width:56px;height:56px;border-radius:50%;background:#0C0C0C;display:flex;align-items:center;justify-content:center;margin:0 auto 28px}
+.check svg{width:24px;height:24px;stroke:#FAFAF8;stroke-width:2.5;fill:none;stroke-dasharray:30;stroke-dashoffset:30;animation:drawCheck .5s cubic-bezier(.16,1,.3,1) .5s forwards}
+@keyframes drawCheck{to{stroke-dashoffset:0}}
+h1{font-size:clamp(24px,4vw,36px);font-weight:800;line-height:1.1;margin-bottom:16px;letter-spacing:-.01em}
+.desc{color:#6B6B6B;font-size:15px;margin-bottom:8px}
+.email{color:#A0A0A0;font-size:13px;margin-bottom:36px;display:block}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;border:1px solid rgba(0,0,0,.08);border-radius:99px;font-family:'Manrope',system-ui,sans-serif;font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#0C0C0C;transition:background .3s,border-color .3s,color .3s}
+.btn:hover{background:#0C0C0C;color:#fff;border-color:#0C0C0C}
+.btn svg{width:14px;height:14px}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="check"><svg viewBox="0 0 24 24"><polyline points="6 12 10 16 18 8"/></svg></div>
+  <h1>Message envoy&eacute;</h1>
+  <p class="desc">Merci pour votre message. Je vous r&eacute;ponds sous 24 heures.</p>
+  <span class="email">contact@nathanleray.com</span>
+  <a href="/" class="btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Retour au portfolio</a>
+</div>
+</body>
+</html>

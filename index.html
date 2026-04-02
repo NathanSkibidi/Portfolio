@@ -473,7 +473,7 @@ document.getElementById('contactForm').addEventListener('submit', async function
   btn.disabled = true; btn.textContent = 'Envoi...';
   try {
     const r = await fetch(this.action, { method:'POST', body:new FormData(this), headers:{'Accept':'application/json'} });
-    if (r.ok) { fb.textContent = 'Message envoye !'; fb.className = 'form-feedback success'; this.reset(); }
+    if (r.ok) { window.location.href = '/confirmation/'; return; }
     else { fb.textContent = 'Erreur. Reessayez.'; fb.className = 'form-feedback error'; }
   } catch { fb.textContent = 'Erreur. Reessayez.'; fb.className = 'form-feedback error'; }
   btn.disabled = false;
